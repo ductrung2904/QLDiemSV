@@ -6,6 +6,7 @@ using System.Data.Linq.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,6 +20,8 @@ namespace QuanLyDiemSV
         }
         QLDiemSVDataContext db = new QLDiemSVDataContext();
         int flag;
+        int kiemTraInt; 
+        Regex pattern = new Regex(@"^[0-9]{10}$"); //   Kiểm tra dữ liệu phải có 10 số
 
         private void setControls(bool edit)
         {
@@ -28,7 +31,7 @@ namespace QuanLyDiemSV
             cboGioiTinh.Enabled = edit;
             txtDiaChi.Enabled = edit;
             txtDienThoai.Enabled = edit;
-            cboTenKhoa.Enabled = edit;
+            cboNganhHoc.Enabled = edit;
             txtGhiChu.Enabled = edit;
         }
 
@@ -48,9 +51,9 @@ namespace QuanLyDiemSV
             btnHuy.Enabled = false;
 
             //  load data vào cboNganh
-            cboTenKhoa.DataSource = db.NganhHocs.ToList();
-            cboTenKhoa.ValueMember = "MaNganh";
-            cboTenKhoa.DisplayMember = "TenNganh";
+            cboNganhHoc.DataSource = db.NganhHocs.ToList();
+            cboNganhHoc.ValueMember = "MaNganh";
+            cboNganhHoc.DisplayMember = "TenNganh";
         }
 
         private void dgvSinhVien_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -61,7 +64,7 @@ namespace QuanLyDiemSV
             cboGioiTinh.Text = dgvSinhVien.CurrentRow.Cells[3].Value.ToString();
             txtDiaChi.Text = dgvSinhVien.CurrentRow.Cells[4].Value.ToString();
             txtDienThoai.Text = dgvSinhVien.CurrentRow.Cells[5].Value.ToString();
-            cboTenKhoa.SelectedValue = dgvSinhVien.CurrentRow.Cells[6].Value.ToString();
+            cboNganhHoc.SelectedValue = dgvSinhVien.CurrentRow.Cells[6].Value.ToString();
             txtGhiChu.Text = dgvSinhVien.CurrentRow.Cells[7].Value.ToString();
         }
 
@@ -89,7 +92,7 @@ namespace QuanLyDiemSV
             cboGioiTinh.Text = "";
             txtDiaChi.Text = "";
             txtDienThoai.Text = "";
-            cboTenKhoa.Text = "";
+            cboNganhHoc.Text = "";
             txtGhiChu.Text = "";
 
             setControls(true);
@@ -125,7 +128,7 @@ namespace QuanLyDiemSV
             sv.GioiTinh = cboGioiTinh.Text;
             sv.DiaChi = txtDiaChi.Text;
             sv.DienThoai = txtDienThoai.Text;
-            sv.MaNganh = cboTenKhoa.SelectedValue.ToString();
+            sv.MaNganh = cboNganhHoc.SelectedValue.ToString();
             sv.GhiChu = txtGhiChu.Text;
             db.SinhViens.InsertOnSubmit(sv);
             db.SubmitChanges();
@@ -144,7 +147,7 @@ namespace QuanLyDiemSV
             sv.GioiTinh = cboGioiTinh.Text;
             sv.DiaChi = txtDiaChi.Text;
             sv.DienThoai = txtDienThoai.Text;
-            sv.MaNganh = cboTenKhoa.SelectedValue.ToString();
+            sv.MaNganh = cboNganhHoc.SelectedValue.ToString();
             sv.GhiChu = txtGhiChu.Text;
             db.SubmitChanges();
 
@@ -155,14 +158,7 @@ namespace QuanLyDiemSV
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            txtMaSV.Text = "";
-            txtHoTen.Text = "";
-            dtpNgaySinh.Text = "";
-            cboGioiTinh.Text = "";
-            txtDiaChi.Text = "";
-            txtDienThoai.Text = "";
-            cboTenKhoa.Text = "";
-            txtGhiChu.Text = "";
+            loadData();
             setControls(false);
             dgvSinhVien.Enabled = true;
             btnLuu.Enabled = false;
@@ -170,36 +166,70 @@ namespace QuanLyDiemSV
             btnThem.Enabled = true;
             btnXoa.Enabled = true;
             btnSua.Enabled = true;
-        }
 
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
-        {
-            if (rdbMaSV.Checked)
-            {
-                var timKiemMaSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
-                dgvSinhVien.DataSource = timKiemMaSV;
-            }
-            else if (rdbTenSV.Checked)
-            {
-                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.TenSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
-                dgvSinhVien.DataSource = timKiemTenSV;
-            }
-            else if (rdbNganh.Checked)
-            {
-                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaNganh.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
-                dgvSinhVien.DataSource = timKiemTenSV;
-            }
-        }
-
-        private void btnLoc_Click(object sender, EventArgs e)
-        {
-            txtTimKiem.Text = "";
-            txtTimKiem.Focus();
+            errMaSV.Clear();
+            errTenSV.Clear();
+            errNgaySinh.Clear();
+            errGioiTinh.Clear();
+            errDiaChi.Clear();
+            errDienThoai.Clear();
+            errNganhHoc.Clear();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtMaSV.Text.ToString().Length > 0 && txtHoTen.Text.Length > 0 && dtpNgaySinh.Text.Length > 0 && cboGioiTinh.Text.Length > 0 && txtDiaChi.Text.Length > 0 && txtDienThoai.Text.Length > 0 && cboTenKhoa.Text.Length > 0)
+            if (txtMaSV.Text == "")
+                errMaSV.SetError(txtMaSV, "Vui lòng nhập mã sinh siên");
+            else
+                errMaSV.Clear();
+            if (txtHoTen.Text == "")
+                errTenSV.SetError(txtHoTen, "Vui lòng nhập họ tên sinh siên");
+            else
+                errTenSV.Clear();
+            if (dtpNgaySinh.Text == "")
+                errNgaySinh.SetError(dtpNgaySinh, "Vui lòng nhập ngày sinh");
+            else
+                errNgaySinh.Clear();
+            if (cboGioiTinh.Text == "")
+                errGioiTinh.SetError(cboGioiTinh, "Vui lòng nhập giới tính");
+            else
+                errGioiTinh.Clear();
+            if (txtDiaChi.Text == "")
+                errDiaChi.SetError(txtDiaChi, "Vui lòng nhập địa chỉ");
+            else
+                errDiaChi.Clear();
+            if (txtDienThoai.Text == "")
+                errDienThoai.SetError(txtDienThoai, "Vui lòng nhập điện thoại");
+            else
+                errDienThoai.Clear();
+            if (cboNganhHoc.Text == "")
+                errNganhHoc.SetError(cboNganhHoc, "Vui lòng nhập ngành học");
+            else
+                errNganhHoc.Clear();
+
+            //  Validate thông tin đầu vào
+            bool isNumberMaSV = int.TryParse(txtMaSV.Text, out kiemTraInt);
+            bool isNumberDienThoai = int.TryParse(txtDienThoai.Text, out kiemTraInt);
+            bool checkDigitNumberMaSV = pattern.IsMatch(txtMaSV.Text);
+            bool checkDigitNumberDienThoai = pattern.IsMatch(txtDienThoai.Text);
+            if (isNumberMaSV == false)
+            {
+                errMaSV.SetError(txtMaSV, "Mã sinh viên phải là số");
+            }
+            if (checkDigitNumberMaSV == false)
+            {
+                errMaSV.SetError(txtMaSV, "Mã sinh viên phải có 10 số");
+            }
+            if (isNumberDienThoai == false)
+            {
+                errDienThoai.SetError(txtDienThoai, "Số điện thoại phải là số");
+            }
+            if (checkDigitNumberDienThoai == false)
+            {
+                errDienThoai.SetError(txtDienThoai, "Số điện thoại phải có 10 số");
+            }
+            dtpNgaySinh.MaxDate = DateTime.Today;
+            if (txtMaSV.Text.ToString().Length > 0 && txtHoTen.Text.Length > 0 && dtpNgaySinh.Text.Length > 0 && cboGioiTinh.Text.Length > 0 && txtDiaChi.Text.Length > 0 && txtDienThoai.Text.Length > 0 && cboNganhHoc.Text.Length > 0 && isNumberMaSV == true && isNumberDienThoai == true && checkDigitNumberMaSV && checkDigitNumberDienThoai == true)
             {
                 if (flag == 0)
                 {
@@ -217,6 +247,32 @@ namespace QuanLyDiemSV
                 btnSua.Enabled = true;
                 setControls(false);
                 dgvSinhVien.Enabled = true;
+
+                errMaSV.Clear();
+                errTenSV.Clear();
+                errNgaySinh.Clear();
+                errGioiTinh.Clear();
+                errDiaChi.Clear();
+                errDienThoai.Clear();
+                errNganhHoc.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Thông tin bạn nhập còn thiếu hoặc chưa đúng", "Thông Báo");
+                if (txtMaSV.Text.Length == 0)
+                    txtMaSV.Focus();
+                else if (txtHoTen.Text.Length == 0)
+                    txtHoTen.Focus();
+                else if (dtpNgaySinh.Text.Length == 0)
+                    dtpNgaySinh.Focus();
+                else if (cboGioiTinh.Text.Length == 0)
+                    cboGioiTinh.Focus();
+                else if (txtDiaChi.Text.Length == 0)
+                    txtDiaChi.Focus();
+                else if (txtDienThoai.Text.Length == 0)
+                    txtDienThoai.Focus();
+                else if (cboNganhHoc.Text.Length == 0)
+                    cboNganhHoc.Focus();
             }
         }
 
@@ -243,6 +299,31 @@ namespace QuanLyDiemSV
                 }
             }
             loadData();
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (rdbMaSV.Checked)
+            {
+                var timKiemMaSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
+                dgvSinhVien.DataSource = timKiemMaSV;
+            }
+            else if (rdbTenSV.Checked)
+            {
+                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.TenSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
+                dgvSinhVien.DataSource = timKiemTenSV;
+            }
+            else if (rdbNganh.Checked)
+            {
+                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaNganh.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
+                dgvSinhVien.DataSource = timKiemTenSV;
+            }
+        }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+            txtTimKiem.Text = "";
+            txtTimKiem.Focus();
         }
     }
 }

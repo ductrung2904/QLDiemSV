@@ -29,6 +29,7 @@ namespace QuanLyDiemSV
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnLoc = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
@@ -38,7 +39,7 @@ namespace QuanLyDiemSV
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.cboTenKhoa = new System.Windows.Forms.ComboBox();
+            this.cboNganhHoc = new System.Windows.Forms.ComboBox();
             this.cboGioiTinh = new System.Windows.Forms.ComboBox();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -69,9 +70,23 @@ namespace QuanLyDiemSV
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errMaSV = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errTenSV = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errNgaySinh = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errGioiTinh = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errDiaChi = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errDienThoai = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errNganhHoc = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMaSV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenSV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNgaySinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errGioiTinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errDiaChi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errDienThoai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNganhHoc)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -161,7 +176,7 @@ namespace QuanLyDiemSV
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dtpNgaySinh);
-            this.groupBox1.Controls.Add(this.cboTenKhoa);
+            this.groupBox1.Controls.Add(this.cboNganhHoc);
             this.groupBox1.Controls.Add(this.cboGioiTinh);
             this.groupBox1.Controls.Add(this.txtGhiChu);
             this.groupBox1.Controls.Add(this.label10);
@@ -190,17 +205,19 @@ namespace QuanLyDiemSV
             this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgaySinh.Location = new System.Drawing.Point(98, 82);
+            this.dtpNgaySinh.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
-            this.dtpNgaySinh.Size = new System.Drawing.Size(255, 22);
+            this.dtpNgaySinh.Size = new System.Drawing.Size(243, 22);
             this.dtpNgaySinh.TabIndex = 20;
+            this.dtpNgaySinh.Value = new System.DateTime(2022, 7, 29, 0, 0, 0, 0);
             // 
-            // cboTenKhoa
+            // cboNganhHoc
             // 
-            this.cboTenKhoa.FormattingEnabled = true;
-            this.cboTenKhoa.Location = new System.Drawing.Point(793, 25);
-            this.cboTenKhoa.Name = "cboTenKhoa";
-            this.cboTenKhoa.Size = new System.Drawing.Size(255, 24);
-            this.cboTenKhoa.TabIndex = 19;
+            this.cboNganhHoc.FormattingEnabled = true;
+            this.cboNganhHoc.Location = new System.Drawing.Point(780, 25);
+            this.cboNganhHoc.Name = "cboNganhHoc";
+            this.cboNganhHoc.Size = new System.Drawing.Size(236, 24);
+            this.cboNganhHoc.TabIndex = 19;
             // 
             // cboGioiTinh
             // 
@@ -208,24 +225,24 @@ namespace QuanLyDiemSV
             this.cboGioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cboGioiTinh.Location = new System.Drawing.Point(449, 25);
+            this.cboGioiTinh.Location = new System.Drawing.Point(442, 25);
             this.cboGioiTinh.Name = "cboGioiTinh";
-            this.cboGioiTinh.Size = new System.Drawing.Size(255, 24);
+            this.cboGioiTinh.Size = new System.Drawing.Size(239, 24);
             this.cboGioiTinh.TabIndex = 18;
             // 
             // txtGhiChu
             // 
-            this.txtGhiChu.Location = new System.Drawing.Point(793, 54);
+            this.txtGhiChu.Location = new System.Drawing.Point(780, 54);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(255, 65);
+            this.txtGhiChu.Size = new System.Drawing.Size(236, 65);
             this.txtGhiChu.TabIndex = 17;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(721, 57);
+            this.label10.Location = new System.Drawing.Point(708, 57);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(54, 16);
             this.label10.TabIndex = 16;
@@ -235,7 +252,7 @@ namespace QuanLyDiemSV
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(721, 28);
+            this.label8.Location = new System.Drawing.Point(708, 28);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 16);
             this.label8.TabIndex = 12;
@@ -243,16 +260,16 @@ namespace QuanLyDiemSV
             // 
             // txtDienThoai
             // 
-            this.txtDienThoai.Location = new System.Drawing.Point(449, 84);
+            this.txtDienThoai.Location = new System.Drawing.Point(442, 84);
             this.txtDienThoai.Name = "txtDienThoai";
-            this.txtDienThoai.Size = new System.Drawing.Size(255, 22);
+            this.txtDienThoai.Size = new System.Drawing.Size(239, 22);
             this.txtDienThoai.TabIndex = 11;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(370, 87);
+            this.label7.Location = new System.Drawing.Point(363, 87);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 16);
             this.label7.TabIndex = 10;
@@ -260,16 +277,16 @@ namespace QuanLyDiemSV
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(449, 54);
+            this.txtDiaChi.Location = new System.Drawing.Point(442, 54);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(255, 22);
+            this.txtDiaChi.Size = new System.Drawing.Size(239, 22);
             this.txtDiaChi.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(370, 57);
+            this.label6.Location = new System.Drawing.Point(363, 57);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 16);
             this.label6.TabIndex = 8;
@@ -289,7 +306,7 @@ namespace QuanLyDiemSV
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(370, 28);
+            this.label4.Location = new System.Drawing.Point(363, 28);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 16);
             this.label4.TabIndex = 4;
@@ -299,7 +316,7 @@ namespace QuanLyDiemSV
             // 
             this.txtHoTen.Location = new System.Drawing.Point(98, 54);
             this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(255, 22);
+            this.txtHoTen.Size = new System.Drawing.Size(243, 22);
             this.txtHoTen.TabIndex = 3;
             // 
             // label3
@@ -316,7 +333,7 @@ namespace QuanLyDiemSV
             // 
             this.txtMaSV.Location = new System.Drawing.Point(98, 25);
             this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.Size = new System.Drawing.Size(255, 22);
+            this.txtMaSV.Size = new System.Drawing.Size(243, 22);
             this.txtMaSV.TabIndex = 1;
             // 
             // label2
@@ -492,6 +509,34 @@ namespace QuanLyDiemSV
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
+            // errMaSV
+            // 
+            this.errMaSV.ContainerControl = this;
+            // 
+            // errTenSV
+            // 
+            this.errTenSV.ContainerControl = this;
+            // 
+            // errNgaySinh
+            // 
+            this.errNgaySinh.ContainerControl = this;
+            // 
+            // errGioiTinh
+            // 
+            this.errGioiTinh.ContainerControl = this;
+            // 
+            // errDiaChi
+            // 
+            this.errDiaChi.ContainerControl = this;
+            // 
+            // errDienThoai
+            // 
+            this.errDienThoai.ContainerControl = this;
+            // 
+            // errNganhHoc
+            // 
+            this.errNganhHoc.ContainerControl = this;
+            // 
             // frmSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,6 +564,13 @@ namespace QuanLyDiemSV
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMaSV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenSV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNgaySinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errGioiTinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errDiaChi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errDienThoai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNganhHoc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,7 +592,7 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
-        private System.Windows.Forms.ComboBox cboTenKhoa;
+        private System.Windows.Forms.ComboBox cboNganhHoc;
         private System.Windows.Forms.ComboBox cboGioiTinh;
         private System.Windows.Forms.TextBox txtGhiChu;
         private System.Windows.Forms.Label label10;
@@ -566,5 +618,12 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.Button btnLoc;
+        private System.Windows.Forms.ErrorProvider errMaSV;
+        private System.Windows.Forms.ErrorProvider errTenSV;
+        private System.Windows.Forms.ErrorProvider errNgaySinh;
+        private System.Windows.Forms.ErrorProvider errGioiTinh;
+        private System.Windows.Forms.ErrorProvider errDiaChi;
+        private System.Windows.Forms.ErrorProvider errDienThoai;
+        private System.Windows.Forms.ErrorProvider errNganhHoc;
     }
 }
