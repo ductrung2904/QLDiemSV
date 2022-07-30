@@ -2,8 +2,9 @@
 ## Phân công
 - Bùi Nguyễn Đức Trung
   - Thiết kế giao diện
+  - Thiết kế và xây dựng Database
   - Đăng nhập/Đăng ký
-  - Quản lý Sinh viên
+  - Quản lý Sinh viên [x]
   - Quản lý Giáo viên
   - Quản lý Nhập điểm
 - Mai Hữu Văn
