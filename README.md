@@ -5,7 +5,7 @@
   - Thiết kế và xây dựng Database
   - Đăng nhập/Đăng ký
   - Quản lý Sinh viên :white_check_mark: 
-  - Quản lý Giáo viên
+  - Quản lý Giáo viên :white_check_mark: 
   - Quản lý Nhập điểm
 - Mai Hữu Văn
   - Quản lý Ngành học
