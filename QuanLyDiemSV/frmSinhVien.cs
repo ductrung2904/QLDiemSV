@@ -37,8 +37,8 @@ namespace QuanLyDiemSV
 
         void loadData()
         {
-            var st = from sv in db.SinhViens join nh in db.NganhHocs on sv.MaNganh equals nh.MaNganh where sv.MaNganh == nh.MaNganh select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu};
-            dgvSinhVien.DataSource = st;
+            var query = from sv in db.SinhViens join nh in db.NganhHocs on sv.MaNganh equals nh.MaNganh where sv.MaNganh == nh.MaNganh select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu};
+            dgvSinhVien.DataSource = query;
         }
 
         private void frmSinhVien_Load(object sender, EventArgs e)
