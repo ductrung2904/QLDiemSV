@@ -4,7 +4,7 @@
   - Thiết kế giao diện
   - Thiết kế và xây dựng Database
   - Đăng nhập/Đăng ký
-  - [x] Quản lý Sinh viên 
+  - Quản lý Sinh viên :white_check_mark: 
   - Quản lý Giáo viên
   - Quản lý Nhập điểm
 - Mai Hữu Văn
