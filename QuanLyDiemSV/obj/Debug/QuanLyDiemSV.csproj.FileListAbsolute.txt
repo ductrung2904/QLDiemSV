@@ -1,7 +1,6 @@
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe.config
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.pdb
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.AssemblyReference.cache
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmHome.resources
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.Properties.Resources.resources
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.GenerateResource.cache
