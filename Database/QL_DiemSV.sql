@@ -21,7 +21,7 @@ create table MonHoc
 
 create table GiaoVien
 (
-	MaGV numeric(18, 0) primary key,
+	MaGV int primary key,
 	TenGV nvarchar(50),
 	GioiTinh nvarchar(3),
 	Username varchar(50),
@@ -36,14 +36,14 @@ create table Lop
 	MaHocPhan char(10),
 	SoLuong int,
 	MaMH char(10),
-	MaGV numeric(18, 0),
+	MaGV int,
 	foreign key(MaMH) references MonHoc(MaMH),
 	foreign key(MaGV) references GiaoVien(MaGV)
 )
 
 create table SinhVien
 (
-	MaSV numeric(18, 0) primary key,
+	MaSV int primary key,
 	TenSV nvarchar(50),
 	NgaySinh date,
 	GioiTinh nvarchar(3),
@@ -56,7 +56,7 @@ create table SinhVien
 
 create table Diem
 (
-	MaSV numeric(18, 0),
+	MaSV int,
 	MaMH char(10),
 	MaLop int,
 	DiemLT int,
