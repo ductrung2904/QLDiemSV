@@ -302,9 +302,9 @@ namespace QuanLyDiemSV
             // 
             this.panelFooter.BackColor = System.Drawing.Color.DarkBlue;
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(200, 611);
+            this.panelFooter.Location = new System.Drawing.Point(200, 631);
             this.panelFooter.Name = "panelFooter";
-            this.panelFooter.Size = new System.Drawing.Size(1084, 50);
+            this.panelFooter.Size = new System.Drawing.Size(1084, 30);
             this.panelFooter.TabIndex = 1;
             // 
             // panelChildForm
@@ -313,7 +313,7 @@ namespace QuanLyDiemSV
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(200, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1084, 611);
+            this.panelChildForm.Size = new System.Drawing.Size(1084, 631);
             this.panelChildForm.TabIndex = 2;
             // 
             // frmHome

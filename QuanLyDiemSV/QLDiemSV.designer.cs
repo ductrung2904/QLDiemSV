@@ -130,7 +130,7 @@ namespace QuanLyDiemSV
 	public partial class Diem
 	{
 		
-		private System.Nullable<decimal> _MaSV;
+		private System.Nullable<int> _MaSV;
 		
 		private string _MaMH;
 		
@@ -144,8 +144,8 @@ namespace QuanLyDiemSV
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSV", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> MaSV
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSV", DbType="Int")]
+		public System.Nullable<int> MaSV
 		{
 			get
 			{
@@ -231,7 +231,7 @@ namespace QuanLyDiemSV
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _MaGV;
+		private int _MaGV;
 		
 		private string _TenGV;
 		
@@ -251,7 +251,7 @@ namespace QuanLyDiemSV
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnMaGVChanging(decimal value);
+    partial void OnMaGVChanging(int value);
     partial void OnMaGVChanged();
     partial void OnTenGVChanging(string value);
     partial void OnTenGVChanged();
@@ -273,8 +273,8 @@ namespace QuanLyDiemSV
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGV", DbType="Decimal(18,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal MaGV
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGV", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaGV
 		{
 			get
 			{
@@ -473,7 +473,7 @@ namespace QuanLyDiemSV
 		
 		private string _MaMH;
 		
-		private System.Nullable<decimal> _MaGV;
+		private System.Nullable<int> _MaGV;
 		
 		private EntityRef<GiaoVien> _GiaoVien;
 		
@@ -491,7 +491,7 @@ namespace QuanLyDiemSV
     partial void OnSoLuongChanged();
     partial void OnMaMHChanging(string value);
     partial void OnMaMHChanged();
-    partial void OnMaGVChanging(System.Nullable<decimal> value);
+    partial void OnMaGVChanging(System.Nullable<int> value);
     partial void OnMaGVChanged();
     #endregion
 		
@@ -586,8 +586,8 @@ namespace QuanLyDiemSV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGV", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> MaGV
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGV", DbType="Int")]
+		public System.Nullable<int> MaGV
 		{
 			get
 			{
@@ -637,7 +637,7 @@ namespace QuanLyDiemSV
 					}
 					else
 					{
-						this._MaGV = default(Nullable<decimal>);
+						this._MaGV = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("GiaoVien");
 				}
@@ -1074,7 +1074,7 @@ namespace QuanLyDiemSV
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _MaSV;
+		private int _MaSV;
 		
 		private string _TenSV;
 		
@@ -1096,7 +1096,7 @@ namespace QuanLyDiemSV
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnMaSVChanging(decimal value);
+    partial void OnMaSVChanging(int value);
     partial void OnMaSVChanged();
     partial void OnTenSVChanging(string value);
     partial void OnTenSVChanged();
@@ -1120,8 +1120,8 @@ namespace QuanLyDiemSV
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSV", DbType="Decimal(18,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal MaSV
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSV", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaSV
 		{
 			get
 			{
