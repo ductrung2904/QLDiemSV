@@ -28,25 +28,20 @@ namespace QuanLyDiemSV
             }
         }
 
-        //private void xacThucTK()
-        //{
-        //    var query = (from gv in db.GiaoViens where gv.Username == txtUsername.Text && gv.Password == txtPassword.Text select gv).First();
-        //}
-
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             if (txtUsername.Text.Length > 0 && txtPassword.Text.Length > 0)
             {
                 var query = (from gv in db.GiaoViens where gv.Username == txtUsername.Text select gv).First();
-                //if (query.Username != txtUsername.Text)
-                //{
-                //    MessageBox.Show("Tên đăng nhập không đúng hoặc chưa đăng ký", "Thông Báo");
-                //}
-                //else if (query.Password != txtPassword.Text)
-                //{
-                //    MessageBox.Show("Mật khẩu không đúng", "Thông Báo");
-                //}
-                if (query.Password == txtPassword.Text)
+                if (query.Username != txtUsername.Text)
+                {
+                    MessageBox.Show("Tên đăng nhập không đúng hoặc chưa đăng ký", "Thông Báo");
+                }
+                else if (query.Password != txtPassword.Text)
+                {
+                    MessageBox.Show("Mật khẩu không đúng", "Thông Báo");
+                }
+                else if (query.Password == txtPassword.Text)
                 {
                     this.Hide();
                     MessageBox.Show("Đăng Nhập thành công.", "Thông Báo");
