@@ -2,7 +2,7 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=DUCTRUNG-PC;Initial Catalog=QL_DiemSV;Integrated Security=True" SettingsObjectName="QuanLyDiemSV.Properties.Settings" SettingsPropertyName="QL_DiemSVConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Diem" Member="Diems">
     <Type Name="Diem">
-      <Column Name="MaSV" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="MaSV" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaMH" Type="System.String" DbType="Char(10)" CanBeNull="true" />
       <Column Name="MaLop" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DiemLT" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -14,7 +14,7 @@
   </Table>
   <Table Name="dbo.GiaoVien" Member="GiaoViens">
     <Type Name="GiaoVien">
-      <Column Name="MaGV" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaGV" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenGV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
       <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
@@ -30,7 +30,7 @@
       <Column Name="MaHocPhan" Type="System.String" DbType="Char(10)" CanBeNull="true" />
       <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaMH" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Column Name="MaGV" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="MaGV" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Lop_Diem" Member="Diems" ThisKey="MaLop" OtherKey="MaLop" Type="Diem" />
       <Association Name="GiaoVien_Lop" Member="GiaoVien" ThisKey="MaGV" OtherKey="MaGV" Type="GiaoVien" IsForeignKey="true" />
       <Association Name="MonHoc_Lop" Member="MonHoc" ThisKey="MaMH" OtherKey="MaMH" Type="MonHoc" IsForeignKey="true" />
@@ -58,7 +58,7 @@
   </Table>
   <Table Name="dbo.SinhVien" Member="SinhViens">
     <Type Name="SinhVien">
-      <Column Name="MaSV" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaSV" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenSV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
