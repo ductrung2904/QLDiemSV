@@ -48,7 +48,7 @@ namespace QuanLyDiemSV
     #endregion
 		
 		public QLDiemSVDataContext() : 
-				base(global::QuanLyDiemSV.Properties.Settings.Default.QL_DiemSVConnectionString, mappingSource)
+				base(global::QuanLyDiemSV.Properties.Settings.Default.QL_DiemSVConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}

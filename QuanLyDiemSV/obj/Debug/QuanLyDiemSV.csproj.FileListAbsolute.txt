@@ -11,9 +11,32 @@ E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNhapDiem.resources
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmSinhVien.resources
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeDiem.resources
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeSV.resources
+<<<<<<< HEAD
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.Properties.Resources.resources
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.GenerateResource.cache
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.CoreCompileInputs.cache
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.exe
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.pdb
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.pdb
+=======
+E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDangNhap.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe.config
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.pdb
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csprojAssemblyReference.cache
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDangNhap.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmGiaoVien.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmHome.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmLop.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmMonHoc.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNganhHoc.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNhapDiem.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmSinhVien.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeDiem.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeSV.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.Properties.Resources.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.GenerateResource.cache
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.CoreCompileInputs.cache
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.exe
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.pdb
+>>>>>>> 99dbc36a41493dd0b608d40a42afb6a9b27fd3a0
