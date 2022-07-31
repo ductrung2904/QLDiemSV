@@ -29,8 +29,11 @@ namespace QuanLyDiemSV
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboTenNganh = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.numSoTiet = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.numTinChi = new System.Windows.Forms.NumericUpDown();
@@ -52,13 +55,26 @@ namespace QuanLyDiemSV
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataMH = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errMaMH = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errTenMH = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errSoTinChi = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errSoTiet = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoTiet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTinChi)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataMH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMaMH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenMH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errSoTinChi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errSoTiet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -74,6 +90,8 @@ namespace QuanLyDiemSV
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboTenNganh);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.numSoTiet);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.numTinChi);
@@ -86,14 +104,32 @@ namespace QuanLyDiemSV
             this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox1.Location = new System.Drawing.Point(176, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(394, 135);
+            this.groupBox1.Size = new System.Drawing.Size(394, 170);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin môn học";
             // 
+            // cboTenNganh
+            // 
+            this.cboTenNganh.FormattingEnabled = true;
+            this.cboTenNganh.Location = new System.Drawing.Point(96, 91);
+            this.cboTenNganh.Name = "cboTenNganh";
+            this.cboTenNganh.Size = new System.Drawing.Size(292, 24);
+            this.cboTenNganh.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(6, 92);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 16);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Tên Ngành";
+            // 
             // numSoTiet
             // 
-            this.numSoTiet.Location = new System.Drawing.Point(294, 93);
+            this.numSoTiet.Location = new System.Drawing.Point(294, 132);
             this.numSoTiet.Name = "numSoTiet";
             this.numSoTiet.Size = new System.Drawing.Size(94, 22);
             this.numSoTiet.TabIndex = 19;
@@ -102,7 +138,7 @@ namespace QuanLyDiemSV
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(237, 95);
+            this.label5.Location = new System.Drawing.Point(226, 134);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 16);
             this.label5.TabIndex = 18;
@@ -110,7 +146,7 @@ namespace QuanLyDiemSV
             // 
             // numTinChi
             // 
-            this.numTinChi.Location = new System.Drawing.Point(96, 93);
+            this.numTinChi.Location = new System.Drawing.Point(96, 132);
             this.numTinChi.Name = "numTinChi";
             this.numTinChi.Size = new System.Drawing.Size(94, 22);
             this.numTinChi.TabIndex = 17;
@@ -119,7 +155,7 @@ namespace QuanLyDiemSV
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(6, 95);
+            this.label4.Location = new System.Drawing.Point(12, 134);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 16);
             this.label4.TabIndex = 16;
@@ -180,7 +216,7 @@ namespace QuanLyDiemSV
             this.btnRefresh.ForeColor = System.Drawing.Color.Black;
             this.btnRefresh.Image = global::QuanLyDiemSV.Properties.Resources.reload;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(156, 85);
+            this.btnRefresh.Location = new System.Drawing.Point(166, 87);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(114, 30);
             this.btnRefresh.TabIndex = 12;
@@ -192,11 +228,11 @@ namespace QuanLyDiemSV
             this.btnLoc.ForeColor = System.Drawing.Color.Black;
             this.btnLoc.Image = global::QuanLyDiemSV.Properties.Resources.search_blue;
             this.btnLoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoc.Location = new System.Drawing.Point(57, 85);
+            this.btnLoc.Location = new System.Drawing.Point(46, 87);
             this.btnLoc.Name = "btnLoc";
             this.btnLoc.Size = new System.Drawing.Size(93, 30);
             this.btnLoc.TabIndex = 11;
-            this.btnLoc.Text = "Lọc";
+            this.btnLoc.Text = "Mới";
             this.btnLoc.UseVisualStyleBackColor = true;
             // 
             // txtTimKiem
@@ -205,6 +241,7 @@ namespace QuanLyDiemSV
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(305, 22);
             this.txtTimKiem.TabIndex = 10;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // rdbTenMH
             // 
@@ -234,87 +271,152 @@ namespace QuanLyDiemSV
             // 
             this.btnThem.Image = global::QuanLyDiemSV.Properties.Resources.add1;
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(198, 208);
+            this.btnThem.Location = new System.Drawing.Point(199, 249);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(109, 34);
             this.btnThem.TabIndex = 28;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnHuy
             // 
             this.btnHuy.Image = global::QuanLyDiemSV.Properties.Resources.cancel;
             this.btnHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHuy.Location = new System.Drawing.Point(659, 208);
+            this.btnHuy.Location = new System.Drawing.Point(660, 249);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(109, 34);
             this.btnHuy.TabIndex = 27;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnLuu
             // 
             this.btnLuu.Image = global::QuanLyDiemSV.Properties.Resources.Save_icon;
             this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLuu.Location = new System.Drawing.Point(543, 208);
+            this.btnLuu.Location = new System.Drawing.Point(544, 249);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(109, 34);
             this.btnLuu.TabIndex = 26;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.Image = global::QuanLyDiemSV.Properties.Resources.close_red;
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(428, 208);
+            this.btnXoa.Location = new System.Drawing.Point(429, 249);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(109, 34);
             this.btnXoa.TabIndex = 25;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
             this.btnSua.Image = global::QuanLyDiemSV.Properties.Resources.edit;
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(313, 208);
+            this.btnSua.Location = new System.Drawing.Point(314, 249);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(109, 34);
             this.btnSua.TabIndex = 24;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThoat
             // 
             this.btnThoat.Image = global::QuanLyDiemSV.Properties.Resources.Thoat2;
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(774, 208);
+            this.btnThoat.Location = new System.Drawing.Point(775, 249);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(109, 34);
             this.btnThoat.TabIndex = 29;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dataMH);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox3.Location = new System.Drawing.Point(176, 259);
+            this.groupBox3.Location = new System.Drawing.Point(176, 300);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(727, 300);
+            this.groupBox3.Size = new System.Drawing.Size(727, 305);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách môn học";
             // 
-            // dataGridView1
+            // dataMH
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 21);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(715, 271);
-            this.dataGridView1.TabIndex = 0;
+            this.dataMH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataMH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataMH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dataMH.Location = new System.Drawing.Point(6, 21);
+            this.dataMH.Name = "dataMH";
+            this.dataMH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataMH.Size = new System.Drawing.Size(715, 273);
+            this.dataMH.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaMH";
+            this.Column1.HeaderText = "Mã môn học";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenMH";
+            this.Column2.HeaderText = "Tên môn học";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "SoTinChi";
+            this.Column3.HeaderText = "Số tín chỉ";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "SoTiet";
+            this.Column4.HeaderText = "Số tiết";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "MaNganh";
+            this.Column5.HeaderText = "Mã Ngành";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // errMaMH
+            // 
+            this.errMaMH.ContainerControl = this;
+            // 
+            // errTenMH
+            // 
+            this.errTenMH.ContainerControl = this;
+            // 
+            // errSoTinChi
+            // 
+            this.errSoTinChi.ContainerControl = this;
+            // 
+            // errSoTiet
+            // 
+            this.errSoTiet.ContainerControl = this;
             // 
             // frmMonHoc
             // 
@@ -322,7 +424,7 @@ namespace QuanLyDiemSV
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1089, 563);
+            this.ClientSize = new System.Drawing.Size(1089, 611);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnThem);
@@ -336,6 +438,7 @@ namespace QuanLyDiemSV
             this.MinimumSize = new System.Drawing.Size(1105, 602);
             this.Name = "frmMonHoc";
             this.Text = "   ";
+            this.Load += new System.EventHandler(this.frmMonHoc_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoTiet)).EndInit();
@@ -343,7 +446,11 @@ namespace QuanLyDiemSV
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataMH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMaMH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenMH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errSoTinChi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errSoTiet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,6 +481,17 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataMH;
+        private System.Windows.Forms.ErrorProvider errMaMH;
+        private System.Windows.Forms.ErrorProvider errTenMH;
+        private System.Windows.Forms.ErrorProvider errSoTinChi;
+        private System.Windows.Forms.ErrorProvider errSoTiet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.ComboBox cboTenNganh;
+        private System.Windows.Forms.Label label6;
     }
 }
