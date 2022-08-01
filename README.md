@@ -8,8 +8,8 @@
   - Quản lý Giáo viên :white_check_mark: 
   - Quản lý Nhập điểm
 - Mai Hữu Văn
-  - Quản lý Ngành học
-  - Quản lý Môn học
+  - Quản lý Ngành học :white_check_mark: 
+  - Quản lý Môn học :white_check_mark: 
   - Quản lý Lớp học phần
   - Thống kê
   - In báo cáo
