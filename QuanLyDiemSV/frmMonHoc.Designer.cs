@@ -56,15 +56,17 @@ namespace QuanLyDiemSV
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataMH = new System.Windows.Forms.DataGridView();
+            this.errMaMH = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errTenMH = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errSoTinChi = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errSoTiet = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errTenNganh = new System.Windows.Forms.ErrorProvider(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errMaMH = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errTenMH = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errSoTinChi = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errSoTiet = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoTiet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTinChi)).BeginInit();
@@ -75,6 +77,7 @@ namespace QuanLyDiemSV
             ((System.ComponentModel.ISupportInitialize)(this.errTenMH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errSoTinChi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errSoTiet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenNganh)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -360,12 +363,34 @@ namespace QuanLyDiemSV
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5});
+            this.Column5,
+            this.Column6});
             this.dataMH.Location = new System.Drawing.Point(6, 21);
             this.dataMH.Name = "dataMH";
             this.dataMH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataMH.Size = new System.Drawing.Size(715, 273);
             this.dataMH.TabIndex = 0;
+            this.dataMH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonHoc_CellEnter);
+            // 
+            // errMaMH
+            // 
+            this.errMaMH.ContainerControl = this;
+            // 
+            // errTenMH
+            // 
+            this.errTenMH.ContainerControl = this;
+            // 
+            // errSoTinChi
+            // 
+            this.errSoTinChi.ContainerControl = this;
+            // 
+            // errSoTiet
+            // 
+            this.errSoTiet.ContainerControl = this;
+            // 
+            // errTenNganh
+            // 
+            this.errTenNganh.ContainerControl = this;
             // 
             // Column1
             // 
@@ -402,21 +427,12 @@ namespace QuanLyDiemSV
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // errMaMH
+            // Column6
             // 
-            this.errMaMH.ContainerControl = this;
-            // 
-            // errTenMH
-            // 
-            this.errTenMH.ContainerControl = this;
-            // 
-            // errSoTinChi
-            // 
-            this.errSoTinChi.ContainerControl = this;
-            // 
-            // errSoTiet
-            // 
-            this.errSoTiet.ContainerControl = this;
+            this.Column6.DataPropertyName = "TenNganh";
+            this.Column6.HeaderText = "Tên Ngành";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // frmMonHoc
             // 
@@ -451,6 +467,7 @@ namespace QuanLyDiemSV
             ((System.ComponentModel.ISupportInitialize)(this.errTenMH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errSoTinChi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errSoTiet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenNganh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,12 +503,14 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.ErrorProvider errTenMH;
         private System.Windows.Forms.ErrorProvider errSoTinChi;
         private System.Windows.Forms.ErrorProvider errSoTiet;
+        private System.Windows.Forms.ComboBox cboTenNganh;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ErrorProvider errTenNganh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.ComboBox cboTenNganh;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }
