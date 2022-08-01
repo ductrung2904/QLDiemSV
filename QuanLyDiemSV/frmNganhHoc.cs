@@ -42,7 +42,7 @@ namespace QuanLyDiemSV
             dataGridView1.AutoGenerateColumns = false;
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
-
+            rdbMaNganh.Checked = true;
         }
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)

@@ -45,16 +45,20 @@ namespace QuanLyDiemSV
             dataLop.AutoGenerateColumns = false;
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
-
+            rdbMaMH.Checked = true;
         }
 
         private void dgvSinhVien_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
+            MonHoc mh = new MonHoc();
+            GiaoVien gv = new GiaoVien();
             //.Text = dataLop.CurrentRow.Cells[0].Value.ToString(); 
             txtMaHP.Text = dataLop.CurrentRow.Cells[1].Value.ToString();
             numSoLuong.Text = dataLop.CurrentRow.Cells[2].Value.ToString();   
             MaMH.Text = dataLop.CurrentRow.Cells[3].Value.ToString();
             txtMaGV.Text = dataLop.CurrentRow.Cells[4].Value.ToString();
+            //txtTenMH.Text = db.MonHocs.
+            //txtTenGV
         }
 
 
@@ -118,7 +122,7 @@ namespace QuanLyDiemSV
             db.Lops.InsertOnSubmit(lop);
             db.SubmitChanges();
 
-            var them = db.Lops.Where(x => x.MaHocPhan == lop.MaMH).ToList();
+            var them = db.Lops.Where(x => x.MaHocPhan == lop.MaHocPhan).ToList();
             dataLop.DataSource = them;
             MessageBox.Show("Thêm thành công", "Thông Báo");
         }

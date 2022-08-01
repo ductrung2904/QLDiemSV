@@ -391,6 +391,7 @@ namespace QuanLyDiemSV
             this.dataLop.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataLop.Size = new System.Drawing.Size(723, 257);
             this.dataLop.TabIndex = 0;
+            this.dataLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSinhVien_CellEnter);
             // 
             // Column1
             // 
