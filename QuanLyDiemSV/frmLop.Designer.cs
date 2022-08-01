@@ -368,7 +368,7 @@ namespace QuanLyDiemSV
             // 
             this.groupBox4.Controls.Add(this.dataLop);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox4.Location = new System.Drawing.Point(51, 186);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(735, 278);
