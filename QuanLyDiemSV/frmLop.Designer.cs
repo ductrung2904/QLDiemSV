@@ -45,7 +45,7 @@ namespace QuanLyDiemSV
             this.label10 = new System.Windows.Forms.Label();
             this.txtMaGV = new System.Windows.Forms.TextBox();
             this.txtTenMH = new System.Windows.Forms.TextBox();
-            this.MaMH = new System.Windows.Forms.TextBox();
+            this.txtMaMH = new System.Windows.Forms.TextBox();
             this.txtMaHP = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,11 +59,6 @@ namespace QuanLyDiemSV
             this.rdbMaMH = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataLop = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
@@ -73,6 +68,12 @@ namespace QuanLyDiemSV
             this.errMaLop = new System.Windows.Forms.ErrorProvider(this.components);
             this.errMaHP = new System.Windows.Forms.ErrorProvider(this.components);
             this.errSoLuong = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -191,7 +192,7 @@ namespace QuanLyDiemSV
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txtMaGV);
             this.groupBox2.Controls.Add(this.txtTenMH);
-            this.groupBox2.Controls.Add(this.MaMH);
+            this.groupBox2.Controls.Add(this.txtMaMH);
             this.groupBox2.Controls.Add(this.txtMaHP);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label7);
@@ -237,12 +238,12 @@ namespace QuanLyDiemSV
             this.txtTenMH.Size = new System.Drawing.Size(238, 22);
             this.txtTenMH.TabIndex = 23;
             // 
-            // MaMH
+            // txtMaMH
             // 
-            this.MaMH.Location = new System.Drawing.Point(101, 56);
-            this.MaMH.Name = "MaMH";
-            this.MaMH.Size = new System.Drawing.Size(238, 22);
-            this.MaMH.TabIndex = 22;
+            this.txtMaMH.Location = new System.Drawing.Point(101, 56);
+            this.txtMaMH.Name = "txtMaMH";
+            this.txtMaMH.Size = new System.Drawing.Size(238, 22);
+            this.txtMaMH.TabIndex = 22;
             // 
             // txtMaHP
             // 
@@ -339,6 +340,7 @@ namespace QuanLyDiemSV
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(265, 22);
             this.txtTimKiem.TabIndex = 27;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // rdbMaGV
             // 
@@ -381,52 +383,18 @@ namespace QuanLyDiemSV
             this.dataLop.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataLop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5});
+            this.Column5,
+            this.Column6,
+            this.Column1});
             this.dataLop.Location = new System.Drawing.Point(6, 21);
             this.dataLop.Name = "dataLop";
             this.dataLop.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataLop.Size = new System.Drawing.Size(723, 257);
             this.dataLop.TabIndex = 0;
             this.dataLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSinhVien_CellEnter);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaLop";
-            this.Column1.HeaderText = "Mã Lớp";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "MaHP";
-            this.Column2.HeaderText = "Mã học phần";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "SoLuong";
-            this.Column3.HeaderText = "Số lượng";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "MaMH";
-            this.Column4.HeaderText = "Mã môn học";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "MaGV";
-            this.Column5.HeaderText = "Mã giáo viên";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // btnThoat
             // 
@@ -512,6 +480,48 @@ namespace QuanLyDiemSV
             // 
             this.errSoLuong.ContainerControl = this;
             // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "MaHocPhan";
+            this.Column2.HeaderText = "Mã học phần";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "SoLuong";
+            this.Column3.HeaderText = "Số lượng";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "MaMH";
+            this.Column4.HeaderText = "Mã môn học";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "MaGV";
+            this.Column5.HeaderText = "Mã giáo viên";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "TenMH";
+            this.Column6.HeaderText = "TenMH";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "TenGV";
+            this.Column1.HeaderText = "TenGV";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
             // frmLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,7 +577,7 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtMaGV;
         private System.Windows.Forms.TextBox txtTenMH;
-        private System.Windows.Forms.TextBox MaMH;
+        private System.Windows.Forms.TextBox txtMaMH;
         private System.Windows.Forms.TextBox txtMaHP;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -590,10 +600,11 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.ErrorProvider errMaLop;
         private System.Windows.Forms.ErrorProvider errMaHP;
         private System.Windows.Forms.ErrorProvider errSoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
