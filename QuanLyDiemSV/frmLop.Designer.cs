@@ -55,6 +55,9 @@ namespace QuanLyDiemSV
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnLoc = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.rdbMaHP = new System.Windows.Forms.RadioButton();
+            this.rdbMaGV = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.rdbMaMH = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataLop = new System.Windows.Forms.DataGridView();
@@ -68,15 +71,13 @@ namespace QuanLyDiemSV
             this.errMaMH = new System.Windows.Forms.ErrorProvider(this.components);
             this.errSoLuong = new System.Windows.Forms.ErrorProvider(this.components);
             this.errMaHP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.rdbMaGV = new System.Windows.Forms.RadioButton();
-            this.rdbMaHP = new System.Windows.Forms.RadioButton();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -355,6 +356,42 @@ namespace QuanLyDiemSV
             this.txtTimKiem.TabIndex = 27;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
+            // rdbMaHP
+            // 
+            this.rdbMaHP.AutoSize = true;
+            this.rdbMaHP.ForeColor = System.Drawing.Color.Black;
+            this.rdbMaHP.Location = new System.Drawing.Point(243, 28);
+            this.rdbMaHP.Name = "rdbMaHP";
+            this.rdbMaHP.Size = new System.Drawing.Size(107, 20);
+            this.rdbMaHP.TabIndex = 3;
+            this.rdbMaHP.TabStop = true;
+            this.rdbMaHP.Text = "Mã Học Phần";
+            this.rdbMaHP.UseVisualStyleBackColor = true;
+            // 
+            // rdbMaGV
+            // 
+            this.rdbMaGV.AutoSize = true;
+            this.rdbMaGV.ForeColor = System.Drawing.Color.Black;
+            this.rdbMaGV.Location = new System.Drawing.Point(126, 28);
+            this.rdbMaGV.Name = "rdbMaGV";
+            this.rdbMaGV.Size = new System.Drawing.Size(107, 20);
+            this.rdbMaGV.TabIndex = 3;
+            this.rdbMaGV.TabStop = true;
+            this.rdbMaGV.Text = "Mã Giáo Viên";
+            this.rdbMaGV.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.ForeColor = System.Drawing.Color.Black;
+            this.radioButton1.Location = new System.Drawing.Point(247, 28);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(107, 20);
+            this.radioButton1.TabIndex = 3;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Mã Giáo Viên";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // rdbMaMH
             // 
             this.rdbMaMH.AutoSize = true;
@@ -389,7 +426,8 @@ namespace QuanLyDiemSV
             this.Column4,
             this.Column5,
             this.Column6,
-            this.Column1});
+            this.Column1,
+            this.Column7});
             this.dataLop.Location = new System.Drawing.Point(6, 21);
             this.dataLop.Name = "dataLop";
             this.dataLop.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -485,33 +523,12 @@ namespace QuanLyDiemSV
             // 
             this.errMaHP.ContainerControl = this;
             // 
-            // Column1
+            // Column2
             // 
-            this.Column1.DataPropertyName = "TenGV";
-            this.Column1.HeaderText = "TenGV";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "TenMH";
-            this.Column6.HeaderText = "TenMH";
-            this.Column6.Name = "Column6";
-            this.Column6.Visible = false;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "MaGV";
-            this.Column5.HeaderText = "Mã giáo viên";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "MaMH";
-            this.Column4.HeaderText = "Mã môn học";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.Column2.DataPropertyName = "MaHocPhan";
+            this.Column2.HeaderText = "Mã học phần";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
@@ -520,48 +537,40 @@ namespace QuanLyDiemSV
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
-            // Column2
+            // Column4
             // 
-            this.Column2.DataPropertyName = "MaHocPhan";
-            this.Column2.HeaderText = "Mã học phần";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.Column4.DataPropertyName = "MaMH";
+            this.Column4.HeaderText = "Mã môn học";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
-            // radioButton1
+            // Column5
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.ForeColor = System.Drawing.Color.Black;
-            this.radioButton1.Location = new System.Drawing.Point(247, 28);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(107, 20);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Mã Giáo Viên";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.Column5.DataPropertyName = "MaGV";
+            this.Column5.HeaderText = "Mã giáo viên";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
-            // rdbMaGV
+            // Column6
             // 
-            this.rdbMaGV.AutoSize = true;
-            this.rdbMaGV.ForeColor = System.Drawing.Color.Black;
-            this.rdbMaGV.Location = new System.Drawing.Point(126, 28);
-            this.rdbMaGV.Name = "rdbMaGV";
-            this.rdbMaGV.Size = new System.Drawing.Size(107, 20);
-            this.rdbMaGV.TabIndex = 3;
-            this.rdbMaGV.TabStop = true;
-            this.rdbMaGV.Text = "Mã Giáo Viên";
-            this.rdbMaGV.UseVisualStyleBackColor = true;
+            this.Column6.DataPropertyName = "TenMH";
+            this.Column6.HeaderText = "TenMH";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
             // 
-            // rdbMaHP
+            // Column1
             // 
-            this.rdbMaHP.AutoSize = true;
-            this.rdbMaHP.ForeColor = System.Drawing.Color.Black;
-            this.rdbMaHP.Location = new System.Drawing.Point(243, 28);
-            this.rdbMaHP.Name = "rdbMaHP";
-            this.rdbMaHP.Size = new System.Drawing.Size(107, 20);
-            this.rdbMaHP.TabIndex = 3;
-            this.rdbMaHP.TabStop = true;
-            this.rdbMaHP.Text = "Mã Học Phần";
-            this.rdbMaHP.UseVisualStyleBackColor = true;
+            this.Column1.DataPropertyName = "TenGV";
+            this.Column1.HeaderText = "TenGV";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "MaLop";
+            this.Column7.HeaderText = "MaLop";
+            this.Column7.Name = "Column7";
+            this.Column7.Visible = false;
             // 
             // frmLop
             // 
@@ -651,5 +660,6 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

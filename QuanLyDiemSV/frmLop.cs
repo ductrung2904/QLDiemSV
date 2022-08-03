@@ -141,7 +141,7 @@ namespace QuanLyDiemSV
         private void suaLop()
         {
             Lop lop = new Lop();
-            lop = db.Lops.Where(x => x.MaHocPhan.ToString() == txtMaHP.Text && x.MaMH.ToString() == txtMaMH.Text).SingleOrDefault();
+            lop = db.Lops.Where(x => x.MaHocPhan.ToString() == this.cboMaHP.GetItemText(this.cboMaHP.SelectedItem) && x.MaMH.ToString() == this.cboMaMH.GetItemText(this.cboMaMH.SelectedItem)).SingleOrDefault();
             lop.MaHocPhan = cboMaHP.Text;
             lop.MaGV = Int32.Parse(cboMaGV.Text);
             lop.SoLuong = Convert.ToInt32(Math.Round(numSoLuong.Value, 0));
