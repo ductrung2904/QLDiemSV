@@ -59,13 +59,6 @@ namespace QuanLyDiemSV
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.dgvGiaoVien = new System.Windows.Forms.DataGridView();
-            this.errMaGV = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errHoTenGV = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errGioiTinh = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errrUsername = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errPassword = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errEmail = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errSDT = new System.Windows.Forms.ErrorProvider(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +66,13 @@ namespace QuanLyDiemSV
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errMaGV = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errHoTenGV = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errGioiTinh = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errrUsername = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errPassword = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errEmail = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errSDT = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaoVien)).BeginInit();
@@ -413,34 +413,6 @@ namespace QuanLyDiemSV
             this.dgvGiaoVien.TabIndex = 34;
             this.dgvGiaoVien.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGiaoVien_CellEnter);
             // 
-            // errMaGV
-            // 
-            this.errMaGV.ContainerControl = this;
-            // 
-            // errHoTenGV
-            // 
-            this.errHoTenGV.ContainerControl = this;
-            // 
-            // errGioiTinh
-            // 
-            this.errGioiTinh.ContainerControl = this;
-            // 
-            // errrUsername
-            // 
-            this.errrUsername.ContainerControl = this;
-            // 
-            // errPassword
-            // 
-            this.errPassword.ContainerControl = this;
-            // 
-            // errEmail
-            // 
-            this.errEmail.ContainerControl = this;
-            // 
-            // errSDT
-            // 
-            this.errSDT.ContainerControl = this;
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "MaGV";
@@ -489,6 +461,34 @@ namespace QuanLyDiemSV
             this.Column7.HeaderText = "Điện thoại";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            // 
+            // errMaGV
+            // 
+            this.errMaGV.ContainerControl = this;
+            // 
+            // errHoTenGV
+            // 
+            this.errHoTenGV.ContainerControl = this;
+            // 
+            // errGioiTinh
+            // 
+            this.errGioiTinh.ContainerControl = this;
+            // 
+            // errrUsername
+            // 
+            this.errrUsername.ContainerControl = this;
+            // 
+            // errPassword
+            // 
+            this.errPassword.ContainerControl = this;
+            // 
+            // errEmail
+            // 
+            this.errEmail.ContainerControl = this;
+            // 
+            // errSDT
+            // 
+            this.errSDT.ContainerControl = this;
             // 
             // frmGiaoVien
             // 

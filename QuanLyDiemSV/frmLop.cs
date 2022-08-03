@@ -24,11 +24,6 @@ namespace QuanLyDiemSV
 
         private void setControls(bool edit)
         {
-            txtMaHP.Enabled = edit;
-            txtMaGV.Enabled = edit;
-            txtTenGV.Enabled = edit;
-            txtTenMH.Enabled = edit;
-            txtMaMH.Enabled = edit;
             numSoLuong.Enabled = edit;
 
             cboMaGV.Enabled = edit;
@@ -38,7 +33,7 @@ namespace QuanLyDiemSV
 
         void loadData()
         {
-            var query = from lop in db.Lops join mh in db.MonHocs on lop.MaMH equals mh.MaMH join gv in db.GiaoViens on lop.MaGV equals gv.MaGV where lop.MaMH == mh.MaMH && lop.MaGV == gv.MaGV select new {  MaHocPhan = lop.MaHocPhan, SoLuong = lop.SoLuong, MaGV = lop.MaGV, MaMH = lop.MaMH ,TenMH = mh.TenMH, TenGV = gv.TenGV};
+            var query = from lop in db.Lops join mh in db.MonHocs on lop.MaMH equals mh.MaMH join gv in db.GiaoViens on lop.MaGV equals gv.MaGV where lop.MaMH == mh.MaMH && lop.MaGV == gv.MaGV select new {  MaHocPhan = lop.MaHocPhan, SoLuong = lop.SoLuong, MaGV = lop.MaGV, MaMH = lop.MaMH ,TenMH = mh.TenMH, TenGV = gv.TenGV, MaLop = lop.MaLop};
             dataLop.DataSource = query;
         }
 
@@ -50,10 +45,11 @@ namespace QuanLyDiemSV
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
             rdbMaMH.Checked = true;
-
-            cboMaHP.DataSource = db.Lops.ToList();
-            cboMaHP.ValueMember = "MaHocPhan";
-            cboMaHP.DisplayMember = "MaHocPhan";
+            txtMaHP.Enabled = false;
+            txtMaGV.Enabled = false;
+            txtTenGV.Enabled = false;
+            txtTenMH.Enabled = false;
+            txtMaMH.Enabled = false;
 
             cboMaMH.DataSource = db.MonHocs.ToList();
             cboMaMH.ValueMember = "MaMH";
@@ -66,13 +62,15 @@ namespace QuanLyDiemSV
 
         private void dgvSinhVien_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-
             txtMaHP.Text = dataLop.CurrentRow.Cells[0].Value.ToString();
+            cboMaHP.Text = dataLop.CurrentRow.Cells[0].Value.ToString();
             numSoLuong.Text = dataLop.CurrentRow.Cells[1].Value.ToString();   
             txtMaMH.Text = dataLop.CurrentRow.Cells[3].Value.ToString();
             txtMaGV.Text = dataLop.CurrentRow.Cells[2].Value.ToString();
             txtTenMH.Text = dataLop.CurrentRow.Cells[4].Value.ToString();
             txtTenGV.Text = dataLop.CurrentRow.Cells[5].Value.ToString();
+            cboMaGV.Text = dataLop.CurrentRow.Cells[2].Value.ToString();
+            cboMaMH.Text = dataLop.CurrentRow.Cells[3].Value.ToString();
         }
 
 
@@ -128,10 +126,10 @@ namespace QuanLyDiemSV
         private void themLop()
         {
             Lop lop = new Lop();
-            lop.MaHocPhan = txtMaHP.Text;
+            lop.MaHocPhan = cboMaHP.Text;
             lop.SoLuong = Convert.ToInt32(Math.Round(numSoLuong.Value, 0)); 
-            lop.MaGV = Int32.Parse(txtMaGV.Text);
-            lop.MaMH = txtMaMH.Text;
+            lop.MaGV = Int32.Parse(cboMaGV.Text);
+            lop.MaMH = cboMaMH.Text;
             db.Lops.InsertOnSubmit(lop);
             db.SubmitChanges();
 
@@ -143,9 +141,11 @@ namespace QuanLyDiemSV
         private void suaLop()
         {
             Lop lop = new Lop();
-            lop = db.Lops.Where(x => x.MaHocPhan.ToString() == txtMaHP.Text).SingleOrDefault();
-            //
-            //
+            lop = db.Lops.Where(x => x.MaHocPhan.ToString() == this.cboMaHP.GetItemText(this.cboMaHP.SelectedItem) && x.MaMH.ToString() == this.cboMaMH.GetItemText(this.cboMaMH.SelectedItem)).SingleOrDefault();
+            lop.MaHocPhan = cboMaHP.Text;
+            lop.MaGV = Int32.Parse(cboMaGV.Text);
+            lop.SoLuong = Convert.ToInt32(Math.Round(numSoLuong.Value, 0));
+            lop.MaMH = cboMaMH.Text;
             db.SubmitChanges();
 
             var sua = db.Lops.Where(x => x.MaHocPhan == lop.MaHocPhan).ToList();
@@ -164,18 +164,32 @@ namespace QuanLyDiemSV
             btnXoa.Enabled = true;
             btnSua.Enabled = true;
 
-            errMaLop.Clear();
-            errMaHP.Clear();
             errSoLuong.Clear();
+            errMaGV.Clear();
+            errMaMH.Clear();
+            errMaHP.Clear();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtMaHP.Text == "")
-                errMaHP.SetError(txtMaHP, "Vui lòng nhập mã học phần");
+            if (numSoLuong.Text == "0" || numSoLuong.Text == "")
+                errSoLuong.SetError(numSoLuong, "Số Lượng nhập phải lớn hơn không");
             else
+                errSoLuong.Clear();
+            if (cboMaGV.Text == "")
+                errMaGV.SetError(cboMaGV, "Bạn chưa nhập giá trị mã giáo viên");
+            else
+                errMaGV.Clear();
+            if (cboMaMH.Text == "")
+                errMaMH.SetError(cboMaMH, "Bạn chưa nhập giá trị mã môn học");
+            else
+                errMaMH.Clear();
+            if (cboMaHP.Text == "")
+                errMaHP.SetError(cboMaHP, "Bạn chưa nhập giá trị học phần");
+            else
+                errMaHP.Clear();
 
-            if (txtMaHP.Text.ToString().Length > 0)
+            if (cboMaHP.Text.ToString().Length > 0)
             {
                 if (flag == 0)
                 {
@@ -194,18 +208,23 @@ namespace QuanLyDiemSV
                 setControls(false);
                 dataLop.Enabled = true;
 
-                errMaLop.Clear();
-                errMaHP.Clear();
                 errSoLuong.Clear();
+                errMaGV.Clear();
+                errMaMH.Clear();
+                errMaHP.Clear();
             }
 
             else
             {
                 MessageBox.Show("Thông tin bạn nhập còn thiếu hoặc chưa đúng", "Thông Báo");
-                if (txtMaHP.Text.Length == 0)
+                if (cboMaHP.Text.Length == 0)
                     txtMaHP.Focus();
                 else if (numSoLuong.Text.Length == 0)
                     numSoLuong.Focus();
+                else if (cboMaGV.Text.Length == 0)
+                    cboMaGV.Focus();
+                else if (cboMaMH.Text.Length == 0)
+                    cboMaMH.Focus();
             }
         }
 
@@ -218,11 +237,11 @@ namespace QuanLyDiemSV
                 try
                 {
                     Lop lop = new Lop();
-                    lop = db.Lops.Single(x => x.MaHocPhan.ToString() == txtMaHP.Text);
+                    lop = db.Lops.Single(x => x.MaLop.ToString() == dataLop.CurrentRow.Cells[6].Value.ToString());
                     db.Lops.DeleteOnSubmit(lop);
                     db.SubmitChanges();
 
-                    var xoa = db.Lops.Where(x => x.MaHocPhan == lop.MaHocPhan).ToList();
+                    var xoa = db.Lops.Where(x => x.MaLop == lop.MaLop).ToList();
                     dataLop.DataSource = xoa;
                     MessageBox.Show("Xóa thành công", "Thông Báo");
                 }
@@ -238,12 +257,17 @@ namespace QuanLyDiemSV
         {
             if (rdbMaGV.Checked)
             {
-                var timKiemMaGV = from lop in db.Lops where SqlMethods.Like(lop.MaGV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaLop = lop.MaLop, SoLuong = lop.SoLuong, MaHocPhan = lop.MaHocPhan, MaGV = lop.MaGV, MaMH = lop.MaMH};
+                var timKiemMaGV = from lop in db.Lops join mh in db.MonHocs on lop.MaMH equals mh.MaMH join gv in db.GiaoViens on lop.MaGV equals gv.MaGV where SqlMethods.Like(lop.MaGV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaHocPhan = lop.MaHocPhan, SoLuong = lop.SoLuong, MaGV = lop.MaGV, MaMH = lop.MaMH, TenMH = mh.TenMH, TenGV = gv.TenGV };
                 dataLop.DataSource = timKiemMaGV;
             }
             else if (rdbMaMH.Checked)
             {
-                var timKiemMaMH = from lop in db.Lops where SqlMethods.Like(lop.MaMH.ToString(), "%" + txtTimKiem.Text + "%") select new { MaLop = lop.MaLop, SoLuong = lop.SoLuong, MaHocPhan = lop.MaHocPhan, MaGV = lop.MaGV, MaMH = lop.MaMH };
+                var timKiemMaMH = from lop in db.Lops join mh in db.MonHocs on lop.MaMH equals mh.MaMH join gv in db.GiaoViens on lop.MaGV equals gv.MaGV where SqlMethods.Like(lop.MaMH.ToString(), "%" + txtTimKiem.Text + "%") select new { MaHocPhan = lop.MaHocPhan, SoLuong = lop.SoLuong, MaGV = lop.MaGV, MaMH = lop.MaMH, TenMH = mh.TenMH, TenGV = gv.TenGV };
+                dataLop.DataSource = timKiemMaMH;
+            }
+            else if (rdbMaHP.Checked)
+            {
+                var timKiemMaMH = from lop in db.Lops join mh in db.MonHocs on lop.MaMH equals mh.MaMH join gv in db.GiaoViens on lop.MaGV equals gv.MaGV where SqlMethods.Like(lop.MaHocPhan.ToString(), "%" + txtTimKiem.Text + "%") select new { MaHocPhan = lop.MaHocPhan, SoLuong = lop.SoLuong, MaGV = lop.MaGV, MaMH = lop.MaMH, TenMH = mh.TenMH, TenGV = gv.TenGV };
                 dataLop.DataSource = timKiemMaMH;
             }
         }
