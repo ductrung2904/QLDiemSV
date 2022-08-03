@@ -154,21 +154,25 @@ namespace QuanLyDiemSV
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (txtMaMH.Text == "")
-                errMaMH.SetError(txtMaMH, "Vui lòng nhập mã sinh siên");
+                errMaMH.SetError(txtMaMH, "Vui lòng nhập mã môn học");
             else
                 errMaMH.Clear();
             if (txtTenMH.Text == "")
-                errTenMH.SetError(txtTenMH, "Vui lòng nhập họ tên sinh siên");
+                errTenMH.SetError(txtTenMH, "Vui lòng nhập tên môn học");
             else
                 errTenMH.Clear();
-            if (numTinChi.Text == "0")
+            if (numTinChi.Text == "0" || numTinChi.Text == "")
                 errSoTinChi.SetError(numTinChi, "Vui lòng chỉnh số tín chỉ");
             else
                 errSoTinChi.Clear();
-            if (numSoTiet.Text == "0")
-                errSoTiet.SetError(numSoTiet, "Vui lòng nhập chỉnh sô tiết");
+            if (numSoTiet.Text == "0" || numSoTiet.Text == "")
+                errSoTiet.SetError(numSoTiet, "Vui lòng chỉnh số tiết");
             else
                 errSoTiet.Clear();
+            if (cboMaNganh.Text == "")
+                errMaNganh.SetError(cboMaNganh, "Vui lòng chọn mã ngành");
+            else
+                errMaNganh.Clear();
 
             if (txtMaMH.Text.ToString().Length > 0 && txtTenMH.Text.Length > 0 && Int32.Parse(numSoTiet.Text) != 0 && Int32.Parse(numTinChi.Text) != 0)
             {
@@ -206,6 +210,8 @@ namespace QuanLyDiemSV
                     numSoTiet.Focus();
                 else if (numTinChi.Text == "0")
                     numTinChi.Focus();
+                else if (cboMaNganh.Text.Length == 0)
+                    cboMaNganh.Focus();
             }
         }
 
