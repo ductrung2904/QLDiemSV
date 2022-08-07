@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_DiemSV" Class="QLDiemSVDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-KGCJNIH\SQLEXPRESS;Initial Catalog=QL_DiemSV;Integrated Security=True" SettingsObjectName="QuanLyDiemSV.Properties.Settings" SettingsPropertyName="QL_DiemSVConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DUCTRUNG-PC;Initial Catalog=QL_DiemSV;Integrated Security=True" SettingsObjectName="QuanLyDiemSV.Properties.Settings" SettingsPropertyName="QL_DiemSVConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Diem" Member="Diems">
     <Type Name="Diem">
-      <Column Name="MaSV" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaMH" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Column Name="MaLop" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaDiem" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaSV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaMH" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaLop" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
       <Column Name="DiemLT" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DiemTH" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Lop_Diem" Member="Lop" ThisKey="MaLop" OtherKey="MaLop" Type="Lop" IsForeignKey="true" />
@@ -26,8 +27,11 @@
   </Table>
   <Table Name="dbo.Lop" Member="Lops">
     <Type Name="Lop">
-      <Column Name="MaLop" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaLop" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MaHocPhan" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NoiHoc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NgayBatDau" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayKetThuc" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaMH" Type="System.String" DbType="Char(10)" CanBeNull="true" />
       <Column Name="MaGV" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -64,6 +68,8 @@
       <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="DienThoai" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="MaNganh" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="SinhVien_Diem" Member="Diems" ThisKey="MaSV" OtherKey="MaSV" Type="Diem" />

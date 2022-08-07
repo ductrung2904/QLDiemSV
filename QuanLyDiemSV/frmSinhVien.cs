@@ -31,13 +31,15 @@ namespace QuanLyDiemSV
             cboGioiTinh.Enabled = edit;
             txtDiaChi.Enabled = edit;
             txtDienThoai.Enabled = edit;
+            txtUsername.Enabled = edit;
+            txtPassword.Enabled = edit;
             cboNganhHoc.Enabled = edit;
             txtGhiChu.Enabled = edit;
         }
 
         void loadData()
         {
-            var query = from sv in db.SinhViens join nh in db.NganhHocs on sv.MaNganh equals nh.MaNganh where sv.MaNganh == nh.MaNganh select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu};
+            var query = from sv in db.SinhViens join nh in db.NganhHocs on sv.MaNganh equals nh.MaNganh where sv.MaNganh == nh.MaNganh select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, Username = sv.Username, Password = sv.Password, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu};
             dgvSinhVien.DataSource = query;
         }
 
@@ -64,8 +66,10 @@ namespace QuanLyDiemSV
             cboGioiTinh.Text = dgvSinhVien.CurrentRow.Cells[3].Value.ToString();
             txtDiaChi.Text = dgvSinhVien.CurrentRow.Cells[4].Value.ToString();
             txtDienThoai.Text = dgvSinhVien.CurrentRow.Cells[5].Value.ToString();
-            cboNganhHoc.SelectedValue = dgvSinhVien.CurrentRow.Cells[6].Value.ToString();
-            txtGhiChu.Text = dgvSinhVien.CurrentRow.Cells[7].Value.ToString();
+            txtUsername.Text = dgvSinhVien.CurrentRow.Cells[6].Value.ToString();
+            txtPassword.Text = dgvSinhVien.CurrentRow.Cells[7].Value.ToString();
+            cboNganhHoc.SelectedValue = dgvSinhVien.CurrentRow.Cells[8].Value.ToString();
+            txtGhiChu.Text = dgvSinhVien.CurrentRow.Cells[9].Value.ToString();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -92,6 +96,8 @@ namespace QuanLyDiemSV
             cboGioiTinh.Text = "";
             txtDiaChi.Text = "";
             txtDienThoai.Text = "";
+            txtUsername.Text = "";
+            txtPassword.Text = "";
             cboNganhHoc.Text = "";
             txtGhiChu.Text = "";
 
@@ -128,6 +134,8 @@ namespace QuanLyDiemSV
             sv.GioiTinh = cboGioiTinh.Text;
             sv.DiaChi = txtDiaChi.Text;
             sv.DienThoai = txtDienThoai.Text;
+            sv.Username = txtUsername.Text;
+            sv.Password = txtPassword.Text;
             sv.MaNganh = cboNganhHoc.SelectedValue.ToString();
             sv.GhiChu = txtGhiChu.Text;
             db.SinhViens.InsertOnSubmit(sv);
@@ -147,6 +155,8 @@ namespace QuanLyDiemSV
             sv.GioiTinh = cboGioiTinh.Text;
             sv.DiaChi = txtDiaChi.Text;
             sv.DienThoai = txtDienThoai.Text;
+            sv.Username = txtUsername.Text;
+            sv.Password = txtPassword.Text;
             sv.MaNganh = cboNganhHoc.SelectedValue.ToString();
             sv.GhiChu = txtGhiChu.Text;
             db.SubmitChanges();
@@ -202,6 +212,14 @@ namespace QuanLyDiemSV
                 errDienThoai.SetError(txtDienThoai, "Vui lòng nhập điện thoại");
             else
                 errDienThoai.Clear();
+            if (txtUsername.Text == "")
+                errUsername.SetError(txtUsername, "Vui lòng nhập tên tài khoản");
+            else
+                errUsername.Clear();
+            if (txtPassword.Text == "")
+                errPassword.SetError(txtPassword, "Vui lòng nhập mật khẩu");
+            else
+                errPassword.Clear();
             if (cboNganhHoc.Text == "")
                 errNganhHoc.SetError(cboNganhHoc, "Vui lòng nhập ngành học");
             else
@@ -229,7 +247,7 @@ namespace QuanLyDiemSV
                 errDienThoai.SetError(txtDienThoai, "Số điện thoại phải có 10 số");
             }
             dtpNgaySinh.MaxDate = DateTime.Today;
-            if (txtMaSV.Text.ToString().Length > 0 && txtHoTen.Text.Length > 0 && dtpNgaySinh.Text.Length > 0 && cboGioiTinh.Text.Length > 0 && txtDiaChi.Text.Length > 0 && txtDienThoai.Text.Length > 0 && cboNganhHoc.Text.Length > 0 && isNumberMaSV == true && isNumberDienThoai == true && checkDigitNumberMaSV && checkDigitNumberDienThoai == true)
+            if (txtMaSV.Text.ToString().Length > 0 && txtHoTen.Text.Length > 0 && dtpNgaySinh.Text.Length > 0 && cboGioiTinh.Text.Length > 0 && txtDiaChi.Text.Length > 0 && txtDienThoai.Text.Length > 0 && txtUsername.Text.Length > 0 && txtPassword.Text.Length > 0 && cboNganhHoc.Text.Length > 0 && isNumberMaSV == true && isNumberDienThoai == true && checkDigitNumberMaSV && checkDigitNumberDienThoai == true)
             {
                 if (flag == 0)
                 {
@@ -254,6 +272,8 @@ namespace QuanLyDiemSV
                 errGioiTinh.Clear();
                 errDiaChi.Clear();
                 errDienThoai.Clear();
+                errUsername.Clear();
+                errPassword.Clear();
                 errNganhHoc.Clear();
             }
             else
@@ -271,6 +291,10 @@ namespace QuanLyDiemSV
                     txtDiaChi.Focus();
                 else if (txtDienThoai.Text.Length == 0)
                     txtDienThoai.Focus();
+                else if (txtUsername.Text.Length == 0)
+                    txtUsername.Focus();
+                else if (txtPassword.Text.Length == 0 && txtPassword.Text.Length < 5)
+                    txtPassword.Focus();
                 else if (cboNganhHoc.Text.Length == 0)
                     cboNganhHoc.Focus();
             }
@@ -305,17 +329,17 @@ namespace QuanLyDiemSV
         {
             if (rdbMaSV.Checked)
             {
-                var timKiemMaSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
+                var timKiemMaSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, Username = sv.Username, Password = sv.Password, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
                 dgvSinhVien.DataSource = timKiemMaSV;
             }
             else if (rdbTenSV.Checked)
             {
-                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.TenSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
+                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.TenSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, Username = sv.Username, Password = sv.Password, GhiChu = sv.GhiChu };
                 dgvSinhVien.DataSource = timKiemTenSV;
             }
             else if (rdbNganh.Checked)
             {
-                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaNganh.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
+                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaNganh.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, Username = sv.Username, Password = sv.Password, GhiChu = sv.GhiChu };
                 dgvSinhVien.DataSource = timKiemTenSV;
             }
         }

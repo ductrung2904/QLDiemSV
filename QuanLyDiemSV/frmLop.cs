@@ -45,7 +45,7 @@ namespace QuanLyDiemSV
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
             rdbMaMH.Checked = true;
-            txtMaHP.Enabled = false;
+            txtMaLop.Enabled = false;
             txtMaGV.Enabled = false;
             txtTenGV.Enabled = false;
             txtTenMH.Enabled = false;
@@ -62,9 +62,9 @@ namespace QuanLyDiemSV
 
         private void dgvSinhVien_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaHP.Text = dataLop.CurrentRow.Cells[0].Value.ToString();
-            cboMaHP.Text = dataLop.CurrentRow.Cells[0].Value.ToString();
-            numSoLuong.Text = dataLop.CurrentRow.Cells[1].Value.ToString();   
+            txtMaLop.Text = dataLop.CurrentRow.Cells[0].Value.ToString();
+            cboMaHP.Text = dataLop.CurrentRow.Cells[1].Value.ToString();
+            numSoLuong.Text = dataLop.CurrentRow.Cells[2].Value.ToString();   
             txtMaMH.Text = dataLop.CurrentRow.Cells[3].Value.ToString();
             txtMaGV.Text = dataLop.CurrentRow.Cells[2].Value.ToString();
             txtTenMH.Text = dataLop.CurrentRow.Cells[4].Value.ToString();
@@ -93,7 +93,7 @@ namespace QuanLyDiemSV
         private void btnThem_Click(object sender, EventArgs e)
         {
             txtMaGV.Text = "";
-            txtMaHP.Text = "";
+            txtMaLop.Text = "";
             txtTenGV.Text = "";
             txtTenMH.Text = "";
             txtMaMH.Text = "";
@@ -101,7 +101,7 @@ namespace QuanLyDiemSV
 
             setControls(true);
             dataLop.Enabled = false;
-            txtMaHP.Focus();
+            txtMaLop.Focus();
             btnThem.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
@@ -114,7 +114,7 @@ namespace QuanLyDiemSV
         {
             setControls(true);
             dataLop.Enabled = false;
-            txtMaHP.Focus();
+            txtMaLop.Focus();
             btnThem.Enabled = false;
             btnXoa.Enabled = false;
             btnSua.Enabled = false;
@@ -218,7 +218,7 @@ namespace QuanLyDiemSV
             {
                 MessageBox.Show("Thông tin bạn nhập còn thiếu hoặc chưa đúng", "Thông Báo");
                 if (cboMaHP.Text.Length == 0)
-                    txtMaHP.Focus();
+                    txtMaLop.Focus();
                 else if (numSoLuong.Text.Length == 0)
                     numSoLuong.Focus();
                 else if (cboMaGV.Text.Length == 0)
