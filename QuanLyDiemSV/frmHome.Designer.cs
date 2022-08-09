@@ -90,6 +90,8 @@ namespace QuanLyDiemSV
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.LightGray;
+            this.panelChildForm.BackgroundImage = global::QuanLyDiemSV.Properties.Resources.bg;
+            this.panelChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(200, 0);
             this.panelChildForm.Name = "panelChildForm";

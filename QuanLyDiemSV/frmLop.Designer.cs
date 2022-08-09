@@ -45,7 +45,6 @@ namespace QuanLyDiemSV
             this.cboMaMH = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.numSoLuong = new System.Windows.Forms.NumericUpDown();
-            this.cboMaHP = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -92,6 +91,7 @@ namespace QuanLyDiemSV
             this.errMaHP = new System.Windows.Forms.ErrorProvider(this.components);
             this.errNoiHoc = new System.Windows.Forms.ErrorProvider(this.components);
             this.errMaLop = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtTTMaHP = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -119,6 +119,7 @@ namespace QuanLyDiemSV
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTTMaHP);
             this.groupBox1.Controls.Add(this.dtpNgayKetThuc);
             this.groupBox1.Controls.Add(this.dtpNgayBatDau);
             this.groupBox1.Controls.Add(this.label15);
@@ -132,7 +133,6 @@ namespace QuanLyDiemSV
             this.groupBox1.Controls.Add(this.cboMaMH);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.numSoLuong);
-            this.groupBox1.Controls.Add(this.cboMaHP);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -262,21 +262,6 @@ namespace QuanLyDiemSV
             this.numSoLuong.Name = "numSoLuong";
             this.numSoLuong.Size = new System.Drawing.Size(124, 22);
             this.numSoLuong.TabIndex = 17;
-            // 
-            // cboMaHP
-            // 
-            this.cboMaHP.FormattingEnabled = true;
-            this.cboMaHP.Items.AddRange(new object[] {
-            "18DTH1A",
-            "18DTH1B",
-            "18DTH1C",
-            "18DTH2A",
-            "18DTH2B",
-            "18DTH2C"});
-            this.cboMaHP.Location = new System.Drawing.Point(108, 48);
-            this.cboMaHP.Name = "cboMaHP";
-            this.cboMaHP.Size = new System.Drawing.Size(124, 24);
-            this.cboMaHP.TabIndex = 16;
             // 
             // label3
             // 
@@ -711,6 +696,13 @@ namespace QuanLyDiemSV
             // 
             this.errMaLop.ContainerControl = this;
             // 
+            // txtTTMaHP
+            // 
+            this.txtTTMaHP.Location = new System.Drawing.Point(108, 48);
+            this.txtTTMaHP.Name = "txtTTMaHP";
+            this.txtTTMaHP.Size = new System.Drawing.Size(124, 22);
+            this.txtTTMaHP.TabIndex = 37;
+            // 
             // frmLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -758,7 +750,6 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cboMaHP;
         private System.Windows.Forms.ComboBox cboMaGV;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboMaMH;
@@ -816,5 +807,6 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.ErrorProvider errNoiHoc;
         private System.Windows.Forms.ErrorProvider errMaLop;
+        private System.Windows.Forms.TextBox txtTTMaHP;
     }
 }
