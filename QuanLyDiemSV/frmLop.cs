@@ -27,7 +27,7 @@ namespace QuanLyDiemSV
             numSoLuong.Enabled = edit;
             txtMaLop2.Enabled = edit;
             cboMaGV.Enabled = edit;
-            cboMaHP.Enabled = edit;
+            txtTTMaHP.Enabled = edit;
             cboMaMH.Enabled = edit;
             txtNoiHoc.Enabled = edit;
         }
@@ -64,9 +64,9 @@ namespace QuanLyDiemSV
             cboMaGV.ValueMember = "MaGV";
             cboMaGV.DisplayMember = "MaGV";
 
-            cboMaHP.DataSource = db.Lops.ToList();
-            cboMaHP.ValueMember = "MaHocPhan";
-            cboMaHP.DisplayMember = "MaHocPhan";
+            //cboMaHP.DataSource = db.Lops.ToList();
+            //cboMaHP.ValueMember = "MaHocPhan";
+            //cboMaHP.DisplayMember = "MaHocPhan";
         }
 
         private void dgvSinhVien_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -80,7 +80,7 @@ namespace QuanLyDiemSV
             txtTenMH.Text = dataLop.CurrentRow.Cells[6].Value.ToString();
 
             txtMaHP.Text = dataLop.CurrentRow.Cells[2].Value.ToString();
-            cboMaHP.Text = dataLop.CurrentRow.Cells[2].Value.ToString();
+            txtTTMaHP.Text = dataLop.CurrentRow.Cells[2].Value.ToString();
 
             txtNoiHoc.Text = dataLop.CurrentRow.Cells[1].Value.ToString();
 
@@ -123,7 +123,7 @@ namespace QuanLyDiemSV
             txtMaLop2.Text = "";
             txtNoiHoc.Text = "";
             numSoLuong.Text = "0";
-            cboMaHP.Text = "";
+            txtTTMaHP.Text = "";
             cboMaMH.Text = "";
             dtpNgayBatDau.Value = new DateTime(year: 2020, month: 1, day: 1); 
             dtpNgayKetThuc.Value = new DateTime(year: 2020, month: 1, day: 1); 
@@ -156,7 +156,7 @@ namespace QuanLyDiemSV
         {
             Lop lop = new Lop();
             lop.MaLop = txtMaLop2.Text;
-            lop.MaHocPhan = cboMaHP.Text;
+            lop.MaHocPhan = txtTTMaHP.Text;
             lop.SoLuong = Convert.ToInt32(Math.Round(numSoLuong.Value, 0)); 
             lop.MaGV = Int32.Parse(cboMaGV.Text);
             lop.MaMH = cboMaMH.Text;
@@ -176,7 +176,7 @@ namespace QuanLyDiemSV
             Lop lop = new Lop();
             lop = db.Lops.Where(x => x.MaLop.ToString() == this.txtMaLop.Text ).SingleOrDefault();
             lop.NoiHoc = txtNoiHoc.Text;
-            lop.MaHocPhan = cboMaHP.Text;
+            lop.MaHocPhan = txtTTMaHP.Text;
             lop.MaGV = Int32.Parse(cboMaGV.Text);
             lop.SoLuong = Convert.ToInt32(Math.Round(numSoLuong.Value, 0));
             lop.MaMH = cboMaMH.Text;
@@ -229,13 +229,13 @@ namespace QuanLyDiemSV
             else
                 errMaMH.Clear();
 
-            if (cboMaHP.Text == "")
-                errMaHP.SetError(cboMaHP, "Bạn chưa chọn giá trị mã học phần");
+            if (txtTTMaHP.Text == "")
+                errMaHP.SetError(txtTTMaHP, "Bạn chưa chọn giá trị mã học phần");
             else
                 errMaHP.Clear();
 
             if (txtMaLop2.Text == "")
-                errMaLop.SetError(cboMaHP, "Bạn chưa nhập giá trị mã lớp");
+                errMaLop.SetError(txtTTMaHP, "Bạn chưa nhập giá trị mã lớp");
             else 
             {
                 /*foreach ( var x in item)
@@ -250,11 +250,11 @@ namespace QuanLyDiemSV
             }
                 
             if (txtNoiHoc.Text == "")
-                errMaHP.SetError(cboMaHP, "Bạn chưa nhập giá trị nơi học");
+                errMaHP.SetError(txtTTMaHP, "Bạn chưa nhập giá trị nơi học");
             else
                 errMaHP.Clear();
 
-            if (cboMaHP.Text.ToString().Length > 0)
+            if (txtTTMaHP.Text.ToString().Length > 0)
             {
                 if (flag == 0)
                 {
@@ -282,7 +282,7 @@ namespace QuanLyDiemSV
             else
             {
                 MessageBox.Show("Thông tin bạn nhập còn thiếu hoặc chưa đúng", "Thông Báo");
-                if (cboMaHP.Text.Length == 0)
+                if (txtTTMaHP.Text.Length == 0)
                     txtMaLop.Focus();
                 else if (numSoLuong.Text.Length == 0)
                     numSoLuong.Focus();
