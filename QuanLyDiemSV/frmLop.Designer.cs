@@ -38,7 +38,7 @@ namespace QuanLyDiemSV
             this.label14 = new System.Windows.Forms.Label();
             this.txtNoiHoc = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMaLop2 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cboMaGV = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -71,12 +71,15 @@ namespace QuanLyDiemSV
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataLop = new System.Windows.Forms.DataGridView();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
@@ -87,6 +90,8 @@ namespace QuanLyDiemSV
             this.errMaMH = new System.Windows.Forms.ErrorProvider(this.components);
             this.errSoLuong = new System.Windows.Forms.ErrorProvider(this.components);
             this.errMaHP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errNoiHoc = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errMaLop = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -97,6 +102,8 @@ namespace QuanLyDiemSV
             ((System.ComponentModel.ISupportInitialize)(this.errMaMH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errSoLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMaHP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNoiHoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMaLop)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -104,7 +111,7 @@ namespace QuanLyDiemSV
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(419, 9);
+            this.label1.Location = new System.Drawing.Point(406, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(266, 37);
             this.label1.TabIndex = 16;
@@ -118,7 +125,7 @@ namespace QuanLyDiemSV
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txtNoiHoc);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtMaLop2);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.cboMaGV);
             this.groupBox1.Controls.Add(this.label5);
@@ -130,7 +137,7 @@ namespace QuanLyDiemSV
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox1.Location = new System.Drawing.Point(848, 186);
+            this.groupBox1.Location = new System.Drawing.Point(835, 186);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(241, 273);
             this.groupBox1.TabIndex = 17;
@@ -196,12 +203,12 @@ namespace QuanLyDiemSV
             this.label13.TabIndex = 30;
             this.label13.Text = "Nơi Học";
             // 
-            // textBox1
+            // txtMaLop2
             // 
-            this.textBox1.Location = new System.Drawing.Point(108, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(124, 22);
-            this.textBox1.TabIndex = 29;
+            this.txtMaLop2.Location = new System.Drawing.Point(108, 18);
+            this.txtMaLop2.Name = "txtMaLop2";
+            this.txtMaLop2.Size = new System.Drawing.Size(124, 22);
+            this.txtMaLop2.TabIndex = 29;
             // 
             // label12
             // 
@@ -307,7 +314,7 @@ namespace QuanLyDiemSV
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox2.Location = new System.Drawing.Point(24, 49);
+            this.groupBox2.Location = new System.Drawing.Point(11, 49);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(705, 131);
             this.groupBox2.TabIndex = 22;
@@ -316,6 +323,7 @@ namespace QuanLyDiemSV
             // 
             // txtMaHP
             // 
+            this.txtMaHP.Enabled = false;
             this.txtMaHP.Location = new System.Drawing.Point(460, 24);
             this.txtMaHP.Name = "txtMaHP";
             this.txtMaHP.Size = new System.Drawing.Size(238, 22);
@@ -426,7 +434,7 @@ namespace QuanLyDiemSV
             this.groupBox3.Controls.Add(this.rdbMaMH);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox3.Location = new System.Drawing.Point(735, 49);
+            this.groupBox3.Location = new System.Drawing.Point(722, 49);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(353, 131);
             this.groupBox3.TabIndex = 22;
@@ -508,7 +516,7 @@ namespace QuanLyDiemSV
             this.groupBox4.Controls.Add(this.dataLop);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox4.Location = new System.Drawing.Point(24, 186);
+            this.groupBox4.Location = new System.Drawing.Point(11, 186);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(818, 393);
             this.groupBox4.TabIndex = 23;
@@ -521,12 +529,15 @@ namespace QuanLyDiemSV
             this.dataLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataLop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
+            this.Column8,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
             this.Column6,
-            this.Column1});
+            this.Column1,
+            this.Column10,
+            this.Column9});
             this.dataLop.Location = new System.Drawing.Point(6, 21);
             this.dataLop.Name = "dataLop";
             this.dataLop.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -540,6 +551,13 @@ namespace QuanLyDiemSV
             this.Column7.HeaderText = "Mã Lớp";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "NoiHoc";
+            this.Column8.HeaderText = "Nơi học";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column2
             // 
@@ -583,11 +601,25 @@ namespace QuanLyDiemSV
             this.Column1.Name = "Column1";
             this.Column1.Visible = false;
             // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "NgayKetThuc";
+            this.Column10.HeaderText = "NgayKT";
+            this.Column10.Name = "Column10";
+            this.Column10.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "NgayBatDau";
+            this.Column9.HeaderText = "NgayBD";
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
+            // 
             // btnThoat
             // 
             this.btnThoat.Image = global::QuanLyDiemSV.Properties.Resources.Thoat2;
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(993, 545);
+            this.btnThoat.Location = new System.Drawing.Point(980, 545);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(95, 34);
             this.btnThoat.TabIndex = 35;
@@ -599,7 +631,7 @@ namespace QuanLyDiemSV
             // 
             this.btnHuy.Image = global::QuanLyDiemSV.Properties.Resources.cancel;
             this.btnHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHuy.Location = new System.Drawing.Point(861, 545);
+            this.btnHuy.Location = new System.Drawing.Point(848, 545);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(95, 34);
             this.btnHuy.TabIndex = 34;
@@ -611,7 +643,7 @@ namespace QuanLyDiemSV
             // 
             this.btnLuu.Image = global::QuanLyDiemSV.Properties.Resources.Save_icon;
             this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLuu.Location = new System.Drawing.Point(993, 505);
+            this.btnLuu.Location = new System.Drawing.Point(980, 505);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(95, 34);
             this.btnLuu.TabIndex = 33;
@@ -623,7 +655,7 @@ namespace QuanLyDiemSV
             // 
             this.btnXoa.Image = global::QuanLyDiemSV.Properties.Resources.close_red;
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(861, 505);
+            this.btnXoa.Location = new System.Drawing.Point(848, 505);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(95, 34);
             this.btnXoa.TabIndex = 32;
@@ -635,7 +667,7 @@ namespace QuanLyDiemSV
             // 
             this.btnSua.Image = global::QuanLyDiemSV.Properties.Resources.edit;
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(993, 465);
+            this.btnSua.Location = new System.Drawing.Point(980, 465);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(95, 34);
             this.btnSua.TabIndex = 31;
@@ -647,7 +679,7 @@ namespace QuanLyDiemSV
             // 
             this.btnThem.Image = global::QuanLyDiemSV.Properties.Resources.add1;
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(861, 465);
+            this.btnThem.Location = new System.Drawing.Point(848, 465);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(95, 34);
             this.btnThem.TabIndex = 30;
@@ -671,12 +703,20 @@ namespace QuanLyDiemSV
             // 
             this.errMaHP.ContainerControl = this;
             // 
+            // errNoiHoc
+            // 
+            this.errNoiHoc.ContainerControl = this;
+            // 
+            // errMaLop
+            // 
+            this.errMaLop.ContainerControl = this;
+            // 
             // frmLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1108, 597);
+            this.ClientSize = new System.Drawing.Size(1092, 597);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnHuy);
@@ -688,7 +728,7 @@ namespace QuanLyDiemSV
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnThem);
-            this.MinimumSize = new System.Drawing.Size(1124, 566);
+            this.MinimumSize = new System.Drawing.Size(1100, 636);
             this.Name = "frmLop";
             this.Text = "Cập nhật lớp";
             this.Load += new System.EventHandler(this.frmLop_Load);
@@ -705,6 +745,8 @@ namespace QuanLyDiemSV
             ((System.ComponentModel.ISupportInitialize)(this.errMaMH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errSoLuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMaHP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNoiHoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMaLop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -755,19 +797,24 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.TextBox txtMaHP;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.TextBox txtMaLop2;
         private System.Windows.Forms.TextBox txtNoiHoc;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker dtpNgayKetThuc;
         private System.Windows.Forms.DateTimePicker dtpNgayBatDau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.ErrorProvider errNoiHoc;
+        private System.Windows.Forms.ErrorProvider errMaLop;
     }
 }
