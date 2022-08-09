@@ -35,18 +35,18 @@ namespace QuanLyDiemSV
             this.btnLoc = new System.Windows.Forms.Button();
             this.cboThongKe1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datatk2 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.cboThongKe2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataTK1 = new System.Windows.Forms.DataGridView();
             this.btnThoat = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datatk2)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTK1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -76,7 +76,7 @@ namespace QuanLyDiemSV
             this.tabPage1.Controls.Add(this.btnLoc);
             this.tabPage1.Controls.Add(this.cboThongKe1);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.datatk2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -96,6 +96,7 @@ namespace QuanLyDiemSV
             this.btnLoc.TabIndex = 22;
             this.btnLoc.Text = "Xem";
             this.btnLoc.UseVisualStyleBackColor = true;
+            this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
             // 
             // cboThongKe1
             // 
@@ -118,13 +119,13 @@ namespace QuanLyDiemSV
             this.label3.TabIndex = 20;
             this.label3.Text = "Ngành Học";
             // 
-            // dataGridView1
+            // datatk2
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 44);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(956, 436);
-            this.dataGridView1.TabIndex = 0;
+            this.datatk2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datatk2.Location = new System.Drawing.Point(6, 44);
+            this.datatk2.Name = "datatk2";
+            this.datatk2.Size = new System.Drawing.Size(956, 436);
+            this.datatk2.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -132,7 +133,7 @@ namespace QuanLyDiemSV
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.cboThongKe2);
             this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Controls.Add(this.dataTK1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -152,6 +153,7 @@ namespace QuanLyDiemSV
             this.button1.TabIndex = 26;
             this.button1.Text = "Xem";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cboThongKe2
             // 
@@ -174,13 +176,13 @@ namespace QuanLyDiemSV
             this.label2.TabIndex = 24;
             this.label2.Text = "Mã Lớp";
             // 
-            // dataGridView2
+            // dataTK1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(7, 44);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(952, 436);
-            this.dataGridView2.TabIndex = 23;
+            this.dataTK1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataTK1.Location = new System.Drawing.Point(7, 44);
+            this.dataTK1.Name = "dataTK1";
+            this.dataTK1.Size = new System.Drawing.Size(952, 436);
+            this.dataTK1.TabIndex = 23;
             // 
             // btnThoat
             // 
@@ -192,6 +194,7 @@ namespace QuanLyDiemSV
             this.btnThoat.TabIndex = 36;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // frmThongKeSV
             // 
@@ -205,13 +208,14 @@ namespace QuanLyDiemSV
             this.MinimumSize = new System.Drawing.Size(1086, 602);
             this.Name = "frmThongKeSV";
             this.Text = "Thống kê sinh viên";
+            this.Load += new System.EventHandler(this.frmThongKeSV_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datatk2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTK1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,7 +227,7 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView datatk2;
         private System.Windows.Forms.ComboBox cboThongKe1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLoc;
@@ -231,6 +235,6 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cboThongKe2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataTK1;
     }
 }
