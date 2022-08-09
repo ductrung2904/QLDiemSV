@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyDiemSV
 {
-    public partial class frmThongKeSV : Form
+    public partial class frmDoiMatKhau : Form
     {
-        public frmThongKeSV()
+        public frmDoiMatKhau()
         {
             InitializeComponent();
         }

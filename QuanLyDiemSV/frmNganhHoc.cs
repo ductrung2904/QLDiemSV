@@ -42,7 +42,7 @@ namespace QuanLyDiemSV
             dataGridView1.AutoGenerateColumns = false;
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
-
+            rdbMaNganh.Checked = true;
         }
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -208,13 +208,13 @@ namespace QuanLyDiemSV
         {
             if (rdbMaNganh.Checked)
             {
-                var timKiemMaSV = from nh in db.NganhHocs where SqlMethods.Like(nh.MaNganh.ToString(), "%" + txtTimKiem.Text + "%") select new { MaNganh = nh.MaNganh, TenNganh = nh.TenNganh };
-                dataGridView1.DataSource = timKiemMaSV;
+                var timKiemMaNganh = from nh in db.NganhHocs where SqlMethods.Like(nh.MaNganh.ToString(), "%" + txtTimKiem.Text + "%") select new { MaNganh = nh.MaNganh, TenNganh = nh.TenNganh };
+                dataGridView1.DataSource = timKiemMaNganh;
             }
             else if (rdbTenNganh.Checked)
             {
-                var timKiemTenSV = from nh in db.NganhHocs where SqlMethods.Like(nh.TenNganh.ToString(), "%" + txtTimKiem.Text + "%") select new { MaNganh = nh.MaNganh, TenNganh = nh.TenNganh };
-                dataGridView1.DataSource = timKiemTenSV;
+                var timKiemTenNganh = from nh in db.NganhHocs where SqlMethods.Like(nh.TenNganh.ToString(), "%" + txtTimKiem.Text + "%") select new { MaNganh = nh.MaNganh, TenNganh = nh.TenNganh };
+                dataGridView1.DataSource = timKiemTenNganh;
             }
         }
 

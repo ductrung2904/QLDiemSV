@@ -28,11 +28,12 @@ namespace QuanLyDiemSV
             txtTenMH.Enabled = edit;
             numTinChi.Enabled = edit;
             numSoTiet.Enabled = edit;
+            cboMaNganh.Enabled = edit;
         }
 
         void loadData()
         {
-            var query = from mh in db.MonHocs join nh in db.NganhHocs on mh.MaNganh equals nh.MaNganh where mh.MaNganh == nh.MaNganh select new { MaMH = mh.MaMH, TenMH = mh.TenMH, SoTinChi = mh.SoTinChi, SoTiet = mh.SoTiet , MaNganh = mh.MaNganh};
+            var query = from mh in db.MonHocs join nh in db.NganhHocs on mh.MaNganh equals nh.MaNganh where mh.MaNganh == nh.MaNganh select new { MaMH = mh.MaMH, TenMH = mh.TenMH, SoTinChi = mh.SoTinChi, SoTiet = mh.SoTiet , MaNganh = mh.MaNganh, TenNganh = nh.TenNganh};
             dataMH.DataSource = query;
         }
 
@@ -44,14 +45,11 @@ namespace QuanLyDiemSV
             dataMH.AutoGenerateColumns = false;
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
-        }
+            rdbMaMH.Checked = true;
 
-        private void dgvSinhVien_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            txtMaMH.Text = dataMH.CurrentRow.Cells[0].Value.ToString();
-            txtTenMH.Text = dataMH.CurrentRow.Cells[1].Value.ToString();
-            numTinChi.Text = dataMH.CurrentRow.Cells[2].Value.ToString();
-            numSoTiet.Text = dataMH.CurrentRow.Cells[3].Value.ToString();
+            cboMaNganh.DataSource = db.NganhHocs.ToList();
+            cboMaNganh.ValueMember = "MaNganh";
+            cboMaNganh.DisplayMember = "MaNganh";
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -108,7 +106,7 @@ namespace QuanLyDiemSV
             mh.TenMH = txtTenMH.Text;
             mh.SoTinChi = Int32.Parse(numTinChi.Text);
             mh.SoTiet = Int32.Parse(numSoTiet.Text);
-            //?? Mã Ngành
+            mh.MaNganh = cboMaNganh.Text;
             db.MonHocs.InsertOnSubmit(mh);
             db.SubmitChanges();
 
@@ -119,12 +117,15 @@ namespace QuanLyDiemSV
 
         private void suaMH()
         {
+            NganhHoc nh = new NganhHoc();
             MonHoc mh = new MonHoc();
             mh = db.MonHocs.Where(x => x.MaMH.ToString() == txtMaMH.Text).SingleOrDefault();
+
             mh.TenMH = txtTenMH.Text;
             mh.SoTinChi = Convert.ToInt32(Math.Round(numTinChi.Value, 0));
             mh.SoTiet = Convert.ToInt32(Math.Round(numSoTiet.Value, 0));
-            //mh.MaNganh = ;
+            mh.MaNganh = cboMaNganh.Text;   
+
             db.SubmitChanges();
 
             var sua = db.MonHocs.Where(x => x.MaMH == mh.MaMH).ToList();
@@ -147,26 +148,31 @@ namespace QuanLyDiemSV
             errTenMH.Clear();
             errSoTinChi.Clear();
             errSoTiet.Clear();
+            errMaNganh.Clear();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (txtMaMH.Text == "")
-                errMaMH.SetError(txtMaMH, "Vui lòng nhập mã sinh siên");
+                errMaMH.SetError(txtMaMH, "Vui lòng nhập mã môn học");
             else
                 errMaMH.Clear();
             if (txtTenMH.Text == "")
-                errTenMH.SetError(txtTenMH, "Vui lòng nhập họ tên sinh siên");
+                errTenMH.SetError(txtTenMH, "Vui lòng nhập tên môn học");
             else
                 errTenMH.Clear();
-            if (numTinChi.Text == "0")
+            if (numTinChi.Text == "0" || numTinChi.Text == "")
                 errSoTinChi.SetError(numTinChi, "Vui lòng chỉnh số tín chỉ");
             else
                 errSoTinChi.Clear();
-            if (numSoTiet.Text == "0")
-                errSoTiet.SetError(numSoTiet, "Vui lòng nhập chỉnh sô tiết");
+            if (numSoTiet.Text == "0" || numSoTiet.Text == "")
+                errSoTiet.SetError(numSoTiet, "Vui lòng chỉnh số tiết");
             else
                 errSoTiet.Clear();
+            if (cboMaNganh.Text == "")
+                errMaNganh.SetError(cboMaNganh, "Vui lòng chọn mã ngành");
+            else
+                errMaNganh.Clear();
 
             if (txtMaMH.Text.ToString().Length > 0 && txtTenMH.Text.Length > 0 && Int32.Parse(numSoTiet.Text) != 0 && Int32.Parse(numTinChi.Text) != 0)
             {
@@ -191,6 +197,7 @@ namespace QuanLyDiemSV
                 errTenMH.Clear();
                 errSoTinChi.Clear();
                 errSoTiet.Clear();
+                errMaNganh.Clear();
             }
             else
             {
@@ -203,6 +210,8 @@ namespace QuanLyDiemSV
                     numSoTiet.Focus();
                 else if (numTinChi.Text == "0")
                     numTinChi.Focus();
+                else if (cboMaNganh.Text.Length == 0)
+                    cboMaNganh.Focus();
             }
         }
 
@@ -235,13 +244,13 @@ namespace QuanLyDiemSV
         {
             if (rdbMaMH.Checked)
             {
-                var timKiemMaSV = from mh in db.MonHocs where SqlMethods.Like(mh.MaMH.ToString(), "%" + txtTimKiem.Text + "%") select new { MaMH = mh.MaMH, TenMH = mh.TenMH, SoTinChi = mh.SoTinChi, SoTiet = mh.SoTiet, MaNganh = mh.MaNganh };
-                dataMH.DataSource = timKiemMaSV;
+                var timKiemMaMH = from mh in db.MonHocs where SqlMethods.Like(mh.MaMH.ToString(), "%" + txtTimKiem.Text + "%") select new { MaMH = mh.MaMH, TenMH = mh.TenMH, SoTinChi = mh.SoTinChi, SoTiet = mh.SoTiet, MaNganh = mh.MaNganh };
+                dataMH.DataSource = timKiemMaMH;
             }
             else if (rdbTenMH.Checked)
             {
-                var timKiemTenSV = from mh in db.MonHocs where SqlMethods.Like(mh.TenMH.ToString(), "%" + txtTimKiem.Text + "%") select new { MaMH = mh.MaMH, TenMH = mh.TenMH, SoTinChi = mh.SoTinChi, SoTiet = mh.SoTiet, MaNganh = mh.MaNganh };
-                dataMH.DataSource = timKiemTenSV;
+                var timKiemTenMH = from mh in db.MonHocs where SqlMethods.Like(mh.TenMH.ToString(), "%" + txtTimKiem.Text + "%") select new { MaMH = mh.MaMH, TenMH = mh.TenMH, SoTinChi = mh.SoTinChi, SoTiet = mh.SoTiet, MaNganh = mh.MaNganh };
+                dataMH.DataSource = timKiemTenMH;
             }
         }
 
@@ -249,6 +258,15 @@ namespace QuanLyDiemSV
         {
             txtTimKiem.Text = "";
             txtTimKiem.Focus();
+        }
+
+        private void dgvMonHoc_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            txtMaMH.Text = dataMH.CurrentRow.Cells[0].Value.ToString();
+            txtTenMH.Text = dataMH.CurrentRow.Cells[1].Value.ToString();
+            numTinChi.Text = dataMH.CurrentRow.Cells[2].Value.ToString();
+            numSoTiet.Text = dataMH.CurrentRow.Cells[3].Value.ToString();
+            cboMaNganh.SelectedValue = dataMH.CurrentRow.Cells[4].Value.ToString();         
         }
     }
 }

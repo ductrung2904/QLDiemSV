@@ -1,24 +1,20 @@
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe.config
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.AssemblyReference.cache
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDangNhap.resources
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmGiaoVien.resources
+E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe
+E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.pdb
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmHome.resources
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmLop.resources
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmMonHoc.resources
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNganhHoc.resources
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNhapDiem.resources
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmSinhVien.resources
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeDiem.resources
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeSV.resources
-<<<<<<< HEAD
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.Properties.Resources.resources
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.GenerateResource.cache
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.CoreCompileInputs.cache
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.exe
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.pdb
-E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.pdb
-=======
+E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmMonHoc.resources
+E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNganhHoc.resources
+E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmSinhVien.resources
+E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmLop.resources
+E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmGiaoVien.resources
+E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNhapDiem.resources
+E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeDiem.resources
+E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeSV.resources
 E:\CDTN1\QuanLyDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDangNhap.resources
 C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe.config
 C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe
@@ -39,4 +35,60 @@ C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.cspr
 C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.CoreCompileInputs.cache
 C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.exe
 C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.pdb
->>>>>>> 99dbc36a41493dd0b608d40a42afb6a9b27fd3a0
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe.config
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.pdb
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.AssemblyReference.cache
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDangNhap.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmGiaoVien.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmHome.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmLop.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmMonHoc.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNganhHoc.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNhapDiem.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmSinhVien.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeDiem.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeSV.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.Properties.Resources.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.GenerateResource.cache
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.CoreCompileInputs.cache
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.exe
+C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.pdb
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe.config
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.pdb
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.AssemblyReference.cache
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDangNhap.resources
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmGiaoVien.resources
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmHome.resources
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmLop.resources
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmMonHoc.resources
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNganhHoc.resources
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNhapDiem.resources
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmSinhVien.resources
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeDiem.resources
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeSV.resources
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.Properties.Resources.resources
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.GenerateResource.cache
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.CoreCompileInputs.cache
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.exe
+E:\CDTN1\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.pdb
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe.config
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.pdb
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.AssemblyReference.cache
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDangNhap.resources
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmGiaoVien.resources
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmHome.resources
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmLop.resources
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmMonHoc.resources
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNganhHoc.resources
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNhapDiem.resources
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmSinhVien.resources
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeDiem.resources
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.Properties.Resources.resources
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.GenerateResource.cache
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.CoreCompileInputs.cache
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.exe
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.pdb
+C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDoiMatKhau.resources
