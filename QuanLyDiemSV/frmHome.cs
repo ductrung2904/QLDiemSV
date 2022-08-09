@@ -15,30 +15,30 @@ namespace QuanLyDiemSV
         public frmHome()
         {
             InitializeComponent();
-            panelThongKe.Visible = false;
+            //panelThongKe.Visible = false;
         }
 
-        private void hideMenu()
-        {
-            if (panelThongKe.Visible == true)
-                panelThongKe.Visible = false;
-        }
+        //private void hideMenu()
+        //{
+        //    if (panelThongKe.Visible == true)
+        //        panelThongKe.Visible = false;
+        //}
 
-        private void showMenu(Panel subMenu)
-        {
-            if (subMenu.Visible == false)
-            {
-                hideMenu();
-                subMenu.Visible = true;
-            }
-            else
-                subMenu.Visible = false;
-        }
+        //private void showMenu(Panel subMenu)
+        //{
+        //    if (subMenu.Visible == false)
+        //    {
+        //        hideMenu();
+        //        subMenu.Visible = true;
+        //    }
+        //    else
+        //        subMenu.Visible = false;
+        //}
 
-        private void btnThongKe_Click(object sender, EventArgs e)
-        {
-            showMenu(panelThongKe);
-        }
+        //private void btnThongKe_Click(object sender, EventArgs e)
+        //{
+        //    showMenu(panelThongKe);
+        //}
 
         private Form activeForm = null;
         private void openChildForm(Form childForm)
@@ -90,14 +90,14 @@ namespace QuanLyDiemSV
             this.Close();
         }
 
-        private void btnThongKeSV_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmThongKeSV());
-        }
-
-        private void btnThongKeDiem_Click(object sender, EventArgs e)
+        private void btnThongKe_Click(object sender, EventArgs e)
         {
             openChildForm(new frmThongKeDiem());
+        }
+
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmDoiMatKhau());
         }
     }
 }

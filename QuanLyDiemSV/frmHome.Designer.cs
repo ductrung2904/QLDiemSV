@@ -30,11 +30,11 @@ namespace QuanLyDiemSV
         private void InitializeComponent()
         {
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.panelFooter = new System.Windows.Forms.Panel();
+            this.panelChildForm = new System.Windows.Forms.Panel();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnBaoCao = new System.Windows.Forms.Button();
-            this.panelThongKe = new System.Windows.Forms.Panel();
-            this.btnThongKeDiem = new System.Windows.Forms.Button();
-            this.btnThongKeSV = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.btnNhapDiem = new System.Windows.Forms.Button();
             this.btnLopHP = new System.Windows.Forms.Button();
@@ -42,12 +42,8 @@ namespace QuanLyDiemSV
             this.btnGiaoVien = new System.Windows.Forms.Button();
             this.btnKhoa = new System.Windows.Forms.Button();
             this.btnSinhVien = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelFooter = new System.Windows.Forms.Panel();
-            this.panelChildForm = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
-            this.panelThongKe.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +54,6 @@ namespace QuanLyDiemSV
             this.panelSideMenu.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelSideMenu.Controls.Add(this.btnThoat);
             this.panelSideMenu.Controls.Add(this.btnBaoCao);
-            this.panelSideMenu.Controls.Add(this.panelThongKe);
             this.panelSideMenu.Controls.Add(this.btnThongKe);
             this.panelSideMenu.Controls.Add(this.btnNhapDiem);
             this.panelSideMenu.Controls.Add(this.btnLopHP);
@@ -73,6 +68,34 @@ namespace QuanLyDiemSV
             this.panelSideMenu.Size = new System.Drawing.Size(200, 661);
             this.panelSideMenu.TabIndex = 0;
             // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.White;
+            this.panelLogo.Controls.Add(this.pictureBox1);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(200, 100);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // panelFooter
+            // 
+            this.panelFooter.BackColor = System.Drawing.Color.DarkBlue;
+            this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelFooter.Location = new System.Drawing.Point(200, 611);
+            this.panelFooter.Name = "panelFooter";
+            this.panelFooter.Size = new System.Drawing.Size(1084, 50);
+            this.panelFooter.TabIndex = 1;
+            // 
+            // panelChildForm
+            // 
+            this.panelChildForm.BackColor = System.Drawing.Color.LightGray;
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Location = new System.Drawing.Point(200, 0);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(1084, 611);
+            this.panelChildForm.TabIndex = 2;
+            // 
             // btnThoat
             // 
             this.btnThoat.BackColor = System.Drawing.SystemColors.MenuHighlight;
@@ -82,7 +105,7 @@ namespace QuanLyDiemSV
             this.btnThoat.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnThoat.Image = global::QuanLyDiemSV.Properties.Resources.shutdown;
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(0, 540);
+            this.btnThoat.Location = new System.Drawing.Point(0, 460);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnThoat.Size = new System.Drawing.Size(200, 45);
@@ -98,60 +121,16 @@ namespace QuanLyDiemSV
             this.btnBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBaoCao.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnBaoCao.Image = global::QuanLyDiemSV.Properties.Resources.clipboard;
+            this.btnBaoCao.Image = global::QuanLyDiemSV.Properties.Resources.padlock;
             this.btnBaoCao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBaoCao.Location = new System.Drawing.Point(0, 495);
+            this.btnBaoCao.Location = new System.Drawing.Point(0, 415);
             this.btnBaoCao.Name = "btnBaoCao";
             this.btnBaoCao.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnBaoCao.Size = new System.Drawing.Size(200, 45);
             this.btnBaoCao.TabIndex = 9;
-            this.btnBaoCao.Text = "Báo Cáo";
+            this.btnBaoCao.Text = "Đổi Mật Khẩu";
             this.btnBaoCao.UseVisualStyleBackColor = false;
-            // 
-            // panelThongKe
-            // 
-            this.panelThongKe.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panelThongKe.Controls.Add(this.btnThongKeDiem);
-            this.panelThongKe.Controls.Add(this.btnThongKeSV);
-            this.panelThongKe.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelThongKe.Location = new System.Drawing.Point(0, 415);
-            this.panelThongKe.Name = "panelThongKe";
-            this.panelThongKe.Size = new System.Drawing.Size(200, 80);
-            this.panelThongKe.TabIndex = 7;
-            // 
-            // btnThongKeDiem
-            // 
-            this.btnThongKeDiem.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnThongKeDiem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnThongKeDiem.FlatAppearance.BorderSize = 0;
-            this.btnThongKeDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongKeDiem.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnThongKeDiem.Location = new System.Drawing.Point(0, 40);
-            this.btnThongKeDiem.Name = "btnThongKeDiem";
-            this.btnThongKeDiem.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnThongKeDiem.Size = new System.Drawing.Size(200, 40);
-            this.btnThongKeDiem.TabIndex = 1;
-            this.btnThongKeDiem.Text = "Thống Kê Điểm";
-            this.btnThongKeDiem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongKeDiem.UseVisualStyleBackColor = false;
-            this.btnThongKeDiem.Click += new System.EventHandler(this.btnThongKeDiem_Click);
-            // 
-            // btnThongKeSV
-            // 
-            this.btnThongKeSV.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnThongKeSV.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnThongKeSV.FlatAppearance.BorderSize = 0;
-            this.btnThongKeSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongKeSV.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnThongKeSV.Location = new System.Drawing.Point(0, 0);
-            this.btnThongKeSV.Name = "btnThongKeSV";
-            this.btnThongKeSV.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnThongKeSV.Size = new System.Drawing.Size(200, 40);
-            this.btnThongKeSV.TabIndex = 0;
-            this.btnThongKeSV.Text = "Thống Kê Sinh Viên";
-            this.btnThongKeSV.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongKeSV.UseVisualStyleBackColor = false;
-            this.btnThongKeSV.Click += new System.EventHandler(this.btnThongKeSV_Click);
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
             // btnThongKe
             // 
@@ -279,16 +258,6 @@ namespace QuanLyDiemSV
             this.btnSinhVien.UseVisualStyleBackColor = false;
             this.btnSinhVien.Click += new System.EventHandler(this.btnSinhVien_Click);
             // 
-            // panelLogo
-            // 
-            this.panelLogo.BackColor = System.Drawing.Color.White;
-            this.panelLogo.Controls.Add(this.pictureBox1);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(200, 100);
-            this.panelLogo.TabIndex = 0;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::QuanLyDiemSV.Properties.Resources.logo2;
@@ -297,24 +266,6 @@ namespace QuanLyDiemSV
             this.pictureBox1.Size = new System.Drawing.Size(194, 100);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // panelFooter
-            // 
-            this.panelFooter.BackColor = System.Drawing.Color.DarkBlue;
-            this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(200, 611);
-            this.panelFooter.Name = "panelFooter";
-            this.panelFooter.Size = new System.Drawing.Size(1084, 50);
-            this.panelFooter.TabIndex = 1;
-            // 
-            // panelChildForm
-            // 
-            this.panelChildForm.BackColor = System.Drawing.Color.LightGray;
-            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(200, 0);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1084, 611);
-            this.panelChildForm.TabIndex = 2;
             // 
             // frmHome
             // 
@@ -329,7 +280,6 @@ namespace QuanLyDiemSV
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.panelSideMenu.ResumeLayout(false);
-            this.panelThongKe.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -344,9 +294,6 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Button btnKhoa;
         private System.Windows.Forms.Button btnSinhVien;
         private System.Windows.Forms.Button btnNhapDiem;
-        private System.Windows.Forms.Panel panelThongKe;
-        private System.Windows.Forms.Button btnThongKeDiem;
-        private System.Windows.Forms.Button btnThongKeSV;
         private System.Windows.Forms.Button btnGiaoVien;
         private System.Windows.Forms.Button btnBaoCao;
         private System.Windows.Forms.Panel panelFooter;
