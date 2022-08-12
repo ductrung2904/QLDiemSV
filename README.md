@@ -11,7 +11,7 @@
 - Mai Hữu Văn
   - Quản lý Ngành học :white_check_mark: 
   - Quản lý Môn học :white_check_mark: 
-  - Quản lý Lớp học phần
+  - Quản lý Lớp học phần :white_check_mark: 
   - Thống kê
   - In danh sách
   - Đổi mật khẩu
