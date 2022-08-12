@@ -29,6 +29,8 @@ namespace QuanLyDiemSV
             txtTTMaHP.Enabled = edit;
             cboMaMH.Enabled = edit;
             txtNoiHoc.Enabled = edit;
+            dtpNgayBatDau.Enabled = edit;
+            dtpNgayKetThuc.Enabled = edit;
         }
 
         void loadData()
@@ -175,7 +177,7 @@ namespace QuanLyDiemSV
 
             setControls(true);
             dataLop.Enabled = false;
-            txtMaLop2.Focus();
+            txtMaHP.Focus();
             btnThem.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
@@ -188,7 +190,7 @@ namespace QuanLyDiemSV
         {
             setControls(true);
             dataLop.Enabled = false;
-            txtMaLop2.Focus();
+            txtTTMaHP.Focus();
             btnThem.Enabled = false;
             btnXoa.Enabled = false;
             btnSua.Enabled = false;
@@ -211,7 +213,7 @@ namespace QuanLyDiemSV
             db.Lops.InsertOnSubmit(lop);
             db.SubmitChanges();
 
-            var them = db.Lops.Where(x => x.MaHocPhan == lop.MaHocPhan).ToList();
+            var them = db.Lops.Where(x => x.MaLop == lop.MaLop).ToList();
             dataLop.DataSource = them;
             MessageBox.Show("Thêm thành công", "Thông Báo");
         }

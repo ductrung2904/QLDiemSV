@@ -6,8 +6,12 @@
       <Column Name="MaSV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="MaMH" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
       <Column Name="MaLop" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
-      <Column Name="DiemLT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DiemTH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiemLT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DiemTH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DiemTB" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DiemHe4" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DiemChu" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="DanhGia" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Association Name="Lop_Diem" Member="Lop" ThisKey="MaLop" OtherKey="MaLop" Type="Lop" IsForeignKey="true" />
       <Association Name="MonHoc_Diem" Member="MonHoc" ThisKey="MaMH" OtherKey="MaMH" Type="MonHoc" IsForeignKey="true" />
       <Association Name="SinhVien_Diem" Member="SinhVien" ThisKey="MaSV" OtherKey="MaSV" Type="SinhVien" IsForeignKey="true" />
