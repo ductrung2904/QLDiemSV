@@ -26,7 +26,7 @@ create table GiaoVien
 	MaGV int primary key not null,
 	TenGV nvarchar(50),
 	GioiTinh nvarchar(3),
-	Username varchar(50),
+	Username varchar(50) unique,
 	Password varchar(50),
 	Email nvarchar(50),
 	Phone nchar(10),
@@ -54,7 +54,7 @@ create table SinhVien
 	GioiTinh nvarchar(3),
 	DiaChi nvarchar(100),
 	DienThoai nchar(10),
-	Username varchar(50),
+	Username varchar(50) unique,
 	Password varchar(50),
 	MaNganh nchar(10),
 	GhiChu nvarchar(100)
@@ -67,8 +67,12 @@ create table Diem
 	MaSV int not null,
 	MaMH char(10) not null,
 	MaLop char(10) not null,
-	DiemLT int check (DiemLT > 0 and DiemLT <= 10),
-	DiemTH int check (DiemTH > 0 and DiemTH <= 10),
+	DiemLT float check (DiemLT >= 0 and DiemLT <= 10),
+	DiemTH float check (DiemTH >= 0 and DiemTH <= 10),
+	DiemTB float check (DiemTB >= 0 and DiemTB <= 10),
+	DiemHe4 float check (DiemHe4 >= 0 and DiemHe4 <= 4),
+	DiemChu char(3),
+	DanhGia nvarchar(10),
 	foreign key(MaSV) references SinhVien(MaSV),
 	foreign key(MaMH) references MonHoc(MaMH),
 	foreign key(MaLop) references Lop(MaLop)
@@ -154,14 +158,14 @@ insert into SinhVien values(1800000022, N'Dương Nguyễn Minh Quốc', '13/04/
 insert into SinhVien values(1800000023, N'Lê Thành Song', '09/04/2000', N'Nam', N'Ấp 1, Vĩnh Xương, Tân Châu, An Giang', '0328935998', 'ltsong', 'ltsong', 'QTM', '')
 insert into SinhVien values(1800000024, N'Đỗ Quốc Việt', '13/07/2000', N'Nam', N'48 Hồ Biểu Chánh, P.11, Q.Phú Nhuận', '0932158413', 'dqviet', 'dqviet', 'QTM', '')
 
-insert into Diem values('MD00000001', 1800000001, 'KTLT', 'ML00000016', 9, 10)
-insert into Diem values('MD00000002', 1800000001, 'CSDL', 'ML00000019', 3, 3)
-insert into Diem values('MD00000003', 1800000001, 'LTW', 'ML00000022', 9, 9)
-insert into Diem values('MD00000004', 1800000002, 'LTW', 'ML00000023', 8, 9)
-insert into Diem values('MD00000005', 1800000002, 'CDN', 'ML00000026', 6, 7)
-insert into Diem values('MD00000006', 1800000005, 'TKHTM', 'ML00000001', 8, 9)
-insert into Diem values('MD00000007', 1800000006, 'ANM', 'ML00000009', 7, 4)
-insert into Diem values('MD00000008', 1800000024, 'PTTKHTM', 'ML00000014', 4, 4)
+insert into Diem values('MD00000001', 1800000001, 'KTLT', 'ML00000016', 9, 10, 9.5, 3.8, 'A', N'Đạt')
+insert into Diem values('MD00000002', 1800000001, 'CSDL', 'ML00000019', 3, 3, 3, 1.2, 'D', N'Thi lại')
+insert into Diem values('MD00000003', 1800000001, 'LTW', 'ML00000022', 9, 9, 9, 3.6, 'A', N'Đạt')
+insert into Diem values('MD00000004', 1800000002, 'LTW', 'ML00000023', 8, 9, 8.5, 3.4, 'A', N'Đạt')
+insert into Diem values('MD00000005', 1800000002, 'CDN', 'ML00000026', 6, 7, 6.5, 2.6, 'C', N'Đạt')
+insert into Diem values('MD00000006', 1800000005, 'TKHTM', 'ML00000001', 8, 9, 8.5, 3.4, 'A', N'Đạt')
+insert into Diem values('MD00000007', 1800000006, 'ANM', 'ML00000009', 7, 4, 5.5, 2.2, 'D', N'Đạt')
+insert into Diem values('MD00000008', 1800000024, 'PTTKHTM', 'ML00000014', 4, null, null, null, null, null)
 
 select * from NganhHoc
 select * from MonHoc

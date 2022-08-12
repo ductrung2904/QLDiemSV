@@ -143,9 +143,17 @@ namespace QuanLyDiemSV
 		
 		private string _MaLop;
 		
-		private System.Nullable<int> _DiemLT;
+		private System.Nullable<double> _DiemLT;
 		
-		private System.Nullable<int> _DiemTH;
+		private System.Nullable<double> _DiemTH;
+		
+		private System.Nullable<double> _DiemTB;
+		
+		private System.Nullable<double> _DiemHe4;
+		
+		private string _DiemChu;
+		
+		private string _DanhGia;
 		
 		private EntityRef<Lop> _Lop;
 		
@@ -165,10 +173,18 @@ namespace QuanLyDiemSV
     partial void OnMaMHChanged();
     partial void OnMaLopChanging(string value);
     partial void OnMaLopChanged();
-    partial void OnDiemLTChanging(System.Nullable<int> value);
+    partial void OnDiemLTChanging(System.Nullable<double> value);
     partial void OnDiemLTChanged();
-    partial void OnDiemTHChanging(System.Nullable<int> value);
+    partial void OnDiemTHChanging(System.Nullable<double> value);
     partial void OnDiemTHChanged();
+    partial void OnDiemTBChanging(System.Nullable<double> value);
+    partial void OnDiemTBChanged();
+    partial void OnDiemHe4Changing(System.Nullable<double> value);
+    partial void OnDiemHe4Changed();
+    partial void OnDiemChuChanging(string value);
+    partial void OnDiemChuChanged();
+    partial void OnDanhGiaChanging(string value);
+    partial void OnDanhGiaChanged();
     #endregion
 		
 		public Diem()
@@ -271,8 +287,8 @@ namespace QuanLyDiemSV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiemLT", DbType="Int")]
-		public System.Nullable<int> DiemLT
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiemLT", DbType="Float")]
+		public System.Nullable<double> DiemLT
 		{
 			get
 			{
@@ -291,8 +307,8 @@ namespace QuanLyDiemSV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiemTH", DbType="Int")]
-		public System.Nullable<int> DiemTH
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiemTH", DbType="Float")]
+		public System.Nullable<double> DiemTH
 		{
 			get
 			{
@@ -307,6 +323,86 @@ namespace QuanLyDiemSV
 					this._DiemTH = value;
 					this.SendPropertyChanged("DiemTH");
 					this.OnDiemTHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiemTB", DbType="Float")]
+		public System.Nullable<double> DiemTB
+		{
+			get
+			{
+				return this._DiemTB;
+			}
+			set
+			{
+				if ((this._DiemTB != value))
+				{
+					this.OnDiemTBChanging(value);
+					this.SendPropertyChanging();
+					this._DiemTB = value;
+					this.SendPropertyChanged("DiemTB");
+					this.OnDiemTBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiemHe4", DbType="Float")]
+		public System.Nullable<double> DiemHe4
+		{
+			get
+			{
+				return this._DiemHe4;
+			}
+			set
+			{
+				if ((this._DiemHe4 != value))
+				{
+					this.OnDiemHe4Changing(value);
+					this.SendPropertyChanging();
+					this._DiemHe4 = value;
+					this.SendPropertyChanged("DiemHe4");
+					this.OnDiemHe4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiemChu", DbType="Char(3)")]
+		public string DiemChu
+		{
+			get
+			{
+				return this._DiemChu;
+			}
+			set
+			{
+				if ((this._DiemChu != value))
+				{
+					this.OnDiemChuChanging(value);
+					this.SendPropertyChanging();
+					this._DiemChu = value;
+					this.SendPropertyChanged("DiemChu");
+					this.OnDiemChuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DanhGia", DbType="NVarChar(10)")]
+		public string DanhGia
+		{
+			get
+			{
+				return this._DanhGia;
+			}
+			set
+			{
+				if ((this._DanhGia != value))
+				{
+					this.OnDanhGiaChanging(value);
+					this.SendPropertyChanging();
+					this._DanhGia = value;
+					this.SendPropertyChanged("DanhGia");
+					this.OnDanhGiaChanged();
 				}
 			}
 		}
