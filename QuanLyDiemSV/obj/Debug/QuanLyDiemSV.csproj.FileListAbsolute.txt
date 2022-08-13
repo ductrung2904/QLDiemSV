@@ -29,7 +29,6 @@ C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmN
 C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNhapDiem.resources
 C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmSinhVien.resources
 C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeDiem.resources
-C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeSV.resources
 C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.Properties.Resources.resources
 C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.GenerateResource.cache
 C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.CoreCompileInputs.cache
@@ -92,3 +91,4 @@ C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.
 C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.pdb
 C:\Users\DUCTRUNG-PC\Desktop\aaaaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDoiMatKhau.resources
 C:\Users\DUCTRUNG-PC\Desktop\New folder\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDoiMatKhau.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDoiMatKhau.resources

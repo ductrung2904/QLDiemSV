@@ -256,9 +256,6 @@ namespace QuanLyDiemSV
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            var item = from lop in db.Lops
-                       select lop.MaLop;
-
             if (numSoLuong.Text == "0" || numSoLuong.Text == "")
                 errSoLuong.SetError(numSoLuong, "Số Lượng nhập phải lớn hơn không");
             else
