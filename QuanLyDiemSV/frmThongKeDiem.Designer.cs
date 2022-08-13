@@ -29,7 +29,6 @@ namespace QuanLyDiemSV
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboLopHP = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,10 +42,8 @@ namespace QuanLyDiemSV
             this.btnXuatExcel = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.errNH = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongKeDiemSV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errNH)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -89,8 +86,6 @@ namespace QuanLyDiemSV
             this.cboMonHoc.Name = "cboMonHoc";
             this.cboMonHoc.Size = new System.Drawing.Size(246, 24);
             this.cboMonHoc.TabIndex = 3;
-            this.cboMonHoc.SelectedIndexChanged += new System.EventHandler(this.cboMonHoc_SelectedValueChanged);
-            this.cboMonHoc.Click += new System.EventHandler(this.cboMonHoc_Click);
             // 
             // label3
             // 
@@ -108,8 +103,6 @@ namespace QuanLyDiemSV
             this.cboNganhHoc.Name = "cboNganhHoc";
             this.cboNganhHoc.Size = new System.Drawing.Size(246, 24);
             this.cboNganhHoc.TabIndex = 1;
-            this.cboNganhHoc.SelectedIndexChanged += new System.EventHandler(this.cboNganhHoc_SelectedValueChanged);
-            this.cboNganhHoc.Click += new System.EventHandler(this.cboNganhHoc_Click);
             // 
             // label2
             // 
@@ -149,7 +142,6 @@ namespace QuanLyDiemSV
             this.btnRefresh.TabIndex = 49;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnXuatExcel
             // 
@@ -161,7 +153,6 @@ namespace QuanLyDiemSV
             this.btnXuatExcel.TabIndex = 48;
             this.btnXuatExcel.Text = "Xuất Excel";
             this.btnXuatExcel.UseVisualStyleBackColor = true;
-            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // btnThongKe
             // 
@@ -173,7 +164,6 @@ namespace QuanLyDiemSV
             this.btnThongKe.TabIndex = 47;
             this.btnThongKe.Text = "Thống Kê";
             this.btnThongKe.UseVisualStyleBackColor = true;
-            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // btnThoat
             // 
@@ -185,11 +175,6 @@ namespace QuanLyDiemSV
             this.btnThoat.TabIndex = 44;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // errNH
-            // 
-            this.errNH.ContainerControl = this;
             // 
             // frmThongKeDiem
             // 
@@ -207,11 +192,9 @@ namespace QuanLyDiemSV
             this.MinimumSize = new System.Drawing.Size(1086, 602);
             this.Name = "frmThongKeDiem";
             this.Text = "Thống kê điểm sinh viên";
-            this.Load += new System.EventHandler(this.frmThongKeDiem_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongKeDiemSV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errNH)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,6 +215,5 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Button btnXuatExcel;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.ErrorProvider errNH;
     }
 }
