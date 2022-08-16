@@ -77,6 +77,19 @@ namespace QuanLyDiemSV
             this.rdbMaSV = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvDiem = new System.Windows.Forms.DataGridView();
+            this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtDiemHe4 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -85,19 +98,8 @@ namespace QuanLyDiemSV
             this.txtDanhGia = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errDiemLT = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errDiemTH = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errMaSV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMaLop)).BeginInit();
@@ -107,6 +109,8 @@ namespace QuanLyDiemSV
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiem)).BeginInit();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errDiemLT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errDiemTH)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -343,6 +347,7 @@ namespace QuanLyDiemSV
             this.txtDiemTH.Name = "txtDiemTH";
             this.txtDiemTH.Size = new System.Drawing.Size(64, 22);
             this.txtDiemTH.TabIndex = 42;
+            this.txtDiemTH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiemTH_KeyPress);
             // 
             // txtDiemLT
             // 
@@ -350,6 +355,7 @@ namespace QuanLyDiemSV
             this.txtDiemLT.Name = "txtDiemLT";
             this.txtDiemLT.Size = new System.Drawing.Size(64, 22);
             this.txtDiemLT.TabIndex = 41;
+            this.txtDiemLT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiemLT_KeyPress);
             // 
             // txtMaDiem
             // 
@@ -365,6 +371,8 @@ namespace QuanLyDiemSV
             this.cboMaSV.Name = "cboMaSV";
             this.cboMaSV.Size = new System.Drawing.Size(180, 24);
             this.cboMaSV.TabIndex = 27;
+            this.cboMaSV.SelectedValueChanged += new System.EventHandler(this.cboMaSV_SelectedValueChanged);
+            this.cboMaSV.Click += new System.EventHandler(this.cboMaSV_Click);
             // 
             // label13
             // 
@@ -411,6 +419,7 @@ namespace QuanLyDiemSV
             this.cboTenMH.Name = "cboTenMH";
             this.cboTenMH.Size = new System.Drawing.Size(180, 24);
             this.cboTenMH.TabIndex = 19;
+            this.cboTenMH.SelectedValueChanged += new System.EventHandler(this.cboTenMH_SelectedValueChanged);
             // 
             // label5
             // 
@@ -582,18 +591,18 @@ namespace QuanLyDiemSV
             this.dgvDiem.AllowUserToResizeRows = false;
             this.dgvDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column8,
+            this.Column0,
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column11,
             this.Column6,
             this.Column7,
+            this.Column8,
             this.Column9,
-            this.Column13,
             this.Column10,
+            this.Column11,
             this.Column12});
             this.dgvDiem.Location = new System.Drawing.Point(6, 21);
             this.dgvDiem.Name = "dgvDiem";
@@ -601,6 +610,117 @@ namespace QuanLyDiemSV
             this.dgvDiem.Size = new System.Drawing.Size(1035, 241);
             this.dgvDiem.TabIndex = 0;
             this.dgvDiem.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDiem_CellEnter);
+            this.dgvDiem.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDiem_CellFormatting);
+            // 
+            // Column0
+            // 
+            this.Column0.DataPropertyName = "MaDiem";
+            this.Column0.HeaderText = "Mã điểm";
+            this.Column0.Name = "Column0";
+            this.Column0.ReadOnly = true;
+            this.Column0.Width = 90;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaSV";
+            this.Column1.FillWeight = 95.64292F;
+            this.Column1.HeaderText = "Mã sinh viên";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            this.Column1.Width = 90;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenSV";
+            this.Column2.HeaderText = "Tên sinh viên";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 180;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "MaMH";
+            this.Column3.FillWeight = 101.3326F;
+            this.Column3.HeaderText = "Mã môn học ";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "TenMH";
+            this.Column4.HeaderText = "Tên môn học";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 220;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "MaLop";
+            this.Column5.FillWeight = 141.6222F;
+            this.Column5.HeaderText = "Mã lớp";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 90;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "MaHocPhan";
+            this.Column6.HeaderText = "Mã học phần";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 80;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "DiemLT";
+            this.Column7.FillWeight = 63.46967F;
+            this.Column7.HeaderText = "Điểm lý thuyết";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 50;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "DiemTH";
+            this.Column8.FillWeight = 68.50961F;
+            this.Column8.HeaderText = "Điểm thực hành";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 50;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "DiemTB";
+            this.Column9.HeaderText = "Điểm trung bình";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 50;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "DiemHe4";
+            this.Column10.HeaderText = "Điểm hệ 4";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 50;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "DiemChu";
+            this.Column11.HeaderText = "Điểm chữ";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 50;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "DanhGia";
+            this.Column12.HeaderText = "Đánh giá";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 81;
             // 
             // groupBox5
             // 
@@ -682,113 +802,13 @@ namespace QuanLyDiemSV
             this.label14.TabIndex = 39;
             this.label14.Text = "Điểm Trung Bình";
             // 
-            // Column8
+            // errDiemLT
             // 
-            this.Column8.DataPropertyName = "MaDiem";
-            this.Column8.HeaderText = "Mã điểm";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 90;
+            this.errDiemLT.ContainerControl = this;
             // 
-            // Column1
+            // errDiemTH
             // 
-            this.Column1.DataPropertyName = "MaSV";
-            this.Column1.FillWeight = 95.64292F;
-            this.Column1.HeaderText = "Mã sinh viên";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 90;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenSV";
-            this.Column2.HeaderText = "Tên sinh viên";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 180;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "MaMH";
-            this.Column3.FillWeight = 101.3326F;
-            this.Column3.HeaderText = "Mã môn học ";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "TenMH";
-            this.Column4.HeaderText = "Tên môn học";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 220;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "MaLop";
-            this.Column5.FillWeight = 141.6222F;
-            this.Column5.HeaderText = "Mã lớp";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 90;
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "MaHocPhan";
-            this.Column11.HeaderText = "Mã học phần";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 80;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "DiemLT";
-            this.Column6.FillWeight = 63.46967F;
-            this.Column6.HeaderText = "Điểm lý thuyết";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 50;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "DiemTH";
-            this.Column7.FillWeight = 68.50961F;
-            this.Column7.HeaderText = "Điểm thực hành";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 50;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "DiemTB";
-            this.Column9.HeaderText = "Điểm trung bình";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 50;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "DiemHe4";
-            this.Column13.HeaderText = "Điểm hệ 4";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Width = 50;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "DiemChu";
-            this.Column10.HeaderText = "Điểm chữ";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 50;
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "DanhGia";
-            this.Column12.HeaderText = "Đánh giá";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Width = 81;
+            this.errDiemTH.ContainerControl = this;
             // 
             // frmNhapDiem
             // 
@@ -826,6 +846,8 @@ namespace QuanLyDiemSV
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiem)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errDiemLT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errDiemTH)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -887,18 +909,20 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtDiemHe4;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.ErrorProvider errDiemLT;
+        private System.Windows.Forms.ErrorProvider errDiemTH;
     }
 }
