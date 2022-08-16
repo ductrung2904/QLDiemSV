@@ -6,12 +6,11 @@
   - Đăng nhập
   - Quản lý Sinh viên :white_check_mark: 
   - Quản lý Giáo viên :white_check_mark: 
-  - Quản lý Nhập điểm
+  - Quản lý Nhập điểm :white_check_mark: 
   - Quản lý Xem điểm sinh viên
 - Mai Hữu Văn
   - Quản lý Ngành học :white_check_mark: 
   - Quản lý Môn học :white_check_mark: 
   - Quản lý Lớp học phần :white_check_mark: 
-  - Thống kê
-  - In danh sách
+  - Thống kê/Xuất Excel 
   - Đổi mật khẩu
