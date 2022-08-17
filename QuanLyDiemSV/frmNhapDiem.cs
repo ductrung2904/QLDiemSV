@@ -189,6 +189,10 @@ namespace QuanLyDiemSV
             cboMaLop.Text = "";
             txtDiemLT.Text = "";
             txtDiemTH.Text = "";
+            txtDiemTB.Text = "";
+            txtDiemHe4.Text = "";
+            txtDiemChu.Text = "";
+            txtDanhGia.Text = "";
 
             setControls(true);
             dgvDiem.Enabled = false;
@@ -443,12 +447,37 @@ namespace QuanLyDiemSV
                     errDiemLT.SetError(txtDiemLT, "Điểm nhập vào phải lớn hơn 0 và nhỏ hơn 10");
                 }
 
+                else if (txtDanhGia.Text == "Đạt")
+                {
+                    MessageBox.Show("Bạn không thể sửa điểm được nữa");
+                    loadData();
+                    btnLuu.Enabled = false;
+                    btnHuy.Enabled = false;
+                    btnThem.Enabled = true;
+                    btnXoa.Enabled = true;
+                    btnSua.Enabled = true;
+                    setControls(false);
+                    dgvDiem.Enabled = true;
+                }    
+
                 else if (txtDiemTH.Text.Length > 0)
                 {
                     errDiemLT.Clear();
                     if (float.Parse(txtDiemTH.Text) < 0 || float.Parse(txtDiemTH.Text) > 10)
                     {
                         errDiemTH.SetError(txtDiemTH, "Điểm nhập vào phải lớn hơn 0 và nhỏ hơn 10");
+                    }
+                    else if (txtDanhGia.Text == "Đạt")
+                    {
+                        MessageBox.Show("Bạn không thể sửa điểm được nữa");
+                        loadData();
+                        btnLuu.Enabled = false;
+                        btnHuy.Enabled = false;
+                        btnThem.Enabled = true;
+                        btnXoa.Enabled = true;
+                        btnSua.Enabled = true;
+                        setControls(false);
+                        dgvDiem.Enabled = true;
                     }
                     else
                     {
@@ -472,6 +501,7 @@ namespace QuanLyDiemSV
                     }
 
                 }
+
                 else if (txtDanhGia.Text == "Không đạt")
                 {
                     MessageBox.Show("Bạn không thể sửa điểm được nữa");
@@ -484,6 +514,7 @@ namespace QuanLyDiemSV
                     setControls(false);
                     dgvDiem.Enabled = true;
                 }
+
                 else
                 {
                     errDiemLT.Clear();
