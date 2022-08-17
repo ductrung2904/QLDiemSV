@@ -29,6 +29,7 @@ namespace QuanLyDiemSV
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -42,7 +43,13 @@ namespace QuanLyDiemSV
             this.label4 = new System.Windows.Forms.Label();
             this.txtMatKhauMoi = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.errTenTaiKhoan = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errMatKhauMoi = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errMatKhau = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenTaiKhoan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMatKhauMoi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMatKhau)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -74,6 +81,7 @@ namespace QuanLyDiemSV
             this.btnThoat.TabIndex = 32;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // txtTenTaiKhoan
             // 
@@ -91,6 +99,7 @@ namespace QuanLyDiemSV
             this.btnDoiMatKhau.TabIndex = 31;
             this.btnDoiMatKhau.Text = "Đổi mật khẩu";
             this.btnDoiMatKhau.UseVisualStyleBackColor = true;
+            this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
             // label2
             // 
@@ -112,6 +121,7 @@ namespace QuanLyDiemSV
             this.chbAnHienMatKhau.TabIndex = 30;
             this.chbAnHienMatKhau.Text = "Ẩn/Hiện Mật khẩu";
             this.chbAnHienMatKhau.UseVisualStyleBackColor = true;
+            this.chbAnHienMatKhau.CheckedChanged += new System.EventHandler(this.chbAnHienMatKhau_CheckedChanged);
             // 
             // txtMatKhau
             // 
@@ -177,6 +187,18 @@ namespace QuanLyDiemSV
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             // 
+            // errTenTaiKhoan
+            // 
+            this.errTenTaiKhoan.ContainerControl = this;
+            // 
+            // errMatKhauMoi
+            // 
+            this.errMatKhauMoi.ContainerControl = this;
+            // 
+            // errMatKhau
+            // 
+            this.errMatKhau.ContainerControl = this;
+            // 
             // frmDoiMatKhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,6 +211,9 @@ namespace QuanLyDiemSV
             this.Text = "Đổi mật khẩu";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenTaiKhoan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMatKhauMoi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMatKhau)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,5 +233,8 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMatKhauMoi;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ErrorProvider errTenTaiKhoan;
+        private System.Windows.Forms.ErrorProvider errMatKhauMoi;
+        private System.Windows.Forms.ErrorProvider errMatKhau;
     }
 }
