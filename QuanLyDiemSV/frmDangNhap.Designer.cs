@@ -108,6 +108,7 @@ namespace QuanLyDiemSV
             this.btnDangNhap.TabIndex = 31;
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // btnThoat
             // 
@@ -117,6 +118,7 @@ namespace QuanLyDiemSV
             this.btnThoat.TabIndex = 32;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // rdbGiaoVien
             // 

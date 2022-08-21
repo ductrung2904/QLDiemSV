@@ -118,6 +118,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDiemSV.dbml</DependentUpon>
     </Compile>
+    <Compile Include="UserRole.cs" />
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
