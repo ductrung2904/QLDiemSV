@@ -187,7 +187,9 @@
     <Content Include="Images\excel.png" />
     <Content Include="Images\padlock.png" />
     <Content Include="Images\presentation.png" />
+    <Content Include="Images\register.png" />
     <Content Include="Images\score.png" />
+    <Content Include="Images\score_2.png" />
     <Content Include="Images\shutdown.png" />
     <Content Include="Images\teacher.png" />
     <None Include="Images\Thoat2.png" />

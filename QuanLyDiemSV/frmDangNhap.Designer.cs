@@ -37,8 +37,6 @@ namespace QuanLyDiemSV
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.rdbGiaoVien = new System.Windows.Forms.RadioButton();
-            this.rdbSinhVien = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,6 +75,7 @@ namespace QuanLyDiemSV
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(289, 135);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(255, 22);
             this.txtPassword.TabIndex = 29;
             // 
@@ -120,37 +119,11 @@ namespace QuanLyDiemSV
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // rdbGiaoVien
-            // 
-            this.rdbGiaoVien.AutoSize = true;
-            this.rdbGiaoVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbGiaoVien.Location = new System.Drawing.Point(253, 197);
-            this.rdbGiaoVien.Name = "rdbGiaoVien";
-            this.rdbGiaoVien.Size = new System.Drawing.Size(85, 20);
-            this.rdbGiaoVien.TabIndex = 33;
-            this.rdbGiaoVien.TabStop = true;
-            this.rdbGiaoVien.Text = "Giáo Viên";
-            this.rdbGiaoVien.UseVisualStyleBackColor = true;
-            // 
-            // rdbSinhVien
-            // 
-            this.rdbSinhVien.AutoSize = true;
-            this.rdbSinhVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbSinhVien.Location = new System.Drawing.Point(384, 197);
-            this.rdbSinhVien.Name = "rdbSinhVien";
-            this.rdbSinhVien.Size = new System.Drawing.Size(82, 20);
-            this.rdbSinhVien.TabIndex = 34;
-            this.rdbSinhVien.TabStop = true;
-            this.rdbSinhVien.Text = "Sinh Viên";
-            this.rdbSinhVien.UseVisualStyleBackColor = true;
-            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 304);
-            this.Controls.Add(this.rdbSinhVien);
-            this.Controls.Add(this.rdbGiaoVien);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.pictureBox1);
@@ -178,7 +151,5 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.RadioButton rdbGiaoVien;
-        private System.Windows.Forms.RadioButton rdbSinhVien;
     }
 }

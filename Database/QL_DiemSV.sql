@@ -1,9 +1,19 @@
-﻿drop database QL_DiemSV
+﻿use master
+go
+if exists (select * from sysdatabases where name = 'QL_DiemSV')
+drop database QL_DiemSV
 go
 create database QL_DiemSV
 go
 use QL_DiemSV
 go
+
+create table QuanTriVien
+(
+	MaQTV int identity(1, 1) primary key not null,
+	Username varchar(50) unique,
+	Password varchar(50), 
+);
 
 create table NganhHoc
 (
@@ -80,6 +90,8 @@ create table Diem
 
 set dateformat dmy
 go
+
+insert into QuanTriVien values('admin', 'admin');
 
 insert into NganhHoc values('QTM', N'Quản trị mạng');
 insert into NganhHoc values('LT', N'Lập trình');
@@ -165,7 +177,7 @@ insert into Diem values('MD00000004', 1800000002, 'LTW', 'ML00000023', 8, 9, 8.5
 insert into Diem values('MD00000005', 1800000002, 'CDN', 'ML00000026', 6, 7, 6.5, 2.6, 'C', N'Đạt');
 insert into Diem values('MD00000006', 1800000005, 'TKHTM', 'ML00000001', 8, 9, 8.5, 3.4, 'A', N'Đạt');
 insert into Diem values('MD00000007', 1800000006, 'ANM', 'ML00000009', 7, 4, 5.5, 2.2, 'D', N'Đạt');
-insert into Diem values('MD00000008', 1800000024, 'PTTKHTM', 'ML00000014', 4, null, null, null, null, null);
+insert into Diem values('MD00000008', 1800000024, 'PTTKHTM', 'ML00000014', 4, 6, 5, 2, 'D', N'Đạt');
 
 select * from NganhHoc;
 select * from MonHoc;

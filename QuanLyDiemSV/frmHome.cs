@@ -95,7 +95,7 @@ namespace QuanLyDiemSV
             openChildForm(new frmThongKeDiem());
         }
 
-        private void btnBaoCao_Click(object sender, EventArgs e)
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
             openChildForm(new frmDoiMatKhau());
         }

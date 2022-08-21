@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_DiemSV" Class="QLDiemSVDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-KGCJNIH\SQLEXPRESS;Initial Catalog=QL_DiemSV;Integrated Security=True" SettingsObjectName="QuanLyDiemSV.Properties.Settings" SettingsPropertyName="QL_DiemSVConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DUCTRUNG-PC;Initial Catalog=QL_DiemSV;Integrated Security=True" SettingsObjectName="QuanLyDiemSV.Properties.Settings" SettingsPropertyName="QL_DiemSVConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Diem" Member="Diems">
     <Type Name="Diem">
       <Column Name="MaDiem" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -12,25 +12,9 @@
       <Column Name="DiemHe4" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="DiemChu" Type="System.String" DbType="Char(3)" CanBeNull="true" />
       <Column Name="DanhGia" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Association Name="SinhVien_Diem" Member="SinhVien" ThisKey="MaSV" OtherKey="MaSV" Type="SinhVien" IsForeignKey="true" />
       <Association Name="Lop_Diem" Member="Lop" ThisKey="MaLop" OtherKey="MaLop" Type="Lop" IsForeignKey="true" />
       <Association Name="MonHoc_Diem" Member="MonHoc" ThisKey="MaMH" OtherKey="MaMH" Type="MonHoc" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.SinhVien" Member="SinhViens">
-    <Type Name="SinhVien">
-      <Column Name="MaSV" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenSV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="DienThoai" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="MaNganh" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="SinhVien_Diem" Member="Diems" ThisKey="MaSV" OtherKey="MaSV" Type="Diem" />
-      <Association Name="NganhHoc_SinhVien" Member="NganhHoc" ThisKey="MaNganh" OtherKey="MaNganh" Type="NganhHoc" IsForeignKey="true" />
+      <Association Name="SinhVien_Diem" Member="SinhVien" ThisKey="MaSV" OtherKey="MaSV" Type="SinhVien" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.GiaoVien" Member="GiaoViens">
@@ -76,8 +60,31 @@
     <Type Name="NganhHoc">
       <Column Name="MaNganh" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenNganh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="NganhHoc_SinhVien" Member="SinhViens" ThisKey="MaNganh" OtherKey="MaNganh" Type="SinhVien" />
       <Association Name="NganhHoc_MonHoc" Member="MonHocs" ThisKey="MaNganh" OtherKey="MaNganh" Type="MonHoc" />
+      <Association Name="NganhHoc_SinhVien" Member="SinhViens" ThisKey="MaNganh" OtherKey="MaNganh" Type="SinhVien" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuanTriVien" Member="QuanTriViens">
+    <Type Name="QuanTriVien">
+      <Column Name="MaQTV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SinhVien" Member="SinhViens">
+    <Type Name="SinhVien">
+      <Column Name="MaSV" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenSV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MaNganh" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="SinhVien_Diem" Member="Diems" ThisKey="MaSV" OtherKey="MaSV" Type="Diem" />
+      <Association Name="NganhHoc_SinhVien" Member="NganhHoc" ThisKey="MaNganh" OtherKey="MaNganh" Type="NganhHoc" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
