@@ -13,6 +13,7 @@ namespace QuanLyDiemSV
 {
     public partial class frmNhapDiem : Form
     {
+        //UserRole ur = new UserRole();
         public frmNhapDiem()
         {
             InitializeComponent();
@@ -31,8 +32,17 @@ namespace QuanLyDiemSV
 
         void loadData()
         {
-            var query = from d in db.Diems join sv in db.SinhViens on d.MaSV equals sv.MaSV where d.MaSV == sv.MaSV join mh in db.MonHocs on d.MaMH equals mh.MaMH where d.MaMH == mh.MaMH join l in db.Lops on d.MaLop equals l.MaLop where d.MaLop == l.MaLop select new { MaDiem = d.MaDiem, MaSV = sv.MaSV, TenSV = sv.TenSV, MaMH = mh.MaMH, TenMH = mh.TenMH, MaLop = d.MaLop, MaHocPhan = l.MaHocPhan, DiemLT = d.DiemLT, DiemTH = d.DiemTH, DiemTB = d.DiemTB, DiemHe4 = d.DiemHe4, DiemChu = d.DiemChu, DanhGia = d.DanhGia };
+            var query = from d in db.Diems
+                        join sv in db.SinhViens on d.MaSV equals sv.MaSV where d.MaSV == sv.MaSV
+                        join mh in db.MonHocs on d.MaMH equals mh.MaMH where d.MaMH == mh.MaMH
+                        join l in db.Lops on d.MaLop equals l.MaLop where d.MaLop == l.MaLop
+                        join gv in db.GiaoViens on l.MaGV equals gv.MaGV
+                        where d.MaLop == l.MaLop //&& 
+                        //l.MaGV == gv.MaGV &&  
+                        //gv.Username == ur.username
+                        select new { MaDiem = d.MaDiem, MaSV = sv.MaSV, TenSV = sv.TenSV, MaMH = mh.MaMH, TenMH = mh.TenMH, MaLop = d.MaLop, MaHocPhan = l.MaHocPhan, DiemLT = d.DiemLT, DiemTH = d.DiemTH, DiemTB = d.DiemTB, DiemHe4 = d.DiemHe4, DiemChu = d.DiemChu, DanhGia = d.DanhGia };
             dgvDiem.DataSource = query;
+            //MessageBox.Show(ur.username);
         }
 
         private void frmNhapDiem_Load(object sender, EventArgs e)

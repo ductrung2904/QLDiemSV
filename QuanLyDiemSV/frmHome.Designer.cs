@@ -306,20 +306,20 @@ namespace QuanLyDiemSV
         #endregion
 
         private System.Windows.Forms.Panel panelSideMenu;
-        private System.Windows.Forms.Button btnLopHP;
-        private System.Windows.Forms.Button btnMonHoc;
-        private System.Windows.Forms.Button btnKhoa;
-        private System.Windows.Forms.Button btnSinhVien;
-        private System.Windows.Forms.Button btnNhapDiem;
-        private System.Windows.Forms.Button btnGiaoVien;
-        private System.Windows.Forms.Button btnBaoCao;
         private System.Windows.Forms.Panel panelFooter;
         private System.Windows.Forms.Panel panelChildForm;
-        private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.Button btnLopHP;
+        public System.Windows.Forms.Button btnMonHoc;
+        public System.Windows.Forms.Button btnKhoa;
+        public System.Windows.Forms.Button btnSinhVien;
+        public System.Windows.Forms.Button btnNhapDiem;
+        public System.Windows.Forms.Button btnGiaoVien;
+        public System.Windows.Forms.Button btnBaoCao;
+        public System.Windows.Forms.Button btnThongKe;
     }
 }
 
