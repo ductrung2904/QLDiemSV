@@ -1,4 +1,4 @@
-# QUẢN LÝ ĐIỂM SINH VIÊN
+# ĐỒ ÁN QUẢN LÝ ĐIỂM SINH VIÊN
 ## Phân công
 - Bùi Nguyễn Đức Trung
   - Thiết kế giao diện :white_check_mark: 
@@ -6,8 +6,8 @@
   - Quản lý Sinh viên :white_check_mark: 
   - Quản lý Giáo viên :white_check_mark: 
   - Quản lý Nhập điểm :white_check_mark: 
+  - Đổi mật khẩu giáo viên
   - Quản lý Nhập điểm cho giáo viên
-  - Quản lý Xem điểm sinh viên
   - Quản lý Đăng ký học phần mới cho sinh viên
 - Mai Hữu Văn
   - Đăng nhập
@@ -15,4 +15,6 @@
   - Quản lý Môn học :white_check_mark: 
   - Quản lý Lớp học phần :white_check_mark: 
   - Thống kê/Xuất Excel 
-  - Đổi mật khẩu
+  - Đổi mật khẩu admin
+  - Đổi mật khẩu sinh viên
+  - Quản lý Xem điểm sinh viên
