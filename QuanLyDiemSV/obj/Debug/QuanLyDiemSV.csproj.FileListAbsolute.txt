@@ -111,3 +111,27 @@ C:\Users\DUCTRUNG-PC\Desktop\aaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.cs
 C:\Users\DUCTRUNG-PC\Desktop\aaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.exe
 C:\Users\DUCTRUNG-PC\Desktop\aaa\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.pdb
 C:\Users\DUCTRUNG-PC\Desktop\aaa\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.pdb
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.exe.config
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.AssemblyReference.cache
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDangNhap.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDKHP.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDoiMatKhau.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDoiMatKhauGV.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDoiMatKhauSV.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmGiaoVien.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmHome.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmLop.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmMonHoc.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNganhHoc.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNhapDiem.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNhapDiemGV.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmSinhVien.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmThongKeDiem.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmXemDiemSV.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.Properties.Resources.resources
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.GenerateResource.cache
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.csproj.CoreCompileInputs.cache
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.exe
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.pdb
+C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.pdb

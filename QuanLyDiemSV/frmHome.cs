@@ -15,30 +15,7 @@ namespace QuanLyDiemSV
         public frmHome()
         {
             InitializeComponent();
-            //panelThongKe.Visible = false;
         }
-
-        //private void hideMenu()
-        //{
-        //    if (panelThongKe.Visible == true)
-        //        panelThongKe.Visible = false;
-        //}
-
-        //private void showMenu(Panel subMenu)
-        //{
-        //    if (subMenu.Visible == false)
-        //    {
-        //        hideMenu();
-        //        subMenu.Visible = true;
-        //    }
-        //    else
-        //        subMenu.Visible = false;
-        //}
-
-        //private void btnThongKe_Click(object sender, EventArgs e)
-        //{
-        //    showMenu(panelThongKe);
-        //}
 
         private Form activeForm = null;
         private void openChildForm(Form childForm)
@@ -88,6 +65,8 @@ namespace QuanLyDiemSV
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+            frmDangNhap frm = new frmDangNhap();
+            frm.Show();
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
@@ -98,6 +77,31 @@ namespace QuanLyDiemSV
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
             openChildForm(new frmDoiMatKhau());
+        }
+
+        private void btnXemDiemSV_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmXemDiemSV());
+        }
+
+        private void btnDoiMatKhauGV_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmDoiMatKhauGV());
+        }
+
+        private void btnDoiMatKhauSV_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmDoiMatKhauSV());
+        }
+
+        private void btnNhapDiemGV_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmNhapDiemGV());
+        }
+
+        private void btnDKHP_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmDKHP());
         }
     }
 }

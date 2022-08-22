@@ -25,7 +25,7 @@ namespace QuanLyDiemSV
             frmDangNhap dangnhap = new frmDangNhap();
 
             var useradmin = db.QuanTriViens.Select(
-                x => new 
+                x => new
                 {
                     Username = x.Username,
                     Password = x.Password
@@ -51,12 +51,17 @@ namespace QuanLyDiemSV
                 {
                     this.Visible = false;
                     home.Visible = true;
+                    home.btnDKHP.Visible = false;
+                    home.btnXemDiemSV.Visible = false;
+                    home.btnNhapDiemGV.Visible = false;
+                    home.btnDoiMatKhauGV.Visible = false;
+                    home.btnDoiMatKhauSV.Visible = false;
                 }
             }
 
             foreach (var item in usersv)
             {
-                if(txtUsername.Text == item.Username && txtPassword.Text == item.Password)
+                if (txtUsername.Text == item.Username && txtPassword.Text == item.Password)
                 {
                     this.Visible = false;
                     home.Visible = true;
@@ -91,6 +96,7 @@ namespace QuanLyDiemSV
                     home.btnDoiMatKhau.Visible = false;
                     home.btnDoiMatKhauSV.Visible = false;
                     home.btnXemDiemSV.Visible = false;
+                    home.btnDKHP.Visible = false;
 
                     ur.UserName = item.Username;
                 }
@@ -98,7 +104,17 @@ namespace QuanLyDiemSV
         }
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dlr;
+            dlr = MessageBox.Show("Bạn chắc chắn muốn thoát.", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dlr == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+        private void chbAnHienMatKhau_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = chbAnHienMatKhau.Checked ? '\0' : '*';
         }
     }
 }

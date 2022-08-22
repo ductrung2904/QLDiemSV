@@ -37,6 +37,7 @@ namespace QuanLyDiemSV
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.chbAnHienMatKhau = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,11 +120,24 @@ namespace QuanLyDiemSV
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // chbAnHienMatKhau
+            // 
+            this.chbAnHienMatKhau.AutoSize = true;
+            this.chbAnHienMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbAnHienMatKhau.Location = new System.Drawing.Point(289, 187);
+            this.chbAnHienMatKhau.Name = "chbAnHienMatKhau";
+            this.chbAnHienMatKhau.Size = new System.Drawing.Size(132, 20);
+            this.chbAnHienMatKhau.TabIndex = 33;
+            this.chbAnHienMatKhau.Text = "Ẩn/Hiện Mật khẩu";
+            this.chbAnHienMatKhau.UseVisualStyleBackColor = true;
+            this.chbAnHienMatKhau.CheckedChanged += new System.EventHandler(this.chbAnHienMatKhau_CheckedChanged);
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 304);
+            this.Controls.Add(this.chbAnHienMatKhau);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.pictureBox1);
@@ -132,6 +146,7 @@ namespace QuanLyDiemSV
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
@@ -151,5 +166,6 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.CheckBox chbAnHienMatKhau;
     }
 }
