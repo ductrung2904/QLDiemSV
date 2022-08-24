@@ -178,6 +178,11 @@ insert into Diem values('MD00000005', 1800000002, 'CDN', 'ML00000026', 6, 7, 6.5
 insert into Diem values('MD00000006', 1800000005, 'TKHTM', 'ML00000001', 8, 9, 8.5, 3.4, 'A', N'Đạt');
 insert into Diem values('MD00000007', 1800000006, 'ANM', 'ML00000009', 7, 4, 5.5, 2.2, 'D', N'Đạt');
 insert into Diem values('MD00000008', 1800000024, 'PTTKHTM', 'ML00000014', 4, 6, 5, 2, 'D', N'Đạt');
+insert into Diem values('MD00000009', 1800000003, 'CDN', 'ML00000026', 9, 8, 8.5, 3.4, 'A', N'Đạt');
+insert into Diem values('MD00000010', 1800000003, 'CDJ', 'ML00000028', 7, 8, 7.5, 3, 'B', N'Đạt');
+insert into Diem values('MD00000011', 1800000004, 'KTLT', 'ML00000017', 8, 7, 7.5, 3, 'B', N'Đạt');
+insert into Diem values('MD00000012', 1800000007, 'XDHTM', 'ML00000012', 6, 6, 6, 2.4, 'C', N'Đạt');
+insert into Diem values('MD00000013', 1800000008, 'XDHTM', 'ML00000012', 7, 6, 6.5, 2.6, 'C', N'Đạt');
 
 select * from NganhHoc;
 select * from MonHoc;

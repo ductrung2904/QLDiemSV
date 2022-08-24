@@ -48,6 +48,8 @@ namespace QuanLyDiemSV
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblID2 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBangDiemSV)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +76,7 @@ namespace QuanLyDiemSV
             this.groupBox2.Controls.Add(this.rdbMaMH);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox2.Location = new System.Drawing.Point(284, 65);
+            this.groupBox2.Location = new System.Drawing.Point(281, 108);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(472, 167);
             this.groupBox2.TabIndex = 18;
@@ -89,7 +91,6 @@ namespace QuanLyDiemSV
             this.rdbMaHP.Name = "rdbMaHP";
             this.rdbMaHP.Size = new System.Drawing.Size(107, 20);
             this.rdbMaHP.TabIndex = 19;
-            this.rdbMaHP.TabStop = true;
             this.rdbMaHP.Text = "Mã Học Phần";
             this.rdbMaHP.UseVisualStyleBackColor = true;
             // 
@@ -101,7 +102,6 @@ namespace QuanLyDiemSV
             this.rdbMaLop.Name = "rdbMaLop";
             this.rdbMaLop.Size = new System.Drawing.Size(71, 20);
             this.rdbMaLop.TabIndex = 18;
-            this.rdbMaLop.TabStop = true;
             this.rdbMaLop.Text = "Mã Lớp";
             this.rdbMaLop.UseVisualStyleBackColor = true;
             // 
@@ -116,6 +116,7 @@ namespace QuanLyDiemSV
             this.btnRefresh.TabIndex = 17;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnMoi
             // 
@@ -128,6 +129,7 @@ namespace QuanLyDiemSV
             this.btnMoi.TabIndex = 16;
             this.btnMoi.Text = "Mới";
             this.btnMoi.UseVisualStyleBackColor = true;
+            this.btnMoi.Click += new System.EventHandler(this.btnMoi_Click);
             // 
             // txtTimKiem
             // 
@@ -135,6 +137,7 @@ namespace QuanLyDiemSV
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(305, 22);
             this.txtTimKiem.TabIndex = 15;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // rdbTenMH
             // 
@@ -144,13 +147,13 @@ namespace QuanLyDiemSV
             this.rdbTenMH.Name = "rdbTenMH";
             this.rdbTenMH.Size = new System.Drawing.Size(107, 20);
             this.rdbTenMH.TabIndex = 14;
-            this.rdbTenMH.TabStop = true;
             this.rdbTenMH.Text = "Tên Môn Học";
             this.rdbTenMH.UseVisualStyleBackColor = true;
             // 
             // rdbMaMH
             // 
             this.rdbMaMH.AutoSize = true;
+            this.rdbMaMH.Checked = true;
             this.rdbMaMH.ForeColor = System.Drawing.Color.Black;
             this.rdbMaMH.Location = new System.Drawing.Point(25, 31);
             this.rdbMaMH.Name = "rdbMaMH";
@@ -173,77 +176,111 @@ namespace QuanLyDiemSV
             this.Column7,
             this.Column8,
             this.Column9});
-            this.dgvBangDiemSV.Location = new System.Drawing.Point(37, 250);
+            this.dgvBangDiemSV.Location = new System.Drawing.Point(34, 293);
             this.dgvBangDiemSV.Name = "dgvBangDiemSV";
+            this.dgvBangDiemSV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBangDiemSV.Size = new System.Drawing.Size(988, 327);
             this.dgvBangDiemSV.TabIndex = 19;
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "MaMH";
             this.Column1.HeaderText = "Mã Môn Học";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "TenMH";
             this.Column2.HeaderText = "Tên Môn Học";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 150;
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "MaLop";
             this.Column3.HeaderText = "Mã Lớp";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "MaHocPhan";
             this.Column4.HeaderText = "Mã Học Phần";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
+            this.Column5.DataPropertyName = "DiemLT";
             this.Column5.HeaderText = "Điểm Lý Thuyết";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
+            this.Column6.DataPropertyName = "DiemTH";
             this.Column6.HeaderText = "Điểm Thực Hành";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
+            this.Column7.DataPropertyName = "DiemTB";
             this.Column7.HeaderText = "Điểm Trung Bình";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
+            this.Column8.DataPropertyName = "DiemHe4";
             this.Column8.HeaderText = "Điểm Hệ 4";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
+            this.Column9.DataPropertyName = "DanhGia";
             this.Column9.HeaderText = "Đánh Giá";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
+            // 
+            // lblID2
+            // 
+            this.lblID2.AutoSize = true;
+            this.lblID2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID2.Location = new System.Drawing.Point(548, 76);
+            this.lblID2.Name = "lblID2";
+            this.lblID2.Size = new System.Drawing.Size(45, 16);
+            this.lblID2.TabIndex = 20;
+            this.lblID2.Text = "label2";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(456, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 16);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Mã Sinh Viên";
             // 
             // frmXemDiemSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1056, 589);
+            this.ClientSize = new System.Drawing.Size(1056, 630);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblID2);
             this.Controls.Add(this.dgvBangDiemSV);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(1072, 628);
             this.Name = "frmXemDiemSV";
             this.Text = "Xem điểm sinh viên";
+            this.Load += new System.EventHandler(this.frmXemDiemSV_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBangDiemSV)).EndInit();
@@ -273,5 +310,7 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        public System.Windows.Forms.Label lblID2;
+        private System.Windows.Forms.Label label2;
     }
 }

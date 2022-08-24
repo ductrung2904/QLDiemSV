@@ -37,12 +37,9 @@ namespace QuanLyDiemSV
                         join mh in db.MonHocs on d.MaMH equals mh.MaMH where d.MaMH == mh.MaMH
                         join l in db.Lops on d.MaLop equals l.MaLop where d.MaLop == l.MaLop
                         join gv in db.GiaoViens on l.MaGV equals gv.MaGV
-                        where d.MaLop == l.MaLop //&& 
-                        //l.MaGV == gv.MaGV &&  
-                        //gv.Username == ur.username
+                        where d.MaLop == l.MaLop
                         select new { MaDiem = d.MaDiem, MaSV = sv.MaSV, TenSV = sv.TenSV, MaMH = mh.MaMH, TenMH = mh.TenMH, MaLop = d.MaLop, MaHocPhan = l.MaHocPhan, DiemLT = d.DiemLT, DiemTH = d.DiemTH, DiemTB = d.DiemTB, DiemHe4 = d.DiemHe4, DiemChu = d.DiemChu, DanhGia = d.DanhGia };
             dgvDiem.DataSource = query;
-            //MessageBox.Show(ur.username);
         }
 
         private void frmNhapDiem_Load(object sender, EventArgs e)
@@ -93,6 +90,36 @@ namespace QuanLyDiemSV
 
         }
 
+        private void txtDiemLT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // validate không được nhập chữ
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // validate nhập được giá trị float
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDiemTH_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // validate không được nhập chữ
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // validate nhập được giá trị float
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void dgvDiem_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             txtMaDiem.Text = dgvDiem.CurrentRow.Cells[0].Value.ToString();
@@ -133,6 +160,12 @@ namespace QuanLyDiemSV
             btnSua.Enabled = true;
             loadData();
             dgvDiem.AutoGenerateColumns = false;
+        }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+            txtTimKiem.Text = "";
+            txtTimKiem.Focus();
         }
 
         public string tangMaTuDong()
@@ -609,46 +642,6 @@ namespace QuanLyDiemSV
             {
                 var timKiemLop = from d in db.Diems join sv in db.SinhViens on d.MaSV equals sv.MaSV where d.MaSV == sv.MaSV join mh in db.MonHocs on d.MaMH equals mh.MaMH where d.MaMH == mh.MaMH join l in db.Lops on d.MaLop equals l.MaLop where d.MaLop == l.MaLop where SqlMethods.Like(l.MaHocPhan.ToString(), "%" + txtTimKiem.Text + "%") select new { MaDiem = d.MaDiem, MaSV = d.MaSV, TenSV = sv.TenSV, MaMH = d.MaMH, TenMH = mh.TenMH, MaLop = d.MaLop, MaHocPhan = l.MaHocPhan, DiemLT = d.DiemLT, DiemTH = d.DiemTH, DiemTB = d.DiemTB, DiemHe4 = d.DiemHe4, DiemChu = d.DiemChu, DanhGia = d.DanhGia };
                 dgvDiem.DataSource = timKiemLop;
-            }
-        }
-
-        private void dgvDiem_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            //String value = e.Value as string;
-            //if ((value != null) && value.Equals(e.CellStyle.DataSourceNullValue))
-            //{
-            //    e.Value = e.CellStyle.NullValue;
-            //    e.FormattingApplied = true;
-            //}
-        }
-
-        private void txtDiemLT_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // validate không được nhập chữ
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            // validate nhập được giá trị float
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtDiemTH_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // validate không được nhập chữ
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            // validate nhập được giá trị float
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
             }
         }
     }

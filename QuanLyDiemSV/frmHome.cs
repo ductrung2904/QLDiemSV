@@ -12,9 +12,17 @@ namespace QuanLyDiemSV
 {
     public partial class frmHome : Form
     {
+        public delegate void SendData(string Data);
+        public SendData Sender;
         public frmHome()
         {
             InitializeComponent();
+            Sender = new SendData(GetData);
+        }
+
+        private void GetData(string Data)
+        {
+            lblID.Text = Data;
         }
 
         private Form activeForm = null;
@@ -81,7 +89,10 @@ namespace QuanLyDiemSV
 
         private void btnXemDiemSV_Click(object sender, EventArgs e)
         {
-            openChildForm(new frmXemDiemSV());
+            frmXemDiemSV frm = new frmXemDiemSV();
+            this.Sender = new SendData(frm.SetData);
+            Sender(lblID.Text);
+            openChildForm(frm);
         }
 
         private void btnDoiMatKhauGV_Click(object sender, EventArgs e)
@@ -96,7 +107,10 @@ namespace QuanLyDiemSV
 
         private void btnNhapDiemGV_Click(object sender, EventArgs e)
         {
-            openChildForm(new frmNhapDiemGV());
+            frmNhapDiemGV frm = new frmNhapDiemGV();
+            this.Sender = new SendData(frm.SetData);
+            Sender(lblID.Text);
+            openChildForm(frm);
         }
 
         private void btnDKHP_Click(object sender, EventArgs e)

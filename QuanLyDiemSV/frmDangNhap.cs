@@ -15,10 +15,12 @@ namespace QuanLyDiemSV
         UserRole ur = new UserRole();//Class UserRole dùng để chứa dữ liệu
 
         QLDiemSVDataContext db = new QLDiemSVDataContext();
+
         public frmDangNhap()
         {
             InitializeComponent();
         }
+
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             frmHome home = new frmHome();
@@ -27,22 +29,28 @@ namespace QuanLyDiemSV
             var useradmin = db.QuanTriViens.Select(
                 x => new
                 {
+                    ID = x.MaQTV,
                     Username = x.Username,
-                    Password = x.Password
+                    Password = x.Password,
+                    Hoten = x.Username
                 });
 
             var usersv = db.SinhViens.Select(
                 x => new
                 {
+                    ID = x.MaSV,
                     Username = x.Username,
-                    Password = x.Password
+                    Password = x.Password,
+                    Hoten = x.TenSV
                 });
 
             var usergv = db.GiaoViens.Select(
                 x => new
                 {
+                    ID = x.MaGV,
                     Username = x.Username,
-                    Password = x.Password
+                    Password = x.Password,
+                    Hoten = x.TenGV
                 });
 
             foreach (var item in useradmin)
@@ -56,6 +64,15 @@ namespace QuanLyDiemSV
                     home.btnNhapDiemGV.Visible = false;
                     home.btnDoiMatKhauGV.Visible = false;
                     home.btnDoiMatKhauSV.Visible = false;
+
+                    ur.ID = Convert.ToString(item.ID);
+                    ur.UserName = item.Username;
+
+                    home.lblID.Text = ur.ID;
+
+                    string lastName = item.Hoten.Split(' ').Last();
+                    ur.Hoten = lastName;
+                    home.lblTenDangNhap.Text = "Xin chào, " + ur.Hoten;
                 }
             }
 
@@ -76,7 +93,14 @@ namespace QuanLyDiemSV
                     home.btnDoiMatKhauGV.Visible = false;
                     home.btnNhapDiemGV.Visible = false;
 
+                    ur.ID = Convert.ToString(item.ID);
                     ur.UserName = item.Username;
+
+                    home.lblID.Text = ur.ID;
+
+                    string lastName = item.Hoten.Split(' ').Last();
+                    ur.Hoten = lastName;
+                    home.lblTenDangNhap.Text = "Xin chào, " + ur.Hoten;
                 }
             }
 
@@ -98,7 +122,14 @@ namespace QuanLyDiemSV
                     home.btnXemDiemSV.Visible = false;
                     home.btnDKHP.Visible = false;
 
+                    ur.ID = Convert.ToString(item.ID);
                     ur.UserName = item.Username;
+
+                    home.lblID.Text = ur.ID;
+
+                    string lastName = item.Hoten.Split(' ').Last();
+                    ur.Hoten = lastName;
+                    home.lblTenDangNhap.Text = "Xin chào, " + ur.Hoten;
                 }
             }
         }
