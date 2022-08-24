@@ -539,6 +539,7 @@ namespace QuanLyDiemSV
             this.btnLoc.TabIndex = 11;
             this.btnLoc.Text = "Mới";
             this.btnLoc.UseVisualStyleBackColor = true;
+            this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
             // 
             // txtTimKiem
             // 
@@ -610,7 +611,6 @@ namespace QuanLyDiemSV
             this.dgvDiem.Size = new System.Drawing.Size(1035, 241);
             this.dgvDiem.TabIndex = 0;
             this.dgvDiem.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDiem_CellEnter);
-            this.dgvDiem.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDiem_CellFormatting);
             // 
             // Column0
             // 

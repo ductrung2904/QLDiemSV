@@ -45,6 +45,7 @@ namespace QuanLyDiemSV
             this.btnKhoa = new System.Windows.Forms.Button();
             this.btnSinhVien = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblID = new System.Windows.Forms.Label();
             this.lblTenDangNhap = new System.Windows.Forms.Label();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -340,12 +341,24 @@ namespace QuanLyDiemSV
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightBlue;
+            this.panel1.Controls.Add(this.lblID);
             this.panel1.Controls.Add(this.lblTenDangNhap);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 100);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(183, 41);
             this.panel1.TabIndex = 1;
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(6, 12);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(22, 16);
+            this.lblID.TabIndex = 1;
+            this.lblID.Text = "lbl";
+            this.lblID.Visible = false;
             // 
             // lblTenDangNhap
             // 
@@ -451,9 +464,10 @@ namespace QuanLyDiemSV
         public System.Windows.Forms.Button btnKhoa;
         public System.Windows.Forms.Button btnSinhVien;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblTenDangNhap;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Label lblTenDangNhap;
+        public System.Windows.Forms.Label lblID;
     }
 }
 
