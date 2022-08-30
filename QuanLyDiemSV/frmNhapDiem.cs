@@ -12,15 +12,13 @@ using System.Windows.Forms;
 namespace QuanLyDiemSV
 {
     public partial class frmNhapDiem : Form
-    {
-        //UserRole ur = new UserRole();
+    {           
+        QLDiemSVDataContext db = new QLDiemSVDataContext();
+        int flag;
         public frmNhapDiem()
         {
             InitializeComponent();
         }
-        QLDiemSVDataContext db = new QLDiemSVDataContext();
-        int flag;
-
         private void setControls(bool edit)
         {
             cboMaSV.Enabled = edit;

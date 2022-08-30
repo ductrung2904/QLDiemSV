@@ -31,43 +31,43 @@ namespace QuanLyDiemSV
                 errNH.SetError(cboNganhHoc, "Bạn chưa chọn Ngành học!");
             }
             else if (cboMonHoc.Text == "")
-            {
+            {              
                 var query = from diem in db.Diems
-                            join sv in db.SinhViens on diem.MaSV equals sv.MaSV
+                            group diem by diem.MaSV into diemSV
+
+                            join sv in db.SinhViens on diemSV.FirstOrDefault().MaSV equals sv.MaSV
                             join nh in db.NganhHocs on sv.MaNganh equals nh.MaNganh
-                            join lop in db.Lops on diem.MaLop equals lop.MaLop
-                            join mh in db.MonHocs on lop.MaMH equals mh.MaMH                         
+                            join lop in db.Lops on diemSV.FirstOrDefault().MaLop equals lop.MaLop
+                            join mh in db.MonHocs on lop.MaMH equals mh.MaMH                  
                             where   nh.MaNganh == mh.MaNganh &&
                                     nh.MaNganh == sv.MaNganh &&
-                                    sv.MaSV == diem.MaSV &&
+                                    sv.MaSV == diemSV.FirstOrDefault().MaSV &&
                                     mh.MaMH == lop.MaMH &&
                                     nh.MaNganh.ToString() == cboNganhHoc.GetItemText(cboNganhHoc.SelectedItem)
                             select new
                             {
                                 MaSV = sv.MaSV,
                                 TenSV = sv.TenSV,
-                                MaNganh = nh.MaNganh,
                                 TenNganh = nh.TenNganh,
-                                TenMH = mh.TenMH,
-                                MaHocPhan = lop.MaHocPhan,
-                                DiemLT = Math.Round(double.Parse(diem.DiemLT.ToString()), 2),
-                                DiemTH = Math.Round(double.Parse(diem.DiemTH.ToString()), 2),
-                                DiemTB = Math.Round(double.Parse(diem.DiemTB.ToString()), 2),
-                                DiemH4 = Math.Round(double.Parse(diem.DiemHe4.ToString()), 2),
+                                DiemTB = Math.Round(double.Parse(diemSV.Average(x => x.DiemTB).ToString()), 2),
+                                DiemH4 = Math.Round(double.Parse((diemSV.Average(x => x.DiemTB)*4/10).ToString()), 2),
+                                SoTC = diemSV.Sum(x => x.MonHoc.SoTinChi)
                             };
 
                 dgvThongKeDiemSV.DataSource = query;
-            }
+           }
             else if (cboLopHP.Text == "")
             {
                 var query = from diem in db.Diems
-                            join sv in db.SinhViens on diem.MaSV equals sv.MaSV
+                            group diem by diem.MaSV into diemSV
+
+                            join sv in db.SinhViens on diemSV.FirstOrDefault().MaSV equals sv.MaSV
                             join nh in db.NganhHocs on sv.MaNganh equals nh.MaNganh
-                            join lop in db.Lops on diem.MaLop equals lop.MaLop
+                            join lop in db.Lops on diemSV.FirstOrDefault().MaLop equals lop.MaLop
                             join mh in db.MonHocs on lop.MaMH equals mh.MaMH
                             where nh.MaNganh == mh.MaNganh &&
                                     nh.MaNganh == sv.MaNganh &&
-                                    sv.MaSV == diem.MaSV &&
+                                    sv.MaSV == diemSV.FirstOrDefault().MaSV &&
                                     mh.MaMH == lop.MaMH &&
                                     nh.MaNganh.ToString() == this.cboNganhHoc.GetItemText(this.cboNganhHoc.SelectedItem) &&
                                     mh.MaMH.ToString() == this.cboMonHoc.GetItemText(this.cboMonHoc.SelectedItem)
@@ -75,14 +75,10 @@ namespace QuanLyDiemSV
                             {
                                 MaSV = sv.MaSV,
                                 TenSV = sv.TenSV,
-                                MaNganh = nh.MaNganh,
                                 TenNganh = nh.TenNganh,
-                                TenMH = mh.TenMH,
-                                MaHocPhan = lop.MaHocPhan,
-                                DiemLT = Math.Round(double.Parse(diem.DiemLT.ToString()), 2),
-                                DiemTH = Math.Round(double.Parse(diem.DiemTH.ToString()), 2),
-                                DiemTB = Math.Round(double.Parse(diem.DiemTB.ToString()), 2),
-                                DiemH4 = Math.Round(double.Parse(diem.DiemHe4.ToString()), 2),
+                                DiemTB = Math.Round(double.Parse(diemSV.Average(x => x.DiemTB).ToString()), 2),
+                                DiemH4 = Math.Round(double.Parse((diemSV.Average(x => x.DiemTB) * 4 / 10).ToString()), 2),
+                                SoTC = diemSV.Sum(x => x.MonHoc.SoTinChi)
                             };
 
                 dgvThongKeDiemSV.DataSource = query;
@@ -90,13 +86,15 @@ namespace QuanLyDiemSV
             else
             {
                 var query = from diem in db.Diems
-                            join sv in db.SinhViens on diem.MaSV equals sv.MaSV
+                            group diem by diem.MaSV into diemSV
+
+                            join sv in db.SinhViens on diemSV.FirstOrDefault().MaSV equals sv.MaSV
                             join nh in db.NganhHocs on sv.MaNganh equals nh.MaNganh
-                            join lop in db.Lops on diem.MaLop equals lop.MaLop
+                            join lop in db.Lops on diemSV.FirstOrDefault().MaLop equals lop.MaLop
                             join mh in db.MonHocs on lop.MaMH equals mh.MaMH
                             where nh.MaNganh == mh.MaNganh &&
                                     nh.MaNganh == sv.MaNganh &&
-                                    sv.MaSV == diem.MaSV &&
+                                    sv.MaSV == diemSV.FirstOrDefault().MaSV &&
                                     mh.MaMH == lop.MaMH &&
                                     nh.MaNganh.ToString() == this.cboNganhHoc.GetItemText(this.cboNganhHoc.SelectedItem) &&
                                     mh.MaMH.ToString() == this.cboMonHoc.GetItemText(this.cboMonHoc.SelectedItem) &&
@@ -105,20 +103,15 @@ namespace QuanLyDiemSV
                             {
                                 MaSV = sv.MaSV,
                                 TenSV = sv.TenSV,
-                                MaNganh = nh.MaNganh,
                                 TenNganh = nh.TenNganh,
-                                TenMH = mh.TenMH,
-                                MaHocPhan = lop.MaHocPhan,
-                                DiemLT = Math.Round(double.Parse(diem.DiemLT.ToString()), 2),
-                                DiemTH = Math.Round(double.Parse(diem.DiemTH.ToString()), 2),
-                                DiemTB = Math.Round(double.Parse(diem.DiemTB.ToString()), 2),
-                                DiemH4 = Math.Round(double.Parse(diem.DiemHe4.ToString()), 2),
+                                DiemTB = Math.Round(double.Parse(diemSV.Average(x => x.DiemTB).ToString()), 2),
+                                DiemH4 = Math.Round(double.Parse((diemSV.Average(x => x.DiemTB) * 4 / 10).ToString()), 2),
+                                SoTC = diemSV.Sum(x => x.MonHoc.SoTinChi)
                             };
 
                 dgvThongKeDiemSV.DataSource = query;
-            }
+            }           
         }
-
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
             if (saveFileDialogExcel.ShowDialog() == DialogResult.OK)

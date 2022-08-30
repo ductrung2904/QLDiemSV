@@ -31,9 +31,7 @@ namespace QuanLyDiemSV
         {
             this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.txtTenTaiKhoan = new System.Windows.Forms.TextBox();
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.chbAnHienMatKhau = new System.Windows.Forms.CheckBox();
@@ -43,11 +41,9 @@ namespace QuanLyDiemSV
             this.label4 = new System.Windows.Forms.Label();
             this.txtMatKhauMoi = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.errTenTaiKhoan = new System.Windows.Forms.ErrorProvider(this.components);
             this.errMatKhauMoi = new System.Windows.Forms.ErrorProvider(this.components);
             this.errMatKhau = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errTenTaiKhoan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMatKhauMoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMatKhau)).BeginInit();
             this.SuspendLayout();
@@ -63,19 +59,9 @@ namespace QuanLyDiemSV
             this.label5.TabIndex = 33;
             this.label5.Text = "ĐỔI MẬT KHẨU";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 16);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Tên tài khoản:";
-            // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(227, 249);
+            this.btnThoat.Location = new System.Drawing.Point(229, 222);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(111, 39);
             this.btnThoat.TabIndex = 32;
@@ -83,17 +69,9 @@ namespace QuanLyDiemSV
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // txtTenTaiKhoan
-            // 
-            this.txtTenTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenTaiKhoan.Location = new System.Drawing.Point(199, 79);
-            this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
-            this.txtTenTaiKhoan.Size = new System.Drawing.Size(184, 22);
-            this.txtTenTaiKhoan.TabIndex = 23;
-            // 
             // btnDoiMatKhau
             // 
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(74, 249);
+            this.btnDoiMatKhau.Location = new System.Drawing.Point(76, 222);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Size = new System.Drawing.Size(111, 39);
             this.btnDoiMatKhau.TabIndex = 31;
@@ -105,7 +83,7 @@ namespace QuanLyDiemSV
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(42, 115);
+            this.label2.Location = new System.Drawing.Point(44, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 16);
             this.label2.TabIndex = 24;
@@ -115,7 +93,7 @@ namespace QuanLyDiemSV
             // 
             this.chbAnHienMatKhau.AutoSize = true;
             this.chbAnHienMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbAnHienMatKhau.Location = new System.Drawing.Point(199, 221);
+            this.chbAnHienMatKhau.Location = new System.Drawing.Point(201, 194);
             this.chbAnHienMatKhau.Name = "chbAnHienMatKhau";
             this.chbAnHienMatKhau.Size = new System.Drawing.Size(132, 20);
             this.chbAnHienMatKhau.TabIndex = 30;
@@ -126,16 +104,18 @@ namespace QuanLyDiemSV
             // txtMatKhau
             // 
             this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatKhau.Location = new System.Drawing.Point(199, 112);
+            this.txtMatKhau.Location = new System.Drawing.Point(201, 85);
             this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(184, 22);
             this.txtMatKhau.TabIndex = 25;
             // 
             // txtNhapLaiMatKhauMoi
             // 
             this.txtNhapLaiMatKhauMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNhapLaiMatKhauMoi.Location = new System.Drawing.Point(199, 183);
+            this.txtNhapLaiMatKhauMoi.Location = new System.Drawing.Point(201, 156);
             this.txtNhapLaiMatKhauMoi.Name = "txtNhapLaiMatKhauMoi";
+            this.txtNhapLaiMatKhauMoi.PasswordChar = '*';
             this.txtNhapLaiMatKhauMoi.Size = new System.Drawing.Size(184, 22);
             this.txtNhapLaiMatKhauMoi.TabIndex = 29;
             // 
@@ -143,7 +123,7 @@ namespace QuanLyDiemSV
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(42, 151);
+            this.label3.Location = new System.Drawing.Point(44, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 16);
             this.label3.TabIndex = 26;
@@ -153,7 +133,7 @@ namespace QuanLyDiemSV
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(42, 186);
+            this.label4.Location = new System.Drawing.Point(44, 159);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 16);
             this.label4.TabIndex = 28;
@@ -162,17 +142,16 @@ namespace QuanLyDiemSV
             // txtMatKhauMoi
             // 
             this.txtMatKhauMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatKhauMoi.Location = new System.Drawing.Point(199, 148);
+            this.txtMatKhauMoi.Location = new System.Drawing.Point(201, 121);
             this.txtMatKhauMoi.Name = "txtMatKhauMoi";
+            this.txtMatKhauMoi.PasswordChar = '*';
             this.txtMatKhauMoi.Size = new System.Drawing.Size(184, 22);
             this.txtMatKhauMoi.TabIndex = 27;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnThoat);
-            this.groupBox1.Controls.Add(this.txtTenTaiKhoan);
             this.groupBox1.Controls.Add(this.btnDoiMatKhau);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.chbAnHienMatKhau);
@@ -183,13 +162,9 @@ namespace QuanLyDiemSV
             this.groupBox1.Controls.Add(this.txtMatKhauMoi);
             this.groupBox1.Location = new System.Drawing.Point(316, 128);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(436, 317);
+            this.groupBox1.Size = new System.Drawing.Size(436, 296);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
-            // 
-            // errTenTaiKhoan
-            // 
-            this.errTenTaiKhoan.ContainerControl = this;
             // 
             // errMatKhauMoi
             // 
@@ -211,7 +186,6 @@ namespace QuanLyDiemSV
             this.Text = "Đổi mật khẩu";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errTenTaiKhoan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMatKhauMoi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMatKhau)).EndInit();
             this.ResumeLayout(false);
@@ -221,9 +195,7 @@ namespace QuanLyDiemSV
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.TextBox txtTenTaiKhoan;
         private System.Windows.Forms.Button btnDoiMatKhau;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox chbAnHienMatKhau;
@@ -233,7 +205,6 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMatKhauMoi;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ErrorProvider errTenTaiKhoan;
         private System.Windows.Forms.ErrorProvider errMatKhauMoi;
         private System.Windows.Forms.ErrorProvider errMatKhau;
     }

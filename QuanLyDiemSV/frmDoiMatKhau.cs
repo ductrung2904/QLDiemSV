@@ -12,50 +12,92 @@ namespace QuanLyDiemSV
 {
     public partial class frmDoiMatKhau : Form
     {
+        string ma;
+        int role;
         public frmDoiMatKhau()
         {
             InitializeComponent();
         }
         QLDiemSVDataContext db = new QLDiemSVDataContext();
-
+        public void SetData(string Data, int vaitro)
+        {
+            ma = Data;
+            role = vaitro;
+        }
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
             if (txtMatKhau.Text == "")
                 errMatKhau.SetError(txtMatKhau, "Bạn chưa nhập mật khẩu !");
             else
                 errMatKhau.Clear();
-            if (txtMatKhauMoi.Text != txtNhapLaiMatKhauMoi.Text)
-                errMatKhauMoi.SetError(txtMatKhauMoi, "Mật khẩu không trùng nhau !");
+            if (txtMatKhau.Text.Length <5)
+                errMatKhau.SetError(txtMatKhau, "Mật khẩu phải từ 5 ký tự trở lên !");
+            else
+                errMatKhau.Clear();
+            if (txtMatKhauMoi.Text.Length < 5)
+                errMatKhauMoi.SetError(txtMatKhauMoi, "Mật khẩu mới phải từ 5 ký tự trở lên !");
             else
                 errMatKhauMoi.Clear();
-            if (txtTenTaiKhoan.Text == "")
-                errTenTaiKhoan.SetError(txtTenTaiKhoan, "Bạn chưa nhập tên tài khoản !");
+            if (txtMatKhauMoi.Text != txtNhapLaiMatKhauMoi.Text)
+                errMatKhauMoi.SetError(txtNhapLaiMatKhauMoi, "Mật khẩu không trùng nhau !");
             else
-                errTenTaiKhoan.Clear();
-
+                errMatKhauMoi.Clear();
+            
 
             if (txtMatKhau.Text.ToString().Length > 0 && txtMatKhauMoi.Text.ToString().Length > 0 && txtMatKhauMoi.Text == txtNhapLaiMatKhauMoi.Text)
             {
-                GiaoVien gv = new GiaoVien();
-                gv = db.GiaoViens.Where(x => x.Username.ToString() == this.txtTenTaiKhoan.Text).SingleOrDefault();
-                if (gv.Password.ToString() == txtMatKhau.Text)
+                switch (role)
                 {
-                    gv.Password = txtMatKhauMoi.Text;
-                    db.SubmitChanges();
-                    MessageBox.Show("Sửa thành công", "Thông Báo");
+                    case 1:
+                        QuanTriVien qt = new QuanTriVien();
+                        qt = db.QuanTriViens.Where(x => x.MaQTV.ToString() == ma).SingleOrDefault();
+                        if (qt.Password.ToString() == txtMatKhau.Text)
+                        {
+                            qt.Password = txtMatKhauMoi.Text;
+                            db.SubmitChanges();
+                            MessageBox.Show("Sửa thành công", "Thông Báo");
+                        }
+                        else if (qt.Password.ToString() != txtMatKhau.Text)
+                        {
+                            errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
+                            MessageBox.Show("Sai Mat Khau", "Thông Báo");
+                        }
+                        break;
+                    case 2:
+                        SinhVien sv = new SinhVien();
+                        sv = db.SinhViens.Where(x => x.MaSV.ToString() == ma).SingleOrDefault();
+                        if (sv.Password.ToString() == txtMatKhau.Text)
+                        {
+                            sv.Password = txtMatKhauMoi.Text;
+                            db.SubmitChanges();
+                            MessageBox.Show("Sửa thành công", "Thông Báo");
+                        }
+                        else if (sv.Password.ToString() != txtMatKhau.Text)
+                        {
+                            errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
+                            MessageBox.Show("Sai Mat Khau", "Thông Báo");
+                        }
+                        break;
+                    case 3:
+                        GiaoVien gv = new GiaoVien();
+                        gv = db.GiaoViens.Where(x => x.MaGV.ToString() == ma).SingleOrDefault();
+                        if (gv.Password.ToString() == txtMatKhau.Text)
+                        {
+                            gv.Password = txtMatKhauMoi.Text;
+                            db.SubmitChanges();
+                            MessageBox.Show("Sửa thành công", "Thông Báo");
+                        }
+                        else if (gv.Password.ToString() != txtMatKhau.Text)
+                        {
+                            errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
+                            MessageBox.Show("Sai Mat Khau", "Thông Báo");
+                        }
+                        break;
                 }
-                else if (gv.Password.ToString() != txtMatKhau.Text)
-                {
-                    errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
-                    MessageBox.Show("Sai Mat Khau", "Thông Báo");
-                }
-
-                errTenTaiKhoan.Clear();
                 errMatKhauMoi.Clear();
                 errMatKhau.Clear();
             }
 
-            txtTenTaiKhoan.Text = "";
             txtMatKhau.Text = "";
             txtMatKhauMoi.Text = "";
             txtNhapLaiMatKhauMoi.Text = "";

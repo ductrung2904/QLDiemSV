@@ -13,6 +13,7 @@ namespace QuanLyDiemSV
 {
     public partial class frmNhapDiemGV : Form
     {
+        int role;
         public frmNhapDiemGV()
         {
             InitializeComponent();
@@ -25,9 +26,10 @@ namespace QuanLyDiemSV
             txtDiemTH.Enabled = edit;
         }
 
-        public void SetData(string Data)
+        public void SetData(string Data,int vaitro)
         {
             lblID2.Text = Data;
+            role = vaitro;
         }
 
         void loadData()
