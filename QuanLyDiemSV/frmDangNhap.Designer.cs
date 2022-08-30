@@ -29,6 +29,7 @@ namespace QuanLyDiemSV
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,7 +39,11 @@ namespace QuanLyDiemSV
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.chbAnHienMatKhau = new System.Windows.Forms.CheckBox();
+            this.errTenDN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errPass = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenDN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPass)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -132,6 +137,14 @@ namespace QuanLyDiemSV
             this.chbAnHienMatKhau.UseVisualStyleBackColor = true;
             this.chbAnHienMatKhau.CheckedChanged += new System.EventHandler(this.chbAnHienMatKhau_CheckedChanged);
             // 
+            // errTenDN
+            // 
+            this.errTenDN.ContainerControl = this;
+            // 
+            // errPass
+            // 
+            this.errPass.ContainerControl = this;
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +164,8 @@ namespace QuanLyDiemSV
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenDN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,5 +182,7 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.CheckBox chbAnHienMatKhau;
+        private System.Windows.Forms.ErrorProvider errTenDN;
+        private System.Windows.Forms.ErrorProvider errPass;
     }
 }

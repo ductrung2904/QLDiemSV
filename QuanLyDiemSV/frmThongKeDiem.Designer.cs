@@ -38,16 +38,6 @@ namespace QuanLyDiemSV
             this.cboNganhHoc = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvThongKeDiemSV = new System.Windows.Forms.DataGridView();
-            this.M = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnXuatExcel = new System.Windows.Forms.Button();
@@ -55,6 +45,12 @@ namespace QuanLyDiemSV
             this.btnThoat = new System.Windows.Forms.Button();
             this.errNH = new System.Windows.Forms.ErrorProvider(this.components);
             this.saveFileDialogExcel = new System.Windows.Forms.SaveFileDialog();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongKeDiemSV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errNH)).BeginInit();
@@ -134,92 +130,19 @@ namespace QuanLyDiemSV
             // dgvThongKeDiemSV
             // 
             this.dgvThongKeDiemSV.AllowUserToAddRows = false;
+            this.dgvThongKeDiemSV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvThongKeDiemSV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvThongKeDiemSV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.M,
-            this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5,
+            this.Column2,
             this.Column1,
-            this.Column6,
-            this.Column7,
             this.Column8,
             this.Column9});
             this.dgvThongKeDiemSV.Location = new System.Drawing.Point(12, 100);
             this.dgvThongKeDiemSV.Name = "dgvThongKeDiemSV";
             this.dgvThongKeDiemSV.Size = new System.Drawing.Size(660, 436);
             this.dgvThongKeDiemSV.TabIndex = 45;
-            // 
-            // M
-            // 
-            this.M.DataPropertyName = "MaNganh";
-            this.M.HeaderText = "Mã Ngành";
-            this.M.Name = "M";
-            this.M.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenNganh";
-            this.Column2.HeaderText = "Tên Ngành";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "MaSV";
-            this.Column3.HeaderText = "Mã Sinh Viên";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "TenSV";
-            this.Column4.HeaderText = "Tên Sinh Viên";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "TenMH";
-            this.Column5.HeaderText = "Tên Môn Học";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaHocPhan";
-            this.Column1.HeaderText = "Mã Học Phần";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "DiemLT";
-            this.Column6.HeaderText = "Điểm Lý Thuyết";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "DiemTH";
-            this.Column7.HeaderText = "Điểm Thực Hành";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "DiemTB";
-            this.Column8.HeaderText = "Điểm Trung Bình";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "DiemH4";
-            this.Column9.HeaderText = "Điểm Hệ 4";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
             // 
             // label1
             // 
@@ -289,6 +212,48 @@ namespace QuanLyDiemSV
             this.saveFileDialogExcel.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
             this.saveFileDialogExcel.FilterIndex = 2;
             // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "MaSV";
+            this.Column3.HeaderText = "Mã Sinh Viên";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "TenSV";
+            this.Column4.HeaderText = "Tên Sinh Viên";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenNganh";
+            this.Column2.HeaderText = "Tên Ngành";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "SoTC";
+            this.Column1.HeaderText = "Số tín chỉ";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "DiemTB";
+            this.Column8.HeaderText = "Điểm Trung Bình";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "DiemH4";
+            this.Column9.HeaderText = "Điểm Hệ 4";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
             // frmThongKeDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,14 +297,10 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.ErrorProvider errNH;
         private System.Windows.Forms.SaveFileDialog saveFileDialogExcel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn M;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }

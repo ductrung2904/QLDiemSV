@@ -16,17 +16,34 @@ namespace QuanLyDiemSV
 
         QLDiemSVDataContext db = new QLDiemSVDataContext();
 
+        bool tontai = false;
+
         public frmDangNhap()
         {
             InitializeComponent();
         }
-
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             frmHome home = new frmHome();
             frmDangNhap dangnhap = new frmDangNhap();
 
-            var useradmin = db.QuanTriViens.Select(
+            if (txtUsername.Text == "")
+            {
+                errTenDN.SetError(txtUsername, "Bạn chưa nhập tên đăng nhập");
+            }
+            else
+                errTenDN.Clear();
+
+            if (txtPassword.Text == "")
+            {
+                errPass.SetError(txtPassword, "Bạn chưa nhập mật khẩu");
+            }
+            else
+                errPass.Clear();
+
+            if (txtPassword.Text != "" && txtUsername.Text != "")
+            {
+                var useradmin = db.QuanTriViens.Select(
                 x => new
                 {
                     ID = x.MaQTV,
@@ -35,103 +52,126 @@ namespace QuanLyDiemSV
                     Hoten = x.Username
                 });
 
-            var usersv = db.SinhViens.Select(
-                x => new
+                var usersv = db.SinhViens.Select(
+                    x => new
+                    {
+                        ID = x.MaSV,
+                        Username = x.Username,
+                        Password = x.Password,
+                        Hoten = x.TenSV
+                    });
+
+                var usergv = db.GiaoViens.Select(
+                    x => new
+                    {
+                        ID = x.MaGV,
+                        Username = x.Username,
+                        Password = x.Password,
+                        Hoten = x.TenGV
+                    });
+
+                foreach (var item in useradmin)
                 {
-                    ID = x.MaSV,
-                    Username = x.Username,
-                    Password = x.Password,
-                    Hoten = x.TenSV
-                });
+                    if (txtUsername.Text == item.Username && txtPassword.Text == item.Password)
+                    {
+                        this.Visible = false;
+                        home.Visible = true;
+                        home.btnDKHP.Visible = false;
+                        home.btnXemDiemSV.Visible = false;
+                        home.btnNhapDiemGV.Visible = false;
+                        home.btnDoiMatKhauGV.Visible = false;
+                        home.btnDoiMatKhauSV.Visible = false;
 
-            var usergv = db.GiaoViens.Select(
-                x => new
+                        ur.ID = Convert.ToString(item.ID);
+                        ur.UserName = item.Username;
+
+                        home.lblID.Text = ur.ID;
+                        home.role = 1;
+
+                        string lastName = item.Hoten.Split(' ').Last();
+                        ur.Hoten = lastName;
+                        home.lblTenDangNhap.Text = "Xin chào, " + ur.Hoten;
+
+                        tontai = true;
+
+                        break;
+                    }
+                }
+
+                foreach (var item in usersv)
                 {
-                    ID = x.MaGV,
-                    Username = x.Username,
-                    Password = x.Password,
-                    Hoten = x.TenGV
-                });
+                    if (txtUsername.Text == item.Username && txtPassword.Text == item.Password)
+                    {
+                        this.Visible = false;
+                        home.Visible = true;
+                        home.btnKhoa.Visible = false;
+                        home.btnSinhVien.Visible = false;
+                        home.btnGiaoVien.Visible = false;
+                        home.btnMonHoc.Visible = false;
+                        home.btnLopHP.Visible = false;
+                        home.btnNhapDiem.Visible = false;
+                        home.btnThongKe.Visible = false;
+                        home.btnDoiMatKhauGV.Visible = false;
+                        home.btnNhapDiemGV.Visible = false;
 
-            foreach (var item in useradmin)
-            {
-                if (txtUsername.Text == item.Username && txtPassword.Text == item.Password)
+                        ur.ID = Convert.ToString(item.ID);
+                        ur.UserName = item.Username;
+
+                        home.lblID.Text = ur.ID;
+                        home.role = 2;
+
+                        string lastName = item.Hoten.Split(' ').Last();
+                        ur.Hoten = lastName;
+                        home.lblTenDangNhap.Text = "Xin chào, " + ur.Hoten;
+
+                        tontai = true;
+
+                        break;
+                    }
+                }
+
+                foreach (var item in usergv)
                 {
-                    this.Visible = false;
-                    home.Visible = true;
-                    home.btnDKHP.Visible = false;
-                    home.btnXemDiemSV.Visible = false;
-                    home.btnNhapDiemGV.Visible = false;
-                    home.btnDoiMatKhauGV.Visible = false;
-                    home.btnDoiMatKhauSV.Visible = false;
+                    if (txtUsername.Text == item.Username && txtPassword.Text == item.Password)
+                    {
+                        this.Visible = false;
+                        home.Visible = true;
+                        home.btnKhoa.Visible = false;
+                        home.btnSinhVien.Visible = false;
+                        home.btnGiaoVien.Visible = false;
+                        home.btnMonHoc.Visible = false;
+                        home.btnLopHP.Visible = false;
+                        home.btnNhapDiem.Visible = false;
+                        home.btnThongKe.Visible = false;
+                        home.btnDoiMatKhauSV.Visible = false;
+                        home.btnXemDiemSV.Visible = false;
+                        home.btnDKHP.Visible = false;
 
-                    ur.ID = Convert.ToString(item.ID);
-                    ur.UserName = item.Username;
+                        ur.ID = Convert.ToString(item.ID);
+                        ur.UserName = item.Username;
 
-                    home.lblID.Text = ur.ID;
+                        home.lblID.Text = ur.ID;
+                        home.role = 3;
 
-                    string lastName = item.Hoten.Split(' ').Last();
-                    ur.Hoten = lastName;
-                    home.lblTenDangNhap.Text = "Xin chào, " + ur.Hoten;
+                        string lastName = item.Hoten.Split(' ').Last();
+                        ur.Hoten = lastName;
+                        home.lblTenDangNhap.Text = "Xin chào, " + ur.Hoten;
+
+                        tontai = true;
+
+                        break;
+                    }
+                }
+                if (!tontai)
+                {
+                    MessageBox.Show("Tài khoản hoặc mật khẩu không tồn tại!");
+                    txtPassword.Text = "";
+                    txtUsername.Text = "";
                 }
             }
 
-            foreach (var item in usersv)
-            {
-                if (txtUsername.Text == item.Username && txtPassword.Text == item.Password)
-                {
-                    this.Visible = false;
-                    home.Visible = true;
-                    home.btnKhoa.Visible = false;
-                    home.btnSinhVien.Visible = false;
-                    home.btnGiaoVien.Visible = false;
-                    home.btnMonHoc.Visible = false;
-                    home.btnLopHP.Visible = false;
-                    home.btnNhapDiem.Visible = false;
-                    home.btnThongKe.Visible = false;
-                    home.btnDoiMatKhau.Visible = false;
-                    home.btnDoiMatKhauGV.Visible = false;
-                    home.btnNhapDiemGV.Visible = false;
+            
 
-                    ur.ID = Convert.ToString(item.ID);
-                    ur.UserName = item.Username;
-
-                    home.lblID.Text = ur.ID;
-
-                    string lastName = item.Hoten.Split(' ').Last();
-                    ur.Hoten = lastName;
-                    home.lblTenDangNhap.Text = "Xin chào, " + ur.Hoten;
-                }
-            }
-
-            foreach (var item in usergv)
-            {
-                if (txtUsername.Text == item.Username && txtPassword.Text == item.Password)
-                {
-                    this.Visible = false;
-                    home.Visible = true;
-                    home.btnKhoa.Visible = false;
-                    home.btnSinhVien.Visible = false;
-                    home.btnGiaoVien.Visible = false;
-                    home.btnMonHoc.Visible = false;
-                    home.btnLopHP.Visible = false;
-                    home.btnNhapDiem.Visible = false;
-                    home.btnThongKe.Visible = false;
-                    home.btnDoiMatKhau.Visible = false;
-                    home.btnDoiMatKhauSV.Visible = false;
-                    home.btnXemDiemSV.Visible = false;
-                    home.btnDKHP.Visible = false;
-
-                    ur.ID = Convert.ToString(item.ID);
-                    ur.UserName = item.Username;
-
-                    home.lblID.Text = ur.ID;
-
-                    string lastName = item.Hoten.Split(' ').Last();
-                    ur.Hoten = lastName;
-                    home.lblTenDangNhap.Text = "Xin chào, " + ur.Hoten;
-                }
-            }
         }
         private void btnThoat_Click(object sender, EventArgs e)
         {

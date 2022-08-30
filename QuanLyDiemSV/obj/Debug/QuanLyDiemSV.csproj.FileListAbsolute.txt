@@ -135,3 +135,8 @@ C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\Quan
 C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.exe
 C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.pdb
 C:\Users\DUCTRUNG-PC\Desktop\New folder (2)\QLDiemSV\QuanLyDiemSV\bin\Debug\QuanLyDiemSV.pdb
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDKHP.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDoiMatKhauGV.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmDoiMatKhauSV.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmNhapDiemGV.resources
+C:\Users\DELL\OneDrive\Desktop\QLDiemSV\QuanLyDiemSV\obj\Debug\QuanLyDiemSV.frmXemDiemSV.resources
