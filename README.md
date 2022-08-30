@@ -8,12 +8,12 @@
   - Quản lý Nhập điểm :white_check_mark:
   - Quản lý Xem điểm sinh viên :white_check_mark:
   - Quản lý Nhập điểm cho giáo viên :white_check_mark:
-  - Quản lý Đăng ký học phần mới cho sinh viên
+  - Quản lý Đăng ký học phần mới cho sinh viên 
 - Mai Hữu Văn
   - Đăng nhập :white_check_mark:
   - Quản lý Ngành học :white_check_mark: 
   - Quản lý Môn học :white_check_mark: 
   - Quản lý Lớp học phần :white_check_mark: 
-  - Thống kê/Xuất Excel 
-  - Đổi mật khẩu 
+  - Thống kê/Xuất Excel :white_check_mark:
+  - Đổi mật khẩu :white_check_mark:
  
