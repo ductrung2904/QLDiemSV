@@ -97,6 +97,16 @@ namespace QuanLyDiemSV
                 errMatKhauMoi.Clear();
                 errMatKhau.Clear();
             }
+            else
+            {
+                MessageBox.Show("Thông tin bạn nhập còn thiếu hoặc chưa đúng", "Thông Báo");
+                if (txtMatKhau.Text.Length == 0)
+                    txtMatKhau.Focus();
+                else if (txtMatKhauMoi.Text.Length == 0)
+                    txtMatKhauMoi.Focus();
+                else if (txtNhapLaiMatKhauMoi.Text.Length == 0)
+                    txtNhapLaiMatKhauMoi.Focus();
+            }
 
             txtMatKhau.Text = "";
             txtMatKhauMoi.Text = "";

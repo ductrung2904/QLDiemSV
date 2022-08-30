@@ -69,18 +69,6 @@
     <Compile Include="frmDoiMatKhau.Designer.cs">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDoiMatKhauGV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDoiMatKhauGV.Designer.cs">
-      <DependentUpon>frmDoiMatKhauGV.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDoiMatKhauSV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDoiMatKhauSV.Designer.cs">
-      <DependentUpon>frmDoiMatKhauSV.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmGiaoVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,12 +145,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoiMatKhau.resx">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDoiMatKhauGV.resx">
-      <DependentUpon>frmDoiMatKhauGV.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDoiMatKhauSV.resx">
-      <DependentUpon>frmDoiMatKhauSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGiaoVien.resx">
       <DependentUpon>frmGiaoVien.cs</DependentUpon>

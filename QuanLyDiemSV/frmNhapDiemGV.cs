@@ -96,7 +96,7 @@ namespace QuanLyDiemSV
         {
             setControls(false);
             txtTimKiem.Text = "";
-            btnSua.Enabled = true;
+            btnNhapDiem.Enabled = true;
             loadData();
             dgvDiem.AutoGenerateColumns = false;
         }
@@ -107,11 +107,11 @@ namespace QuanLyDiemSV
             txtTimKiem.Focus();
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void btnNhapDiem_Click(object sender, EventArgs e)
         {
             setControls(true);
             dgvDiem.Enabled = false;
-            btnSua.Enabled = false;
+            btnNhapDiem.Enabled = false;
             btnLuu.Enabled = true;
             btnHuy.Enabled = true;
         }
@@ -200,6 +200,7 @@ namespace QuanLyDiemSV
                     }
                 }
             }
+            d.TrangThai = Convert.ToBoolean(1);
 
             db.SubmitChanges();
 
@@ -214,7 +215,7 @@ namespace QuanLyDiemSV
             dgvDiem.Enabled = true;
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
-            btnSua.Enabled = true;
+            btnNhapDiem.Enabled = true;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -232,7 +233,7 @@ namespace QuanLyDiemSV
                     loadData();
                     btnLuu.Enabled = false;
                     btnHuy.Enabled = false;
-                    btnSua.Enabled = true;
+                    btnNhapDiem.Enabled = true;
                     setControls(false);
                     dgvDiem.Enabled = true;
                 }
@@ -250,7 +251,7 @@ namespace QuanLyDiemSV
                         loadData();
                         btnLuu.Enabled = false;
                         btnHuy.Enabled = false;
-                        btnSua.Enabled = true;
+                        btnNhapDiem.Enabled = true;
                         setControls(false);
                         dgvDiem.Enabled = true;
                     }
@@ -262,7 +263,7 @@ namespace QuanLyDiemSV
                         loadData();
                         btnLuu.Enabled = false;
                         btnHuy.Enabled = false;
-                        btnSua.Enabled = true;
+                        btnNhapDiem.Enabled = true;
                         setControls(false);
                         dgvDiem.Enabled = true;
                     }
@@ -275,7 +276,7 @@ namespace QuanLyDiemSV
                     loadData();
                     btnLuu.Enabled = false;
                     btnHuy.Enabled = false;
-                    btnSua.Enabled = true;
+                    btnNhapDiem.Enabled = true;
                     setControls(false);
                     dgvDiem.Enabled = true;
                 }
@@ -289,7 +290,7 @@ namespace QuanLyDiemSV
                     loadData();
                     btnLuu.Enabled = false;
                     btnHuy.Enabled = false;
-                    btnSua.Enabled = true;
+                    btnNhapDiem.Enabled = true;
                     setControls(false);
                     dgvDiem.Enabled = true;
                 }

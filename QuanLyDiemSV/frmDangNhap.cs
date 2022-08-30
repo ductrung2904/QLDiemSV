@@ -79,8 +79,6 @@ namespace QuanLyDiemSV
                         home.btnDKHP.Visible = false;
                         home.btnXemDiemSV.Visible = false;
                         home.btnNhapDiemGV.Visible = false;
-                        home.btnDoiMatKhauGV.Visible = false;
-                        home.btnDoiMatKhauSV.Visible = false;
 
                         ur.ID = Convert.ToString(item.ID);
                         ur.UserName = item.Username;
@@ -111,7 +109,6 @@ namespace QuanLyDiemSV
                         home.btnLopHP.Visible = false;
                         home.btnNhapDiem.Visible = false;
                         home.btnThongKe.Visible = false;
-                        home.btnDoiMatKhauGV.Visible = false;
                         home.btnNhapDiemGV.Visible = false;
 
                         ur.ID = Convert.ToString(item.ID);
@@ -143,7 +140,6 @@ namespace QuanLyDiemSV
                         home.btnLopHP.Visible = false;
                         home.btnNhapDiem.Visible = false;
                         home.btnThongKe.Visible = false;
-                        home.btnDoiMatKhauSV.Visible = false;
                         home.btnXemDiemSV.Visible = false;
                         home.btnDKHP.Visible = false;
 
@@ -169,9 +165,6 @@ namespace QuanLyDiemSV
                     txtUsername.Text = "";
                 }
             }
-
-            
-
         }
         private void btnThoat_Click(object sender, EventArgs e)
         {

@@ -31,10 +31,8 @@ namespace QuanLyDiemSV
         {
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.btnDoiMatKhauSV = new System.Windows.Forms.Button();
             this.btnDKHP = new System.Windows.Forms.Button();
             this.btnXemDiemSV = new System.Windows.Forms.Button();
-            this.btnDoiMatKhauGV = new System.Windows.Forms.Button();
             this.btnNhapDiemGV = new System.Windows.Forms.Button();
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
@@ -65,10 +63,8 @@ namespace QuanLyDiemSV
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelSideMenu.Controls.Add(this.btnThoat);
-            this.panelSideMenu.Controls.Add(this.btnDoiMatKhauSV);
             this.panelSideMenu.Controls.Add(this.btnDKHP);
             this.panelSideMenu.Controls.Add(this.btnXemDiemSV);
-            this.panelSideMenu.Controls.Add(this.btnDoiMatKhauGV);
             this.panelSideMenu.Controls.Add(this.btnNhapDiemGV);
             this.panelSideMenu.Controls.Add(this.btnDoiMatKhau);
             this.panelSideMenu.Controls.Add(this.btnThongKe);
@@ -95,7 +91,7 @@ namespace QuanLyDiemSV
             this.btnThoat.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnThoat.Image = global::QuanLyDiemSV.Properties.Resources.shutdown;
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(0, 727);
+            this.btnThoat.Location = new System.Drawing.Point(0, 637);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnThoat.Size = new System.Drawing.Size(183, 45);
@@ -103,24 +99,6 @@ namespace QuanLyDiemSV
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // btnDoiMatKhauSV
-            // 
-            this.btnDoiMatKhauSV.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnDoiMatKhauSV.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDoiMatKhauSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDoiMatKhauSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDoiMatKhauSV.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnDoiMatKhauSV.Image = global::QuanLyDiemSV.Properties.Resources.padlock;
-            this.btnDoiMatKhauSV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoiMatKhauSV.Location = new System.Drawing.Point(0, 682);
-            this.btnDoiMatKhauSV.Name = "btnDoiMatKhauSV";
-            this.btnDoiMatKhauSV.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnDoiMatKhauSV.Size = new System.Drawing.Size(183, 45);
-            this.btnDoiMatKhauSV.TabIndex = 29;
-            this.btnDoiMatKhauSV.Text = "Đổi Mật Khẩu";
-            this.btnDoiMatKhauSV.UseVisualStyleBackColor = false;
-            this.btnDoiMatKhauSV.Click += new System.EventHandler(this.btnDoiMatKhauSV_Click);
             // 
             // btnDKHP
             // 
@@ -131,7 +109,7 @@ namespace QuanLyDiemSV
             this.btnDKHP.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnDKHP.Image = global::QuanLyDiemSV.Properties.Resources.register;
             this.btnDKHP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDKHP.Location = new System.Drawing.Point(0, 637);
+            this.btnDKHP.Location = new System.Drawing.Point(0, 592);
             this.btnDKHP.Name = "btnDKHP";
             this.btnDKHP.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnDKHP.Size = new System.Drawing.Size(183, 45);
@@ -149,7 +127,7 @@ namespace QuanLyDiemSV
             this.btnXemDiemSV.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnXemDiemSV.Image = global::QuanLyDiemSV.Properties.Resources.score_2;
             this.btnXemDiemSV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXemDiemSV.Location = new System.Drawing.Point(0, 592);
+            this.btnXemDiemSV.Location = new System.Drawing.Point(0, 547);
             this.btnXemDiemSV.Name = "btnXemDiemSV";
             this.btnXemDiemSV.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.btnXemDiemSV.Size = new System.Drawing.Size(183, 45);
@@ -157,24 +135,6 @@ namespace QuanLyDiemSV
             this.btnXemDiemSV.Text = "Xem Điểm";
             this.btnXemDiemSV.UseVisualStyleBackColor = false;
             this.btnXemDiemSV.Click += new System.EventHandler(this.btnXemDiemSV_Click);
-            // 
-            // btnDoiMatKhauGV
-            // 
-            this.btnDoiMatKhauGV.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnDoiMatKhauGV.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDoiMatKhauGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDoiMatKhauGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDoiMatKhauGV.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnDoiMatKhauGV.Image = global::QuanLyDiemSV.Properties.Resources.padlock;
-            this.btnDoiMatKhauGV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoiMatKhauGV.Location = new System.Drawing.Point(0, 547);
-            this.btnDoiMatKhauGV.Name = "btnDoiMatKhauGV";
-            this.btnDoiMatKhauGV.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btnDoiMatKhauGV.Size = new System.Drawing.Size(183, 45);
-            this.btnDoiMatKhauGV.TabIndex = 26;
-            this.btnDoiMatKhauGV.Text = "Đổi Mật Khẩu";
-            this.btnDoiMatKhauGV.UseVisualStyleBackColor = false;
-            this.btnDoiMatKhauGV.Click += new System.EventHandler(this.btnDoiMatKhauGV_Click);
             // 
             // btnNhapDiemGV
             // 
@@ -450,10 +410,8 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnThoat;
-        public System.Windows.Forms.Button btnDoiMatKhauSV;
         public System.Windows.Forms.Button btnDKHP;
         public System.Windows.Forms.Button btnXemDiemSV;
-        public System.Windows.Forms.Button btnDoiMatKhauGV;
         public System.Windows.Forms.Button btnNhapDiemGV;
         public System.Windows.Forms.Button btnDoiMatKhau;
         public System.Windows.Forms.Button btnThongKe;
