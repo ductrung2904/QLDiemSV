@@ -348,6 +348,7 @@ namespace QuanLyDiemSV
                         }
                     }
                 }
+                d.TrangThai = Convert.ToBoolean(1);
             }
             db.Diems.InsertOnSubmit(d);
             db.SubmitChanges();
@@ -443,6 +444,7 @@ namespace QuanLyDiemSV
                     }
                 }
             }
+            d.TrangThai = Convert.ToBoolean(1);
 
             db.SubmitChanges();
 

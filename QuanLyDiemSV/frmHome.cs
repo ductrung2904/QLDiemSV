@@ -100,16 +100,6 @@ namespace QuanLyDiemSV
             openChildForm(frm);
         }
 
-        private void btnDoiMatKhauGV_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmDoiMatKhauGV());
-        }
-
-        private void btnDoiMatKhauSV_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmDoiMatKhauSV());
-        }
-
         private void btnNhapDiemGV_Click(object sender, EventArgs e)
         {
             frmNhapDiemGV frm = new frmNhapDiemGV();
@@ -120,7 +110,10 @@ namespace QuanLyDiemSV
 
         private void btnDKHP_Click(object sender, EventArgs e)
         {
-            openChildForm(new frmDKHP());
+            frmDKHP frm = new frmDKHP();
+            this.Sender = new SendData(frm.SetData);
+            Sender(lblID.Text, role);
+            openChildForm(frm);
         }
     }
 }

@@ -87,7 +87,7 @@ namespace QuanLyDiemSV
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnLuu = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
+            this.btnNhapDiem = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.lblID2 = new System.Windows.Forms.Label();
@@ -673,17 +673,17 @@ namespace QuanLyDiemSV
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // btnSua
+            // btnNhapDiem
             // 
-            this.btnSua.Image = global::QuanLyDiemSV.Properties.Resources.edit;
-            this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(768, 225);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(109, 34);
-            this.btnSua.TabIndex = 61;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            this.btnNhapDiem.Image = global::QuanLyDiemSV.Properties.Resources.edit;
+            this.btnNhapDiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNhapDiem.Location = new System.Drawing.Point(768, 225);
+            this.btnNhapDiem.Name = "btnNhapDiem";
+            this.btnNhapDiem.Size = new System.Drawing.Size(109, 34);
+            this.btnNhapDiem.TabIndex = 61;
+            this.btnNhapDiem.Text = "Nhập Điểm";
+            this.btnNhapDiem.UseVisualStyleBackColor = true;
+            this.btnNhapDiem.Click += new System.EventHandler(this.btnNhapDiem_Click);
             // 
             // btnHuy
             // 
@@ -733,7 +733,7 @@ namespace QuanLyDiemSV
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLuu);
-            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.btnNhapDiem);
             this.Controls.Add(this.btnHuy);
             this.MinimumSize = new System.Drawing.Size(1087, 704);
             this.Name = "frmNhapDiemGV";
@@ -812,7 +812,7 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnNhapDiem;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.ErrorProvider errDiemLT;
         private System.Windows.Forms.ErrorProvider errDiemTH;
