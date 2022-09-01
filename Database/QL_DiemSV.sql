@@ -184,10 +184,22 @@ insert into Diem values('MD00000010', 1800000003, 'CDJ', 'ML00000028', 7, 8, 7.5
 insert into Diem values('MD00000011', 1800000004, 'KTLT', 'ML00000017', 8, 7, 7.5, 3, 'B', N'Đạt', 1);
 insert into Diem values('MD00000012', 1800000007, 'XDHTM', 'ML00000012', 6, 6, 6, 2.4, 'C', N'Đạt', 1);
 insert into Diem values('MD00000013', 1800000008, 'XDHTM', 'ML00000012', 7, 6, 6.5, 2.6, 'C', N'Đạt', 1);
+insert into Diem values('MD00000014', 1800000024, 'TKHTM', 'ML00000002', 8, 7, 7.5, 3, 'B', N'Đạt', 1);
+insert into Diem values('MD00000015', 1800000023, 'TKHTM', 'ML00000003', 6, 7, 6.5, 2.6, 'C', N'Đạt', 1);
+
 
 select * from NganhHoc;
 select * from MonHoc;
 select * from GiaoVien;
 select * from Lop;
 select * from SinhVien;
-select * from Diem;
+
+select temp.MaLop,temp.MaHocPhan,temp.TenMH,temp.NoiHoc,temp.NgayBatDau,temp.NgayKetThuc,temp.SoTiet,temp.SoTinChi,temp.SoLuong,temp.SoLuongDaDK as SoLuongDaDK
+from (
+select l.MaLop, l.MaHocPhan, mh.MaMH, mh.TenMH, l.NoiHoc, l.NgayBatDau, l.NgayKetThuc, mh.SoTiet, mh.SoTinChi, l.SoLuong, Count(d.MaLop) as SoLuongDaDK
+from Lop l left join MonHoc mh on l.MaMH = mh.MaMH 
+        left join Diem d on l.MaLop = d.MaLop
+group by l.MaLop,l.MaHocPhan,mh.MaMH, mh.TenMH,l.NoiHoc,l.NgayBatDau,l.NgayKetThuc,mh.SoTiet,mh.SoTinChi,l.SoLuong) temp
+where temp.MaMH = 'CDN'
+
+drop table Diem

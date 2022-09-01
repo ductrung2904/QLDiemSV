@@ -34,7 +34,7 @@ namespace QuanLyDiemSV
                         join d in db.Diems on mh.MaMH equals d.MaMH
                         join sv in db.SinhViens on d.MaSV equals sv.MaSV
                         where mh.MaMH == l.MaMH && mh.MaNganh == n.MaNganh && d.MaLop == l.MaLop && d.MaMH == mh.MaMH && d.MaSV == sv.MaSV && sv.MaSV == Convert.ToInt32(lblID2.Text)
-                        select new { MaDiem = d.MaDiem, MaLop = l.MaLop, MaHocPhan = l.MaHocPhan, TenMH = mh.TenMH, NoiHoc = l.NoiHoc, NgayBatDau = l.NgayBatDau, NgayKetThuc = l.NgayKetThuc, SoTiet = mh.SoTiet, SoTinChi = mh.SoTinChi, SoLuong = l.SoLuong, TrangThai = d.TrangThai };
+                        select new { MaDiem = d.MaDiem, MaLop = l.MaLop, MaHocPhan = l.MaHocPhan, TenMH = mh.TenMH, NoiHoc = l.NoiHoc, NgayBatDau = l.NgayBatDau, NgayKetThuc = l.NgayKetThuc, SoTiet = mh.SoTiet, SoTinChi = mh.SoTinChi, TrangThai = d.TrangThai };
             dgvDSLopDaDK.DataSource = query;
         }
 
@@ -59,12 +59,12 @@ namespace QuanLyDiemSV
 
         private void cboMonHoc_SelectedValueChanged(object sender, EventArgs e)
         {
-            var query = db.MonHocs
-                .Join(db.Lops, mh => mh.MaMH, lop => lop.MaMH, (mh, lop) => new { mh, lop })
-                .Join(db.NganhHocs, mhlop => mhlop.mh.MaNganh, ng => ng.MaNganh, (mhlop, ng) => new { mhlop, ng })
-                .Where(mhlopng => mhlopng.mhlop.mh.MaMH == this.cboMonHoc.GetItemText(this.cboMonHoc.SelectedValue))
-                .Select(x => new { x.mhlop.lop.MaLop, x.mhlop.lop.MaHocPhan, x.mhlop.mh.TenMH, x.mhlop.lop.NoiHoc, x.mhlop.lop.NgayBatDau, x.mhlop.lop.NgayKetThuc, x.mhlop.mh.SoTiet, x.mhlop.mh.SoTinChi, x.mhlop.lop.SoLuong }).ToList();
-            dgvDSMoLop.DataSource = query;
+            var query = (from l in db.Lops
+                         join mh in db.MonHocs on l.MaMH equals mh.MaMH into lmh from mh in lmh.DefaultIfEmpty()
+                         join d in db.Diems on l.MaLop equals d.MaLop into ld from d in ld.DefaultIfEmpty()
+                         group new { l, mh, d } by new { l.MaLop, l.MaHocPhan, mh.MaMH, mh.TenMH, l.NoiHoc, l.NgayBatDau, l.NgayKetThuc, mh.SoTiet, mh.SoTinChi, l.SoLuong } into gr
+                         select new { MaLop = gr.Key.MaLop, MaHocPhan = gr.Key.MaHocPhan, MaMH = gr.Key.MaMH, TenMH = gr.Key.TenMH, NoiHoc = gr.Key.NoiHoc, NgayBatDau = gr.Key.NgayBatDau, NgayKetThuc = gr.Key.NgayKetThuc, SoTiet = gr.Key.SoTiet, SoTinChi = gr.Key.SoTinChi, SoLuong = gr.Key.SoLuong, SoLuongDaDK = gr.Where(x => x.d.MaLop != null).Select(x => x.d.MaLop).Count() });
+            dgvDSMoLop.DataSource = from listmh in query where listmh.MaMH == this.cboMonHoc.GetItemText(this.cboMonHoc.SelectedValue) select new { listmh.MaLop, listmh.MaHocPhan, listmh.TenMH, listmh.NoiHoc, listmh.NgayBatDau, listmh.NgayKetThuc, listmh.SoTiet, listmh.SoTinChi, listmh.SoLuong, listmh.SoLuongDaDK };
 
             var query2 = db.Lops.Where(x => x.MaMH == this.cboMonHoc.GetItemText(this.cboMonHoc.SelectedValue)).ToList();
             cboLop.DataSource = query2;
@@ -84,6 +84,13 @@ namespace QuanLyDiemSV
             cboLop.Enabled = true;
             cboMonHoc.Focus();
             btnDangKy.Enabled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cboMonHoc.Enabled = false;
+            cboLop.Enabled = false;
+            btnDangKy.Enabled = false;
         }
 
         public string tangMaTuDong()
@@ -216,7 +223,7 @@ namespace QuanLyDiemSV
             dlr = MessageBox.Show("Bạn chắc chắn muốn hủy đăng ký", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlr == DialogResult.Yes)
             {
-                if (Boolean.Parse(dgvDSLopDaDK.CurrentRow.Cells[10].Value.ToString()) == true)
+                if (Boolean.Parse(dgvDSLopDaDK.CurrentRow.Cells[9].Value.ToString()) == true)
                 {
                     MessageBox.Show("Bạn không thể hủy đăng ký học phần này", "Thông Báo");
                 }

@@ -189,6 +189,10 @@ namespace QuanLyDiemSV
                 errPassword.SetError(txtPassword, "Vui lòng nhập mật khẩu");
             else
                 errPassword.Clear();
+            if (txtPassword.Text.Length < 5)
+                errPassword.SetError(txtPassword, "Mật khẩu mới phải từ 5 ký tự trở lên !");
+            else
+                errPassword.Clear();
             if (txtEmail.Text == "")
                 errEmail.SetError(txtEmail, "Vui lòng nhập email");
             else
