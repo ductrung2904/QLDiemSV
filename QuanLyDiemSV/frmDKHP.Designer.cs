@@ -31,6 +31,16 @@ namespace QuanLyDiemSV
         {
             this.components = new System.ComponentModel.Container();
             this.dgvDSLopDaDK = new System.Windows.Forms.DataGridView();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.lblID2 = new System.Windows.Forms.Label();
             this.btnHuyDK = new System.Windows.Forms.Button();
@@ -55,18 +65,9 @@ namespace QuanLyDiemSV
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errLop = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errLop = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSLopDaDK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMonHoc)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -89,7 +90,6 @@ namespace QuanLyDiemSV
             this.Column6,
             this.Column7,
             this.Column8,
-            this.Column9,
             this.Column11});
             this.dgvDSLopDaDK.Location = new System.Drawing.Point(6, 19);
             this.dgvDSLopDaDK.Name = "dgvDSLopDaDK";
@@ -97,6 +97,78 @@ namespace QuanLyDiemSV
             this.dgvDSLopDaDK.Size = new System.Drawing.Size(998, 154);
             this.dgvDSLopDaDK.TabIndex = 1;
             this.dgvDSLopDaDK.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSLopDaDK_CellEnter);
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "MaDiem";
+            this.Column10.HeaderText = "Mã Điểm";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaLop";
+            this.Column1.HeaderText = "Mã Lớp";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "MaHocPhan";
+            this.Column2.HeaderText = "Mã Học Phần";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "TenMH";
+            this.Column3.HeaderText = "Tên Môn Học";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 155;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "NoiHoc";
+            this.Column4.HeaderText = "Nơi Học";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "NgayBatDau";
+            this.Column5.HeaderText = "Ngày Bắt Đầu";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "NgayKetThuc";
+            this.Column6.HeaderText = "Ngày Kết Thúc";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "SoTiet";
+            this.Column7.HeaderText = "Số Tiết";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "SoTinChi";
+            this.Column8.HeaderText = "Số Tín Chỉ";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "TrangThai";
+            this.Column11.HeaderText = "Trạng thái";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
             // 
             // label3
             // 
@@ -132,7 +204,7 @@ namespace QuanLyDiemSV
             // 
             // btnDangKy
             // 
-            this.btnDangKy.Image = global::QuanLyDiemSV.Properties.Resources.add1;
+            this.btnDangKy.Image = global::QuanLyDiemSV.Properties.Resources.Save_icon;
             this.btnDangKy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDangKy.Location = new System.Drawing.Point(924, 348);
             this.btnDangKy.Name = "btnDangKy";
@@ -148,8 +220,9 @@ namespace QuanLyDiemSV
             // 
             // btnChon
             // 
+            this.btnChon.Image = global::QuanLyDiemSV.Properties.Resources.add1;
             this.btnChon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChon.Location = new System.Drawing.Point(803, 119);
+            this.btnChon.Location = new System.Drawing.Point(787, 119);
             this.btnChon.Name = "btnChon";
             this.btnChon.Size = new System.Drawing.Size(119, 34);
             this.btnChon.TabIndex = 37;
@@ -253,7 +326,8 @@ namespace QuanLyDiemSV
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
+            this.dataGridViewTextBoxColumn9,
+            this.Column9});
             this.dgvDSMoLop.Location = new System.Drawing.Point(6, 19);
             this.dgvDSMoLop.Name = "dgvDSMoLop";
             this.dgvDSMoLop.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -309,6 +383,7 @@ namespace QuanLyDiemSV
             this.dataGridViewTextBoxColumn7.HeaderText = "Số Tiết";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 70;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -316,6 +391,7 @@ namespace QuanLyDiemSV
             this.dataGridViewTextBoxColumn8.HeaderText = "Số Tín Chỉ";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 70;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -323,89 +399,31 @@ namespace QuanLyDiemSV
             this.dataGridViewTextBoxColumn9.HeaderText = "Số Lượng";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 75;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "SoLuongDaDK";
+            this.Column9.HeaderText = "Số Lượng Đã Đăng Ký";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 85;
             // 
             // errLop
             // 
             this.errLop.ContainerControl = this;
             // 
-            // Column10
+            // button1
             // 
-            this.Column10.DataPropertyName = "MaDiem";
-            this.Column10.HeaderText = "Mã Điểm";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaLop";
-            this.Column1.HeaderText = "Mã Lớp";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "MaHocPhan";
-            this.Column2.HeaderText = "Mã Học Phần";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "TenMH";
-            this.Column3.HeaderText = "Tên Môn Học";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 155;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "NoiHoc";
-            this.Column4.HeaderText = "Nơi Học";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "NgayBatDau";
-            this.Column5.HeaderText = "Ngày Bắt Đầu";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "NgayKetThuc";
-            this.Column6.HeaderText = "Ngày Kết Thúc";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "SoTiet";
-            this.Column7.HeaderText = "Số Tiết";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "SoTinChi";
-            this.Column8.HeaderText = "Số Tín Chỉ";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "SoLuong";
-            this.Column9.HeaderText = "Số Lượng";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "TrangThai";
-            this.Column11.HeaderText = "Trạng thái";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Visible = false;
+            this.button1.Image = global::QuanLyDiemSV.Properties.Resources.close_red;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(924, 119);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 34);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "Hủy";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmDKHP
             // 
@@ -413,6 +431,7 @@ namespace QuanLyDiemSV
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1089, 633);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblID2);
             this.Controls.Add(this.btnHuyDK);
@@ -457,15 +476,6 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvDSMoLop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.ErrorProvider errLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -476,7 +486,17 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Button button1;
     }
 }
