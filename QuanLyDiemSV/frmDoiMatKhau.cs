@@ -30,81 +30,89 @@ namespace QuanLyDiemSV
                 errMatKhau.SetError(txtMatKhau, "Bạn chưa nhập mật khẩu !");
             else
                 errMatKhau.Clear();
-            if (txtMatKhau.Text.Length <5)
-                errMatKhau.SetError(txtMatKhau, "Mật khẩu phải từ 5 ký tự trở lên !");
-            else
-                errMatKhau.Clear();
-            if (txtMatKhauMoi.Text.Length < 5)
-                errMatKhauMoi.SetError(txtMatKhauMoi, "Mật khẩu mới phải từ 5 ký tự trở lên !");
-            else
-                errMatKhauMoi.Clear();
             if (txtMatKhauMoi.Text != txtNhapLaiMatKhauMoi.Text)
                 errMatKhauMoi.SetError(txtNhapLaiMatKhauMoi, "Mật khẩu không trùng nhau !");
             else
                 errMatKhauMoi.Clear();
-            
 
             if (txtMatKhau.Text.ToString().Length > 0 && txtMatKhauMoi.Text.ToString().Length > 0 && txtMatKhauMoi.Text == txtNhapLaiMatKhauMoi.Text)
             {
-                switch (role)
+                if (txtMatKhau.Text.Length < 5)
                 {
-                    case 1:
-                        QuanTriVien qt = new QuanTriVien();
-                        qt = db.QuanTriViens.Where(x => x.MaQTV.ToString() == ma).SingleOrDefault();
-                        if (qt.Password.ToString() == txtMatKhau.Text)
-                        {
-                            qt.Password = txtMatKhauMoi.Text;
-                            db.SubmitChanges();
-                            MessageBox.Show("Sửa thành công", "Thông Báo");
-                        }
-                        else if (qt.Password.ToString() != txtMatKhau.Text)
-                        {
-                            errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
-                            MessageBox.Show("Sai Mat Khau", "Thông Báo");
-                        }
-                        break;
-                    case 2:
-                        SinhVien sv = new SinhVien();
-                        sv = db.SinhViens.Where(x => x.MaSV.ToString() == ma).SingleOrDefault();
-                        if (sv.Password.ToString() == txtMatKhau.Text)
-                        {
-                            sv.Password = txtMatKhauMoi.Text;
-                            db.SubmitChanges();
-                            MessageBox.Show("Sửa thành công", "Thông Báo");
-                        }
-                        else if (sv.Password.ToString() != txtMatKhau.Text)
-                        {
-                            errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
-                            MessageBox.Show("Sai Mat Khau", "Thông Báo");
-                        }
-                        break;
-                    case 3:
-                        GiaoVien gv = new GiaoVien();
-                        gv = db.GiaoViens.Where(x => x.MaGV.ToString() == ma).SingleOrDefault();
-                        if (gv.Password.ToString() == txtMatKhau.Text)
-                        {
-                            gv.Password = txtMatKhauMoi.Text;
-                            db.SubmitChanges();
-                            MessageBox.Show("Sửa thành công", "Thông Báo");
-                        }
-                        else if (gv.Password.ToString() != txtMatKhau.Text)
-                        {
-                            errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
-                            MessageBox.Show("Sai Mat Khau", "Thông Báo");
-                        }
-                        break;
+                    errMatKhau.SetError(txtMatKhauMoi, "Mật khẩu phải từ 5 ký tự trở lên !");
+                    MessageBox.Show("Mật khẩu mới phải từ 5 ký tự trở lên !", "Thông Báo");
                 }
-                errMatKhauMoi.Clear();
-                errMatKhau.Clear();
+                else
+                {
+                    errMatKhau.Clear();
+                }
+                if (txtMatKhauMoi.Text.Length < 5)
+                {
+                    errMatKhauMoi.SetError(txtNhapLaiMatKhauMoi, "Mật khẩu mới phải từ 5 ký tự trở lên !");
+                    MessageBox.Show("Mật khẩu mới phải từ 5 ký tự trở lên !", "Thông Báo");
+                }
+                else
+                {
+                    switch (role)
+                    {
+                        case 1:
+                            QuanTriVien qt = new QuanTriVien();
+                            qt = db.QuanTriViens.Where(x => x.MaQTV.ToString() == ma).SingleOrDefault();
+                            if (qt.Password.ToString() != txtMatKhau.Text)
+                            {
+                                errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
+                                MessageBox.Show("Sai mật khẩu", "Thông Báo");
+                            }
+                            else if (qt.Password.ToString() == txtMatKhau.Text)
+                            {
+                                qt.Password = txtMatKhauMoi.Text;
+                                db.SubmitChanges();
+                                MessageBox.Show("Đổi mật khẩu thành công", "Thông Báo");
+                            }
+                            break;
+                        case 2:
+                            SinhVien sv = new SinhVien();
+                            sv = db.SinhViens.Where(x => x.MaSV.ToString() == ma).SingleOrDefault();
+                            if (sv.Password.ToString() == txtMatKhau.Text)
+                            {
+                                sv.Password = txtMatKhauMoi.Text;
+                                db.SubmitChanges();
+                                MessageBox.Show("Đổi mật khẩu thành công", "Thông Báo");
+                            }
+                            else if (sv.Password.ToString() != txtMatKhau.Text)
+                            {
+                                errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
+                                MessageBox.Show("Sai mật khẩu", "Thông Báo");
+                            }
+                            break;
+                        case 3:
+                            GiaoVien gv = new GiaoVien();
+                            gv = db.GiaoViens.Where(x => x.MaGV.ToString() == ma).SingleOrDefault();
+                            if (gv.Password.ToString() == txtMatKhau.Text)
+                            {
+                                gv.Password = txtMatKhauMoi.Text;
+                                db.SubmitChanges();
+                                MessageBox.Show("Đổi mật khẩu thành công", "Thông Báo");
+                            }
+                            else if (gv.Password.ToString() != txtMatKhau.Text)
+                            {
+                                errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
+                                MessageBox.Show("Sai mật khẩu", "Thông Báo");
+                            }
+                            break;
+                    }
+                    errMatKhauMoi.Clear();
+                    errMatKhau.Clear();
+                }
             }
             else
             {
                 MessageBox.Show("Thông tin bạn nhập còn thiếu hoặc chưa đúng", "Thông Báo");
                 if (txtMatKhau.Text.Length == 0)
                     txtMatKhau.Focus();
-                else if (txtMatKhauMoi.Text.Length == 0)
+                else if (txtMatKhauMoi.Text.Length == 0 || txtMatKhauMoi.Text.Length < 5)
                     txtMatKhauMoi.Focus();
-                else if (txtNhapLaiMatKhauMoi.Text.Length == 0)
+                else if (txtNhapLaiMatKhauMoi.Text.Length == 0 || txtNhapLaiMatKhauMoi.Text.Length < 5)
                     txtNhapLaiMatKhauMoi.Focus();
             }
 
