@@ -67,7 +67,7 @@ namespace QuanLyDiemSV
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errLop = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHuy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSLopDaDK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMonHoc)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -261,6 +261,8 @@ namespace QuanLyDiemSV
             this.cboLop.Name = "cboLop";
             this.cboLop.Size = new System.Drawing.Size(342, 24);
             this.cboLop.TabIndex = 22;
+            this.cboLop.SelectedValueChanged += new System.EventHandler(this.cboLop_SelectedValueChanged);
+            this.cboLop.Click += new System.EventHandler(this.cboLop_Click);
             // 
             // label2
             // 
@@ -413,17 +415,17 @@ namespace QuanLyDiemSV
             // 
             this.errLop.ContainerControl = this;
             // 
-            // button1
+            // btnHuy
             // 
-            this.button1.Image = global::QuanLyDiemSV.Properties.Resources.close_red;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(924, 119);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 34);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "Hủy";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnHuy.Image = global::QuanLyDiemSV.Properties.Resources.close_red;
+            this.btnHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHuy.Location = new System.Drawing.Point(924, 119);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(119, 34);
+            this.btnHuy.TabIndex = 38;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // frmDKHP
             // 
@@ -431,7 +433,7 @@ namespace QuanLyDiemSV
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1089, 633);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblID2);
             this.Controls.Add(this.btnHuyDK);
@@ -497,6 +499,6 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHuy;
     }
 }

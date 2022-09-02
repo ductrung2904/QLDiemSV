@@ -189,10 +189,6 @@ namespace QuanLyDiemSV
                 errPassword.SetError(txtPassword, "Vui lòng nhập mật khẩu");
             else
                 errPassword.Clear();
-            if (txtPassword.Text.Length < 5)
-                errPassword.SetError(txtPassword, "Mật khẩu mới phải từ 5 ký tự trở lên !");
-            else
-                errPassword.Clear();
             if (txtEmail.Text == "")
                 errEmail.SetError(txtEmail, "Vui lòng nhập email");
             else
@@ -230,30 +226,38 @@ namespace QuanLyDiemSV
             }
             if (txtMaGV.Text.ToString().Length > 0 && txtHoTenGV.Text.Length > 0 && cboGioiTinh.Text.Length > 0 && txtUsername.Text.Length > 0 && txtPassword.Text.Length > 0 && txtEmail.Text.Length > 0 && txtSDT.Text.Length > 0 && isNumberMaSV == true && isNumberDienThoai == true && checkDigitNumberMaSV == true && checkDigitNumberDienThoai == true && checkEmailIsValid == true)
             {
-                if (flag == 0)
+                if (txtPassword.Text.Length < 5)
                 {
-                    themSV();
+                    errPassword.SetError(txtPassword, "Mật khẩu mới phải từ 5 ký tự trở lên !");
+                    MessageBox.Show("Mật khẩu mới phải từ 5 ký tự trở lên !", "Thông Báo");
                 }
-                else if (flag == 1)
+                else
                 {
-                    suaSV();
-                }
-                loadData();
-                btnLuu.Enabled = false;
-                btnHuy.Enabled = false;
-                btnThem.Enabled = true;
-                btnXoa.Enabled = true;
-                btnSua.Enabled = true;
-                setControls(false);
-                dgvGiaoVien.Enabled = true;
+                    if (flag == 0)
+                    {
+                        themSV();
+                    }
+                    else if (flag == 1)
+                    {
+                        suaSV();
+                    }
+                    loadData();
+                    btnLuu.Enabled = false;
+                    btnHuy.Enabled = false;
+                    btnThem.Enabled = true;
+                    btnXoa.Enabled = true;
+                    btnSua.Enabled = true;
+                    setControls(false);
+                    dgvGiaoVien.Enabled = true;
 
-                errMaGV.Clear();
-                errHoTenGV.Clear();
-                errGioiTinh.Clear();
-                errrUsername.Clear();
-                errPassword.Clear();
-                errEmail.Clear();
-                errSDT.Clear();
+                    errMaGV.Clear();
+                    errHoTenGV.Clear();
+                    errGioiTinh.Clear();
+                    errrUsername.Clear();
+                    errPassword.Clear();
+                    errEmail.Clear();
+                    errSDT.Clear();
+                }
             }
             else
             {

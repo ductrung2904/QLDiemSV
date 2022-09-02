@@ -59,17 +59,33 @@ namespace QuanLyDiemSV
 
         private void cboMonHoc_SelectedValueChanged(object sender, EventArgs e)
         {
+            cboLop.Enabled = true;
             var query = (from l in db.Lops
                          join mh in db.MonHocs on l.MaMH equals mh.MaMH into lmh from mh in lmh.DefaultIfEmpty()
                          join d in db.Diems on l.MaLop equals d.MaLop into ld from d in ld.DefaultIfEmpty()
                          group new { l, mh, d } by new { l.MaLop, l.MaHocPhan, mh.MaMH, mh.TenMH, l.NoiHoc, l.NgayBatDau, l.NgayKetThuc, mh.SoTiet, mh.SoTinChi, l.SoLuong } into gr
                          select new { MaLop = gr.Key.MaLop, MaHocPhan = gr.Key.MaHocPhan, MaMH = gr.Key.MaMH, TenMH = gr.Key.TenMH, NoiHoc = gr.Key.NoiHoc, NgayBatDau = gr.Key.NgayBatDau, NgayKetThuc = gr.Key.NgayKetThuc, SoTiet = gr.Key.SoTiet, SoTinChi = gr.Key.SoTinChi, SoLuong = gr.Key.SoLuong, SoLuongDaDK = gr.Where(x => x.d.MaLop != null).Select(x => x.d.MaLop).Count() });
             dgvDSMoLop.DataSource = from listmh in query where listmh.MaMH == this.cboMonHoc.GetItemText(this.cboMonHoc.SelectedValue) select new { listmh.MaLop, listmh.MaHocPhan, listmh.TenMH, listmh.NoiHoc, listmh.NgayBatDau, listmh.NgayKetThuc, listmh.SoTiet, listmh.SoTinChi, listmh.SoLuong, listmh.SoLuongDaDK };
+        }
 
-            var query2 = db.Lops.Where(x => x.MaMH == this.cboMonHoc.GetItemText(this.cboMonHoc.SelectedValue)).ToList();
-            cboLop.DataSource = query2;
+        private void cboLop_Click(object sender, EventArgs e)
+        {
+            var query = db.Lops.Where(x => x.MaMH == this.cboMonHoc.GetItemText(this.cboMonHoc.SelectedValue)).ToList();
+            cboLop.DataSource = query;
             cboLop.ValueMember = "MaLop";
             cboLop.DisplayMember = "MaLop";
+        }
+
+        private void cboLop_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var query = (from l in db.Lops
+                         join mh in db.MonHocs on l.MaMH equals mh.MaMH into lmh
+                         from mh in lmh.DefaultIfEmpty()
+                         join d in db.Diems on l.MaLop equals d.MaLop into ld
+                         from d in ld.DefaultIfEmpty()
+                         group new { l, mh, d } by new { l.MaLop, l.MaHocPhan, mh.MaMH, mh.TenMH, l.NoiHoc, l.NgayBatDau, l.NgayKetThuc, mh.SoTiet, mh.SoTinChi, l.SoLuong } into gr
+                         select new { MaLop = gr.Key.MaLop, MaHocPhan = gr.Key.MaHocPhan, MaMH = gr.Key.MaMH, TenMH = gr.Key.TenMH, NoiHoc = gr.Key.NoiHoc, NgayBatDau = gr.Key.NgayBatDau, NgayKetThuc = gr.Key.NgayKetThuc, SoTiet = gr.Key.SoTiet, SoTinChi = gr.Key.SoTinChi, SoLuong = gr.Key.SoLuong, SoLuongDaDK = gr.Where(x => x.d.MaLop != null).Select(x => x.d.MaLop).Count() });
+            dgvDSMoLop.DataSource = from listmh in query where listmh.MaLop == this.cboLop.GetItemText(this.cboLop.SelectedValue) select new { listmh.MaLop, listmh.MaHocPhan, listmh.TenMH, listmh.NoiHoc, listmh.NgayBatDau, listmh.NgayKetThuc, listmh.SoTiet, listmh.SoTinChi, listmh.SoLuong, listmh.SoLuongDaDK };
         }
 
         private void dgvDSLopDaDK_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -81,12 +97,11 @@ namespace QuanLyDiemSV
         private void btnChon_Click(object sender, EventArgs e)
         {
             cboMonHoc.Enabled = true;
-            cboLop.Enabled = true;
             cboMonHoc.Focus();
             btnDangKy.Enabled = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnHuy_Click(object sender, EventArgs e)
         {
             cboMonHoc.Enabled = false;
             cboLop.Enabled = false;
@@ -193,9 +208,14 @@ namespace QuanLyDiemSV
                                  join sv in db.SinhViens on d.MaSV equals sv.MaSV
                                  where mh.MaMH == l.MaMH && mh.MaNganh == n.MaNganh && d.MaLop == l.MaLop && d.MaMH == mh.MaMH && d.MaSV == sv.MaSV && sv.MaSV == Convert.ToInt32(lblID2.Text) && d.MaLop == malop
                                  select d.MaLop;
+
                 if (checkMaLop.Count() > 0)
                 {
                     MessageBox.Show("Bạn đã đăng ký lớp học phần này", "Thông Báo");
+                }
+                else if (Convert.ToInt32(dgvDSMoLop.CurrentRow.Cells[8].Value) <= Convert.ToInt32(dgvDSMoLop.CurrentRow.Cells[9].Value))
+                {
+                    MessageBox.Show("Lớp học phần này đã đủ số lượng sinh viên", "Thông Báo");
                 }
                 else
                 {

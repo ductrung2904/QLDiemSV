@@ -163,6 +163,7 @@ namespace QuanLyDiemSV
                     MessageBox.Show("Tài khoản hoặc mật khẩu không tồn tại!");
                     txtPassword.Text = "";
                     txtUsername.Text = "";
+                    txtUsername.Focus();
                 }
             }
         }

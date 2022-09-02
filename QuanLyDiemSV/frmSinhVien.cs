@@ -220,10 +220,6 @@ namespace QuanLyDiemSV
                 errPassword.SetError(txtPassword, "Vui lòng nhập mật khẩu");
             else
                 errPassword.Clear();
-            if (txtPassword.Text.Length < 5)
-                errPassword.SetError(txtPassword, "Mật khẩu mới phải từ 5 ký tự trở lên !");
-            else
-                errPassword.Clear();
             if (cboNganhHoc.Text == "")
                 errNganhHoc.SetError(cboNganhHoc, "Vui lòng nhập ngành học");
             else
@@ -253,32 +249,40 @@ namespace QuanLyDiemSV
             dtpNgaySinh.MaxDate = DateTime.Today;
             if (txtMaSV.Text.ToString().Length > 0 && txtHoTen.Text.Length > 0 && dtpNgaySinh.Text.Length > 0 && cboGioiTinh.Text.Length > 0 && txtDiaChi.Text.Length > 0 && txtDienThoai.Text.Length > 0 && txtUsername.Text.Length > 0 && txtPassword.Text.Length > 0 && cboNganhHoc.Text.Length > 0 && isNumberMaSV == true && isNumberDienThoai == true && checkDigitNumberMaSV && checkDigitNumberDienThoai == true)
             {
-                if (flag == 0)
+                if (txtPassword.Text.Length < 5)
                 {
-                    themSV();
+                    errPassword.SetError(txtPassword, "Mật khẩu mới phải từ 5 ký tự trở lên !");
+                    MessageBox.Show("Mật khẩu mới phải từ 5 ký tự trở lên !", "Thông Báo");
                 }
-                else if (flag == 1)
+                else
                 {
-                    suaSV();
-                }
-                loadData();
-                btnLuu.Enabled = false;
-                btnHuy.Enabled = false;
-                btnThem.Enabled = true;
-                btnXoa.Enabled = true;
-                btnSua.Enabled = true;
-                setControls(false);
-                dgvSinhVien.Enabled = true;
+                    if (flag == 0)
+                    {
+                        themSV();
+                    }
+                    else if (flag == 1)
+                    {
+                        suaSV();
+                    }
+                    loadData();
+                    btnLuu.Enabled = false;
+                    btnHuy.Enabled = false;
+                    btnThem.Enabled = true;
+                    btnXoa.Enabled = true;
+                    btnSua.Enabled = true;
+                    setControls(false);
+                    dgvSinhVien.Enabled = true;
 
-                errMaSV.Clear();
-                errTenSV.Clear();
-                errNgaySinh.Clear();
-                errGioiTinh.Clear();
-                errDiaChi.Clear();
-                errDienThoai.Clear();
-                errUsername.Clear();
-                errPassword.Clear();
-                errNganhHoc.Clear();
+                    errMaSV.Clear();
+                    errTenSV.Clear();
+                    errNgaySinh.Clear();
+                    errGioiTinh.Clear();
+                    errDiaChi.Clear();
+                    errDienThoai.Clear();
+                    errUsername.Clear();
+                    errPassword.Clear();
+                    errNganhHoc.Clear();
+                }
             }
             else
             {
@@ -297,7 +301,7 @@ namespace QuanLyDiemSV
                     txtDienThoai.Focus();
                 else if (txtUsername.Text.Length == 0)
                     txtUsername.Focus();
-                else if (txtPassword.Text.Length == 0 && txtPassword.Text.Length < 5)
+                else if (txtPassword.Text.Length == 0)
                     txtPassword.Focus();
                 else if (cboNganhHoc.Text.Length == 0)
                     cboNganhHoc.Focus();
