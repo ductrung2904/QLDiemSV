@@ -176,9 +176,18 @@ namespace QuanLyDiemSV
 
             if (txtMaMH.Text.ToString().Length > 0 && txtTenMH.Text.Length > 0 && Int32.Parse(numSoTiet.Text) != 0 && Int32.Parse(numTinChi.Text) != 0)
             {
+                string mamh = txtMaMH.Text;
+                var checkId = from mh in db.MonHocs where mh.MaMH == mamh select mh.MaMH;
                 if (flag == 0)
                 {
-                    themMH();
+                    if (checkId.Count() > 0)
+                    {
+                        MessageBox.Show("Mã môn học này đã tồn tại", "Thông Báo");
+                    }
+                    else
+                    {
+                        themMH();
+                    }
                 }
                 else if (flag == 1)
                 {

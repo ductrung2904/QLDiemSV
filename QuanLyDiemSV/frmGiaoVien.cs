@@ -103,7 +103,8 @@ namespace QuanLyDiemSV
         {
             setControls(true);
             dgvGiaoVien.Enabled = false;
-            txtMaGV.Focus();
+            txtMaGV.Enabled = false;
+            txtHoTenGV.Focus();
             btnThem.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
@@ -112,7 +113,7 @@ namespace QuanLyDiemSV
             flag = 1;
         }
 
-        private void themSV()
+        private void themGV()
         {
             GiaoVien gv = new GiaoVien();
             gv.MaGV = Int32.Parse(txtMaGV.Text);
@@ -130,7 +131,7 @@ namespace QuanLyDiemSV
             MessageBox.Show("Thêm thành công", "Thông Báo");
         }
 
-        private void suaSV()
+        private void suaGV()
         {
             GiaoVien gv = new GiaoVien();
             gv = db.GiaoViens.Where(x => x.MaGV.ToString() == txtMaGV.Text).SingleOrDefault();
@@ -226,6 +227,10 @@ namespace QuanLyDiemSV
             }
             if (txtMaGV.Text.ToString().Length > 0 && txtHoTenGV.Text.Length > 0 && cboGioiTinh.Text.Length > 0 && txtUsername.Text.Length > 0 && txtPassword.Text.Length > 0 && txtEmail.Text.Length > 0 && txtSDT.Text.Length > 0 && isNumberMaSV == true && isNumberDienThoai == true && checkDigitNumberMaSV == true && checkDigitNumberDienThoai == true && checkEmailIsValid == true)
             {
+                int magv = int.Parse(txtMaGV.Text);
+                var checkId = from gv in db.GiaoViens where gv.MaGV == magv select gv.MaGV;
+                string username = txtUsername.Text;
+                var checkUsername = from gv in db.GiaoViens where gv.Username == username select gv.Username;
                 if (txtPassword.Text.Length < 5)
                 {
                     errPassword.SetError(txtPassword, "Mật khẩu mới phải từ 5 ký tự trở lên !");
@@ -235,11 +240,29 @@ namespace QuanLyDiemSV
                 {
                     if (flag == 0)
                     {
-                        themSV();
+                        if (checkId.Count() > 0)
+                        {
+                            MessageBox.Show("Mã giáo viên này đã tồn tại", "Thông Báo");
+                        }
+                        else if (checkUsername.Count() > 0)
+                        {
+                            MessageBox.Show("Tên tài khoản này đã tồn tại", "Thông Báo");
+                        }
+                        else
+                        {
+                            if (checkUsername.Count() > 0)
+                            {
+                                MessageBox.Show("Tên tài khoản này đã tồn tại", "Thông Báo");
+                            }
+                            else
+                            {
+                                themGV();
+                            }
+                        }
                     }
                     else if (flag == 1)
                     {
-                        suaSV();
+                        suaGV();
                     }
                     loadData();
                     btnLuu.Enabled = false;

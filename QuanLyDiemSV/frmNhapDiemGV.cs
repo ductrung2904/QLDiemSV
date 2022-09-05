@@ -114,98 +114,186 @@ namespace QuanLyDiemSV
             btnNhapDiem.Enabled = false;
             btnLuu.Enabled = true;
             btnHuy.Enabled = true;
+            txtDiemLT.Focus();
         }
 
-        private void suaDiem()
+        private void nhapDiem()
         {
             Diem d = new Diem();
             d = db.Diems.Where(x => x.MaDiem.ToString() == txtMaDiem.Text).SingleOrDefault();
-            if (txtDiemLT.Text.Length > 0 && txtDiemTH.Text.Length == 0)
+            if (txtDanhGia.Text == "")
             {
-                d.DiemLT = float.Parse(txtDiemLT.Text);
-                d.DiemTH = null;
-                d.DiemTB = d.DiemLT;
-                d.DiemHe4 = (d.DiemTB * 4) / 10;
-                if (d.DiemTB != null)
+                if (txtDiemLT.Text.Length > 0 && txtDiemTH.Text.Length == 0)
                 {
-                    //  Xếp loại điểm trung bình
-                    if (d.DiemTB >= 8.5 && d.DiemTB <= 10)
+                    d.DiemLT = float.Parse(txtDiemLT.Text);
+                    d.DiemTH = null;
+                    d.DiemTB = d.DiemLT;
+                    d.DiemHe4 = (d.DiemTB * 4) / 10;
+                    if (d.DiemTB != null)
                     {
-                        d.DiemChu = "A";
-                    }
-                    else if (d.DiemTB >= 7 && d.DiemTB < 8.5)
-                    {
-                        d.DiemChu = "B";
-                    }
-                    else if (d.DiemTB >= 5.5 && d.DiemTB < 7)
-                    {
-                        d.DiemChu = "C";
-                    }
-                    else if (d.DiemTB >= 4 && d.DiemTB < 5.5)
-                    {
-                        d.DiemChu = "D";
-                    }
-                    else if (d.DiemTB < 4)
-                    {
-                        d.DiemChu = "F";
-                    }
-                    //  Đánh giá theo điểm trung bình
-                    if (d.DiemTB >= 4)
-                    {
-                        d.DanhGia = "Đạt";
-                    }
-                    else if (d.DiemTB < 4)
-                    {
-                        d.DanhGia = "Không đạt";
+                        //  Xếp loại điểm trung bình
+                        if (d.DiemTB >= 8.5 && d.DiemTB <= 10)
+                        {
+                            d.DiemChu = "A";
+                        }
+                        else if (d.DiemTB >= 7 && d.DiemTB < 8.5)
+                        {
+                            d.DiemChu = "B";
+                        }
+                        else if (d.DiemTB >= 5.5 && d.DiemTB < 7)
+                        {
+                            d.DiemChu = "C";
+                        }
+                        else if (d.DiemTB >= 4 && d.DiemTB < 5.5)
+                        {
+                            d.DiemChu = "D";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DiemChu = "F";
+                        }
+                        //  Đánh giá theo điểm trung bình
+                        if (d.DiemTB >= 4)
+                        {
+                            d.DanhGia = "Đạt";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DanhGia = "Thi lại";
+                        }
                     }
                 }
-            }
-            else if (txtDiemLT.Text.Length > 0 && txtDiemTH.Text.Length > 0)
-            {
-                d.DiemLT = float.Parse(txtDiemLT.Text);
-                d.DiemTH = float.Parse(txtDiemTH.Text);
-                d.DiemTB = (d.DiemLT + d.DiemTH) / 2;
-                d.DiemHe4 = (d.DiemTB * 4) / 10;
-                if (d.DiemTB != null)
+                else if (txtDiemLT.Text.Length > 0 && txtDiemTH.Text.Length > 0)
                 {
-                    //  Xếp loại điểm trung bình
-                    if (d.DiemTB >= 8.5 && d.DiemTB <= 10)
+                    d.DiemLT = float.Parse(txtDiemLT.Text);
+                    d.DiemTH = float.Parse(txtDiemTH.Text);
+                    d.DiemTB = (d.DiemLT + d.DiemTH) / 2;
+                    d.DiemHe4 = (d.DiemTB * 4) / 10;
+                    if (d.DiemTB != null)
                     {
-                        d.DiemChu = "A";
-                    }
-                    else if (d.DiemTB >= 7 && d.DiemTB < 8.5)
-                    {
-                        d.DiemChu = "B";
-                    }
-                    else if (d.DiemTB >= 5.5 && d.DiemTB < 7)
-                    {
-                        d.DiemChu = "C";
-                    }
-                    else if (d.DiemTB >= 4 && d.DiemTB < 5.5)
-                    {
-                        d.DiemChu = "D";
-                    }
-                    else if (d.DiemTB < 4)
-                    {
-                        d.DiemChu = "F";
-                    }
-                    //  Đánh giá theo điểm trung bình
-                    if (d.DiemTB >= 4)
-                    {
-                        d.DanhGia = "Đạt";
-                    }
-                    else if (d.DiemTB < 4)
-                    {
-                        d.DanhGia = "Không đạt";
+                        //  Xếp loại điểm trung bình
+                        if (d.DiemTB >= 8.5 && d.DiemTB <= 10)
+                        {
+                            d.DiemChu = "A";
+                        }
+                        else if (d.DiemTB >= 7 && d.DiemTB < 8.5)
+                        {
+                            d.DiemChu = "B";
+                        }
+                        else if (d.DiemTB >= 5.5 && d.DiemTB < 7)
+                        {
+                            d.DiemChu = "C";
+                        }
+                        else if (d.DiemTB >= 4 && d.DiemTB < 5.5)
+                        {
+                            d.DiemChu = "D";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DiemChu = "F";
+                        }
+                        //  Đánh giá theo điểm trung bình
+                        if (d.DiemTB >= 4)
+                        {
+                            d.DanhGia = "Đạt";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DanhGia = "Thi lại";
+                        }
                     }
                 }
+                d.TrangThai = Convert.ToBoolean(1);
             }
-            d.TrangThai = Convert.ToBoolean(1);
+            else if (txtDanhGia.Text == "Thi lại")
+            {
+                if (txtDiemLT.Text.Length > 0 && txtDiemTH.Text.Length == 0)
+                {
+                    d.DiemLT = float.Parse(txtDiemLT.Text);
+                    d.DiemTH = null;
+                    d.DiemTB = d.DiemLT;
+                    d.DiemHe4 = (d.DiemTB * 4) / 10;
+                    if (d.DiemTB != null)
+                    {
+                        //  Xếp loại điểm trung bình
+                        if (d.DiemTB >= 8.5 && d.DiemTB <= 10)
+                        {
+                            d.DiemChu = "A";
+                        }
+                        else if (d.DiemTB >= 7 && d.DiemTB < 8.5)
+                        {
+                            d.DiemChu = "B";
+                        }
+                        else if (d.DiemTB >= 5.5 && d.DiemTB < 7)
+                        {
+                            d.DiemChu = "C";
+                        }
+                        else if (d.DiemTB >= 4 && d.DiemTB < 5.5)
+                        {
+                            d.DiemChu = "D";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DiemChu = "F";
+                        }
+                        //  Đánh giá theo điểm trung bình
+                        if (d.DiemTB >= 4)
+                        {
+                            d.DanhGia = "Đạt";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DanhGia = "Không đạt";
+                        }
+                    }
+                }
+                else if (txtDiemLT.Text.Length > 0 && txtDiemTH.Text.Length > 0)
+                {
+                    d.DiemLT = float.Parse(txtDiemLT.Text);
+                    d.DiemTH = float.Parse(txtDiemTH.Text);
+                    d.DiemTB = (d.DiemLT + d.DiemTH) / 2;
+                    d.DiemHe4 = (d.DiemTB * 4) / 10;
+                    if (d.DiemTB != null)
+                    {
+                        //  Xếp loại điểm trung bình
+                        if (d.DiemTB >= 8.5 && d.DiemTB <= 10)
+                        {
+                            d.DiemChu = "A";
+                        }
+                        else if (d.DiemTB >= 7 && d.DiemTB < 8.5)
+                        {
+                            d.DiemChu = "B";
+                        }
+                        else if (d.DiemTB >= 5.5 && d.DiemTB < 7)
+                        {
+                            d.DiemChu = "C";
+                        }
+                        else if (d.DiemTB >= 4 && d.DiemTB < 5.5)
+                        {
+                            d.DiemChu = "D";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DiemChu = "F";
+                        }
+                        //  Đánh giá theo điểm trung bình
+                        if (d.DiemTB >= 4)
+                        {
+                            d.DanhGia = "Đạt";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DanhGia = "Không đạt";
+                        }
+                    }
+                }
+                d.TrangThai = Convert.ToBoolean(1);
+            }
 
             db.SubmitChanges();
 
             loadData();
-            MessageBox.Show("Sửa thành công", "Thông Báo");
+            MessageBox.Show("Nhập điểm thành công", "Thông Báo");
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -220,6 +308,11 @@ namespace QuanLyDiemSV
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            if (txtDiemLT.Text == "")
+                errDiemLT.SetError(txtDiemLT, "Vui lòng nhập điểm");
+            else
+                errDiemLT.Clear();
+
             if (txtDiemLT.Text.Length > 0)
             {
                 if (float.Parse(txtDiemLT.Text) < 0 || float.Parse(txtDiemLT.Text) > 10)
@@ -237,7 +330,16 @@ namespace QuanLyDiemSV
                     setControls(false);
                     dgvDiem.Enabled = true;
                 }
-
+                else if (txtDanhGia.Text == "Không đạt")
+                {
+                    MessageBox.Show("Bạn không thể sửa điểm được nữa");
+                    loadData();
+                    btnLuu.Enabled = false;
+                    btnHuy.Enabled = false;
+                    btnNhapDiem.Enabled = true;
+                    setControls(false);
+                    dgvDiem.Enabled = true;
+                }
                 else if (txtDiemTH.Text.Length > 0)
                 {
                     errDiemLT.Clear();
@@ -258,7 +360,7 @@ namespace QuanLyDiemSV
                     else
                     {
                         errDiemTH.Clear();
-                        suaDiem();
+                        nhapDiem();
 
                         loadData();
                         btnLuu.Enabled = false;
@@ -267,25 +369,13 @@ namespace QuanLyDiemSV
                         setControls(false);
                         dgvDiem.Enabled = true;
                     }
-
-                }
-
-                else if (txtDanhGia.Text == "Không đạt")
-                {
-                    MessageBox.Show("Bạn không thể sửa điểm được nữa");
-                    loadData();
-                    btnLuu.Enabled = false;
-                    btnHuy.Enabled = false;
-                    btnNhapDiem.Enabled = true;
-                    setControls(false);
-                    dgvDiem.Enabled = true;
                 }
 
                 else
                 {
                     errDiemLT.Clear();
                     errDiemTH.Clear();
-                    suaDiem();
+                    nhapDiem();
 
                     loadData();
                     btnLuu.Enabled = false;

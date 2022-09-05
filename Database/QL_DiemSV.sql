@@ -193,13 +193,3 @@ select * from MonHoc;
 select * from GiaoVien;
 select * from Lop;
 select * from SinhVien;
-
-select temp.MaLop,temp.MaHocPhan,temp.TenMH,temp.NoiHoc,temp.NgayBatDau,temp.NgayKetThuc,temp.SoTiet,temp.SoTinChi,temp.SoLuong,temp.SoLuongDaDK as SoLuongDaDK
-from (
-select l.MaLop, l.MaHocPhan, mh.MaMH, mh.TenMH, l.NoiHoc, l.NgayBatDau, l.NgayKetThuc, mh.SoTiet, mh.SoTinChi, l.SoLuong, Count(d.MaLop) as SoLuongDaDK
-from Lop l left join MonHoc mh on l.MaMH = mh.MaMH 
-        left join Diem d on l.MaLop = d.MaLop
-group by l.MaLop,l.MaHocPhan,mh.MaMH, mh.TenMH,l.NoiHoc,l.NgayBatDau,l.NgayKetThuc,mh.SoTiet,mh.SoTinChi,l.SoLuong) temp
-where temp.MaMH = 'CDN'
-
-drop table Diem
