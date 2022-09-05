@@ -116,7 +116,8 @@ namespace QuanLyDiemSV
         {
             setControls(true);
             dgvSinhVien.Enabled = false;
-            txtMaSV.Focus();
+            txtMaSV.Enabled = false;
+            txtHoTen.Focus();
             btnThem.Enabled = false;
             btnXoa.Enabled = false;
             btnSua.Enabled = false;
@@ -249,6 +250,10 @@ namespace QuanLyDiemSV
             dtpNgaySinh.MaxDate = DateTime.Today;
             if (txtMaSV.Text.ToString().Length > 0 && txtHoTen.Text.Length > 0 && dtpNgaySinh.Text.Length > 0 && cboGioiTinh.Text.Length > 0 && txtDiaChi.Text.Length > 0 && txtDienThoai.Text.Length > 0 && txtUsername.Text.Length > 0 && txtPassword.Text.Length > 0 && cboNganhHoc.Text.Length > 0 && isNumberMaSV == true && isNumberDienThoai == true && checkDigitNumberMaSV && checkDigitNumberDienThoai == true)
             {
+                int masv = int.Parse(txtMaSV.Text);
+                var checkId = from sv in db.SinhViens where sv.MaSV == masv select sv.MaSV;
+                string username = txtUsername.Text;
+                var checkUsername = from sv in db.SinhViens where sv.Username == username select sv.Username;
                 if (txtPassword.Text.Length < 5)
                 {
                     errPassword.SetError(txtPassword, "Mật khẩu mới phải từ 5 ký tự trở lên !");
@@ -258,7 +263,25 @@ namespace QuanLyDiemSV
                 {
                     if (flag == 0)
                     {
-                        themSV();
+                        if (checkId.Count() > 0)
+                        {
+                            MessageBox.Show("Mã sinh viên này đã tồn tại", "Thông Báo");
+                        }
+                        else if (checkUsername.Count() > 0)
+                        {
+                            MessageBox.Show("Tên tài khoản này đã tồn tại", "Thông Báo");
+                        }
+                        else
+                        {
+                            if (checkUsername.Count() > 0)
+                            {
+                                MessageBox.Show("Tên tài khoản này đã tồn tại", "Thông Báo");
+                            }
+                            else
+                            {
+                                themSV();
+                            }
+                        }
                     }
                     else if (flag == 1)
                     {

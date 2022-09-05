@@ -87,7 +87,8 @@ namespace QuanLyDiemSV
         {
             setControls(true);
             dataGridView1.Enabled = false;
-            txtMaNganh.Focus();
+            txtMaNganh.Enabled = false;
+            txtTenNganh.Focus();
             btnThem.Enabled = false;
             btnXoa.Enabled = false;
             btnSua.Enabled = false;
@@ -149,9 +150,18 @@ namespace QuanLyDiemSV
 
             if (txtMaNganh.Text.ToString().Length > 0 && txtTenNganh.Text.Length > 0)
             {
+                string manganh = txtMaNganh.Text;
+                var checkId = from ng in db.NganhHocs where ng.MaNganh == manganh select ng.MaNganh;
                 if (flag == 0)
                 {
-                    themNH();
+                    if (checkId.Count() > 0)
+                    {
+                        MessageBox.Show("Mã ngành học này đã tồn tại", "Thông Báo");
+                    }
+                    else
+                    {
+                        themNH();
+                    }
                 }
                 else if (flag == 1)
                 {

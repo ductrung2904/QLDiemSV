@@ -14,14 +14,13 @@ namespace QuanLyDiemSV
     public partial class frmNhapDiem : Form
     {           
         QLDiemSVDataContext db = new QLDiemSVDataContext();
-        int flag;
         public frmNhapDiem()
         {
             InitializeComponent();
         }
         private void setControls(bool edit)
         {
-            cboMaSV.Enabled = edit;
+            cboNganhHoc.Enabled = edit;
             cboTenMH.Enabled = edit;
             cboMaLop.Enabled = edit;
             txtDiemLT.Enabled = edit;
@@ -48,6 +47,7 @@ namespace QuanLyDiemSV
             dgvDiem.AutoGenerateColumns = false;
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
+            btnLuuCapNhat.Visible = false;
             txtMaDiem.Enabled = false;
             txtMaSV.Enabled = false;
             txtTenSV.Enabled = false;
@@ -60,23 +60,32 @@ namespace QuanLyDiemSV
             txtDiemChu.Enabled = false;
             txtDanhGia.Enabled = false;
         }
-        private void cboMaSV_Click(object sender, EventArgs e)
+
+        private void cboNganhHoc_Click(object sender, EventArgs e)
         {
-            cboMaSV.DataSource = db.SinhViens.ToList();
-            cboMaSV.ValueMember = "MaSV";
-            cboMaSV.DisplayMember = "MaSV";
+            cboTenMH.Enabled = true;
+            errTenMH.Clear();
+
+            cboNganhHoc.DataSource = db.NganhHocs.ToList();
+            cboNganhHoc.ValueMember = "MaNganh";
+            cboNganhHoc.DisplayMember = "TenNganh";
         }
 
-        private void cboMaSV_SelectedValueChanged(object sender, EventArgs e)
+        private void cboNganhHoc_SelectedValueChanged(object sender, EventArgs e)
         {
-            var query = db.MonHocs
-                .Join(db.SinhViens, mh => mh.MaNganh, sv => sv.MaNganh, (mh, sv) => new { mh, sv })
-                .Join(db.NganhHocs, mhsv => mhsv.sv.MaNganh, ng => ng.MaNganh, (mhsv, ng) => new { mhsv, ng })
-                .Where(mhsvng => mhsvng.mhsv.sv.MaSV == Convert.ToInt32(this.cboMaSV.GetItemText(this.cboMaSV.SelectedValue)))
-                .Select(x => new { x.mhsv.mh.MaMH, x.mhsv.mh.TenMH, x.mhsv.sv.MaSV }).ToList();
+            var query = db.MonHocs.
+                Where(x => x.MaNganh == this.cboNganhHoc.GetItemText(this.cboNganhHoc.SelectedValue)).ToList();
             cboTenMH.DataSource = query;
             cboTenMH.ValueMember = "MaMH";
             cboTenMH.DisplayMember = "TenMH";
+
+            cboTenMH.Text = "";
+            cboMaLop.Text = "";
+        }
+
+        private void cboTenMH_Click(object sender, EventArgs e)
+        {
+            cboMaLop.Enabled = true;
         }
 
         private void cboTenMH_SelectedValueChanged(object sender, EventArgs e)
@@ -86,6 +95,7 @@ namespace QuanLyDiemSV
             cboMaLop.ValueMember = "MaLop";
             cboMaLop.DisplayMember = "MaLop";
 
+            cboMaLop.Text = "";
         }
 
         private void txtDiemLT_KeyPress(object sender, KeyPressEventArgs e)
@@ -122,16 +132,13 @@ namespace QuanLyDiemSV
         {
             txtMaDiem.Text = dgvDiem.CurrentRow.Cells[0].Value.ToString();
 
-            cboMaSV.Text = dgvDiem.CurrentRow.Cells[1].Value.ToString();
             txtMaSV.Text = dgvDiem.CurrentRow.Cells[1].Value.ToString();
 
             txtTenSV.Text = dgvDiem.CurrentRow.Cells[2].Value.ToString();
 
             txtMaMH.Text = dgvDiem.CurrentRow.Cells[3].Value.ToString();
-            cboTenMH.Text = dgvDiem.CurrentRow.Cells[4].Value.ToString();
             txtTenMH.Text = dgvDiem.CurrentRow.Cells[4].Value.ToString();
 
-            cboMaLop.Text = dgvDiem.CurrentRow.Cells[5].Value.ToString();
             txtMaLop.Text = dgvDiem.CurrentRow.Cells[5].Value.ToString();
 
             txtMaHP.Text = dgvDiem.CurrentRow.Cells[6].Value.ToString();
@@ -153,9 +160,8 @@ namespace QuanLyDiemSV
         {
             setControls(false);
             txtTimKiem.Text = "";
-            btnThem.Enabled = true;
             btnXoa.Enabled = true;
-            btnSua.Enabled = true;
+            btnNhapDiem.Enabled = true;
             loadData();
             dgvDiem.AutoGenerateColumns = false;
         }
@@ -166,57 +172,9 @@ namespace QuanLyDiemSV
             txtTimKiem.Focus();
         }
 
-        public string tangMaTuDong()
+        private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            var query = from d in db.Diems join sv in db.SinhViens on d.MaSV equals sv.MaSV where d.MaSV == sv.MaSV join mh in db.MonHocs on d.MaMH equals mh.MaMH where d.MaMH == mh.MaMH join l in db.Lops on d.MaLop equals l.MaLop where d.MaLop == l.MaLop select new { MaDiem = d.MaDiem, MaSV = sv.MaSV, TenSV = sv.TenSV, MaMH = mh.MaMH, TenMH = mh.TenMH, MaLop = d.MaLop, MaHocPhan = l.MaHocPhan, DiemLT = d.DiemLT, DiemTH = d.DiemTH, DiemTB = d.DiemTB, DiemHe4 = d.DiemHe4, DiemChu = d.DiemChu, DanhGia = d.DanhGia };
-            dgvDiem.DataSource = query;
-            dgvDiem.AutoGenerateColumns = false;
-            string maTuDong = "";
-            if (dgvDiem.Rows.Count <= 0)
-            {
-                maTuDong = "MD00000001";
-            }
-            else if (dgvDiem.Rows.Count > 0)
-            {
-                int k;
-                maTuDong = "MD";
-                k = dgvDiem.Rows.Count;
-                k = k + 1;
-                if (k < 10)
-                {
-                    maTuDong = maTuDong + "0000000";
-                }
-                else if (k < 100)
-                {
-                    maTuDong = maTuDong + "000000";
-                }
-                else if (k < 1000)
-                {
-                    maTuDong = maTuDong + "00000";
-                }
-                else if (k < 10000)
-                {
-                    maTuDong = maTuDong + "0000";
-                }
-                else if (k < 100000)
-                {
-                    maTuDong = maTuDong + "000";
-                }
-                else if (k < 1000000)
-                {
-                    maTuDong = maTuDong + "00";
-                }
-                else if (k < 10000000)
-                {
-                    maTuDong = maTuDong + "0";
-                }
-                maTuDong = maTuDong + k.ToString();
-            }
-            return maTuDong;
-        }
-
-        private void btnThem_Click(object sender, EventArgs e)
-        {
+            setControls(true);
             txtMaSV.Text = "";
             txtTenSV.Text = "";
             txtMaMH.Text = "";
@@ -224,8 +182,11 @@ namespace QuanLyDiemSV
             txtMaLop.Text = "";
             txtMaHP.Text = "";
 
-            txtMaDiem.Text = tangMaTuDong();
-            cboMaSV.Text = "";
+            txtDiemLT.Enabled = false;
+            txtDiemTH.Enabled = false;
+
+            txtMaDiem.Text = "";
+            cboNganhHoc.Text = "";
             cboTenMH.Text = "";
             cboMaLop.Text = "";
             txtDiemLT.Text = "";
@@ -235,38 +196,98 @@ namespace QuanLyDiemSV
             txtDiemChu.Text = "";
             txtDanhGia.Text = "";
 
-            setControls(true);
             dgvDiem.Enabled = false;
-            cboMaSV.Focus();
-            btnThem.Enabled = false;
+            cboNganhHoc.Focus();
+            btnCapNhat.Enabled = false;
             btnXoa.Enabled = false;
-            btnSua.Enabled = false;
-            btnLuu.Enabled = true;
+            btnNhapDiem.Enabled = false;
             btnHuy.Enabled = true;
-            flag = 0;
+            btnLuuCapNhat.Enabled = true;
+            btnLuuCapNhat.Visible = true;
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void btnNhapDiem_Click(object sender, EventArgs e)
         {
-            setControls(true);
             dgvDiem.Enabled = false;
-            cboMaSV.Focus();
-            btnThem.Enabled = false;
+            txtDiemLT.Enabled = true;
+            txtDiemTH.Enabled = true;
+            txtDiemLT.Focus();
+            btnCapNhat.Enabled = false;
             btnXoa.Enabled = false;
-            btnSua.Enabled = false;
+            btnNhapDiem.Enabled = false;
             btnLuu.Enabled = true;
             btnHuy.Enabled = true;
-            flag = 1;
         }
 
-        private void themDiem()
+        private void btnLuuCapNhat_Click(object sender, EventArgs e)
+        {
+            if (cboNganhHoc.GetItemText(cboNganhHoc.SelectedItem) == "")
+            {
+                errNganh.SetError(cboNganhHoc, "Bạn chưa chọn Ngành học!");
+            }
+            else if (cboTenMH.Text == "")
+            {
+                var query = from d in db.Diems
+                            join sv in db.SinhViens on d.MaSV equals sv.MaSV
+                            where d.MaSV == sv.MaSV
+                            join mh in db.MonHocs on d.MaMH equals mh.MaMH
+                            where d.MaMH == mh.MaMH
+                            join l in db.Lops on d.MaLop equals l.MaLop
+                            where d.MaLop == l.MaLop
+                            join ng in db.NganhHocs on sv.MaNganh equals ng.MaNganh
+                            where sv.MaNganh == ng.MaNganh
+                            where d.MaSV == sv.MaSV && d.MaMH == mh.MaMH && d.MaLop == l.MaLop && sv.MaNganh == ng.MaNganh && ng.MaNganh == cboNganhHoc.GetItemText(cboNganhHoc.SelectedValue)
+                            select new { MaDiem = d.MaDiem, MaSV = sv.MaSV, TenSV = sv.TenSV, MaMH = mh.MaMH, TenMH = mh.TenMH, MaLop = d.MaLop, MaHocPhan = l.MaHocPhan, DiemLT = d.DiemLT, DiemTH = d.DiemTH, DiemTB = d.DiemTB, DiemHe4 = d.DiemHe4, DiemChu = d.DiemChu, DanhGia = d.DanhGia };
+                dgvDiem.DataSource = query;
+                dgvDiem.Enabled = true;
+            }
+            else if (cboMaLop.Text == "")
+            {
+                var query = from d in db.Diems
+                            join sv in db.SinhViens on d.MaSV equals sv.MaSV
+                            where d.MaSV == sv.MaSV
+                            join mh in db.MonHocs on d.MaMH equals mh.MaMH
+                            where d.MaMH == mh.MaMH
+                            join l in db.Lops on d.MaLop equals l.MaLop
+                            where d.MaLop == l.MaLop
+                            join ng in db.NganhHocs on sv.MaNganh equals ng.MaNganh
+                            where sv.MaNganh == ng.MaNganh
+                            where d.MaSV == sv.MaSV && d.MaMH == mh.MaMH && d.MaLop == l.MaLop && sv.MaNganh == ng.MaNganh && mh.MaMH == cboTenMH.GetItemText(cboTenMH.SelectedValue)
+                            select new { MaDiem = d.MaDiem, MaSV = sv.MaSV, TenSV = sv.TenSV, MaMH = mh.MaMH, TenMH = mh.TenMH, MaLop = d.MaLop, MaHocPhan = l.MaHocPhan, DiemLT = d.DiemLT, DiemTH = d.DiemTH, DiemTB = d.DiemTB, DiemHe4 = d.DiemHe4, DiemChu = d.DiemChu, DanhGia = d.DanhGia };
+                dgvDiem.DataSource = query;
+                dgvDiem.Enabled = true;
+            }
+            else
+            {
+                var query = from d in db.Diems
+                            join sv in db.SinhViens on d.MaSV equals sv.MaSV
+                            where d.MaSV == sv.MaSV
+                            join mh in db.MonHocs on d.MaMH equals mh.MaMH
+                            where d.MaMH == mh.MaMH
+                            join l in db.Lops on d.MaLop equals l.MaLop
+                            where d.MaLop == l.MaLop
+                            join ng in db.NganhHocs on sv.MaNganh equals ng.MaNganh
+                            where sv.MaNganh == ng.MaNganh
+                            where d.MaSV == sv.MaSV && d.MaMH == mh.MaMH && d.MaLop == l.MaLop && sv.MaNganh == ng.MaNganh && ng.MaNganh == cboNganhHoc.GetItemText(cboNganhHoc.SelectedValue) && mh.MaMH == cboTenMH.GetItemText(cboTenMH.SelectedValue) && l.MaLop == cboMaLop.GetItemText(cboMaLop.SelectedValue)
+                            select new { MaDiem = d.MaDiem, MaSV = sv.MaSV, TenSV = sv.TenSV, MaMH = mh.MaMH, TenMH = mh.TenMH, MaLop = d.MaLop, MaHocPhan = l.MaHocPhan, DiemLT = d.DiemLT, DiemTH = d.DiemTH, DiemTB = d.DiemTB, DiemHe4 = d.DiemHe4, DiemChu = d.DiemChu, DanhGia = d.DanhGia };
+                dgvDiem.DataSource = query;
+                dgvDiem.Enabled = true;
+            }
+            btnLuuCapNhat.Visible = false;
+            btnCapNhat.Enabled = true;
+            btnNhapDiem.Enabled = true;
+            btnXoa.Enabled = true;
+            btnHuy.Enabled = false;
+            cboNganhHoc.Enabled = false;
+            cboTenMH.Enabled = false;
+            cboMaLop.Enabled = false;
+        }
+
+        private void nhapDiem()
         {
             Diem d = new Diem();
-            d.MaDiem = txtMaDiem.Text;
-            d.MaSV = Int32.Parse(cboMaSV.Text);
-            d.MaMH = cboTenMH.SelectedValue.ToString();
-            d.MaLop = cboMaLop.Text;
-            if (d.DiemLT == null && d.DiemTH == null)
+            d = db.Diems.Where(x => x.MaDiem.ToString() == txtMaDiem.Text).SingleOrDefault();
+            if (txtDanhGia.Text == "")
             {
                 if (txtDiemLT.Text.Length > 0 && txtDiemTH.Text.Length == 0)
                 {
@@ -350,106 +371,95 @@ namespace QuanLyDiemSV
                 }
                 d.TrangThai = Convert.ToBoolean(1);
             }
-            db.Diems.InsertOnSubmit(d);
+            else if (txtDanhGia.Text == "Thi lại")
+            {
+                if (txtDiemLT.Text.Length > 0 && txtDiemTH.Text.Length == 0)
+                {
+                    d.DiemLT = float.Parse(txtDiemLT.Text);
+                    d.DiemTH = null;
+                    d.DiemTB = d.DiemLT;
+                    d.DiemHe4 = (d.DiemTB * 4) / 10;
+                    if (d.DiemTB != null)
+                    {
+                        //  Xếp loại điểm trung bình
+                        if (d.DiemTB >= 8.5 && d.DiemTB <= 10)
+                        {
+                            d.DiemChu = "A";
+                        }
+                        else if (d.DiemTB >= 7 && d.DiemTB < 8.5)
+                        {
+                            d.DiemChu = "B";
+                        }
+                        else if (d.DiemTB >= 5.5 && d.DiemTB < 7)
+                        {
+                            d.DiemChu = "C";
+                        }
+                        else if (d.DiemTB >= 4 && d.DiemTB < 5.5)
+                        {
+                            d.DiemChu = "D";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DiemChu = "F";
+                        }
+                        //  Đánh giá theo điểm trung bình
+                        if (d.DiemTB >= 4)
+                        {
+                            d.DanhGia = "Đạt";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DanhGia = "Không đạt";
+                        }
+                    }
+                }
+                else if (txtDiemLT.Text.Length > 0 && txtDiemTH.Text.Length > 0)
+                {
+                    d.DiemLT = float.Parse(txtDiemLT.Text);
+                    d.DiemTH = float.Parse(txtDiemTH.Text);
+                    d.DiemTB = (d.DiemLT + d.DiemTH) / 2;
+                    d.DiemHe4 = (d.DiemTB * 4) / 10;
+                    if (d.DiemTB != null)
+                    {
+                        //  Xếp loại điểm trung bình
+                        if (d.DiemTB >= 8.5 && d.DiemTB <= 10)
+                        {
+                            d.DiemChu = "A";
+                        }
+                        else if (d.DiemTB >= 7 && d.DiemTB < 8.5)
+                        {
+                            d.DiemChu = "B";
+                        }
+                        else if (d.DiemTB >= 5.5 && d.DiemTB < 7)
+                        {
+                            d.DiemChu = "C";
+                        }
+                        else if (d.DiemTB >= 4 && d.DiemTB < 5.5)
+                        {
+                            d.DiemChu = "D";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DiemChu = "F";
+                        }
+                        //  Đánh giá theo điểm trung bình
+                        if (d.DiemTB >= 4)
+                        {
+                            d.DanhGia = "Đạt";
+                        }
+                        else if (d.DiemTB < 4)
+                        {
+                            d.DanhGia = "Không đạt";
+                        }
+                    }
+                }
+                d.TrangThai = Convert.ToBoolean(1);
+            }
+            
             db.SubmitChanges();
 
             loadData();
-            MessageBox.Show("Thêm thành công", "Thông Báo");
-        }
-
-        private void suaDiem()
-        {
-            Diem d = new Diem();
-            d = db.Diems.Where(x => x.MaDiem.ToString() == txtMaDiem.Text).SingleOrDefault();
-            d.MaSV = Int32.Parse(cboMaSV.Text);
-            //d.MaMH = cboTenMH.SelectedValue.ToString();
-            d.MaLop = cboMaLop.Text;
-            if (txtDiemLT.Text.Length > 0 && txtDiemTH.Text.Length == 0)
-            {
-                d.DiemLT = float.Parse(txtDiemLT.Text);
-                d.DiemTH = null;
-                d.DiemTB = d.DiemLT;
-                d.DiemHe4 = (d.DiemTB * 4) / 10;
-                if (d.DiemTB != null)
-                {
-                    //  Xếp loại điểm trung bình
-                    if (d.DiemTB >= 8.5 && d.DiemTB <= 10)
-                    {
-                        d.DiemChu = "A";
-                    }
-                    else if (d.DiemTB >= 7 && d.DiemTB < 8.5)
-                    {
-                        d.DiemChu = "B";
-                    }
-                    else if (d.DiemTB >= 5.5 && d.DiemTB < 7)
-                    {
-                        d.DiemChu = "C";
-                    }
-                    else if (d.DiemTB >= 4 && d.DiemTB < 5.5)
-                    {
-                        d.DiemChu = "D";
-                    }
-                    else if (d.DiemTB < 4)
-                    {
-                        d.DiemChu = "F";
-                    }
-                    //  Đánh giá theo điểm trung bình
-                    if (d.DiemTB >= 4)
-                    {
-                        d.DanhGia = "Đạt";
-                    }
-                    else if (d.DiemTB < 4)
-                    {
-                        d.DanhGia = "Không đạt";
-                    }
-                }
-            }
-            else if (txtDiemLT.Text.Length > 0 && txtDiemTH.Text.Length > 0)
-            {
-                d.DiemLT = float.Parse(txtDiemLT.Text);
-                d.DiemTH = float.Parse(txtDiemTH.Text);
-                d.DiemTB = (d.DiemLT + d.DiemTH) / 2;
-                d.DiemHe4 = (d.DiemTB * 4) / 10;
-                if (d.DiemTB != null)
-                {
-                    //  Xếp loại điểm trung bình
-                    if (d.DiemTB >= 8.5 && d.DiemTB <= 10)
-                    {
-                        d.DiemChu = "A";
-                    }
-                    else if (d.DiemTB >= 7 && d.DiemTB < 8.5)
-                    {
-                        d.DiemChu = "B";
-                    }
-                    else if (d.DiemTB >= 5.5 && d.DiemTB < 7)
-                    {
-                        d.DiemChu = "C";
-                    }
-                    else if (d.DiemTB >= 4 && d.DiemTB < 5.5)
-                    {
-                        d.DiemChu = "D";
-                    }
-                    else if (d.DiemTB < 4)
-                    {
-                        d.DiemChu = "F";
-                    }
-                    //  Đánh giá theo điểm trung bình
-                    if (d.DiemTB >= 4)
-                    {
-                        d.DanhGia = "Đạt";
-                    }
-                    else if (d.DiemTB < 4)
-                    {
-                        d.DanhGia = "Không đạt";
-                    }
-                }
-            }
-            d.TrangThai = Convert.ToBoolean(1);
-
-            db.SubmitChanges();
-
-            loadData();
-            MessageBox.Show("Sửa thành công", "Thông Báo");
+            MessageBox.Show("Nhập điểm thành công", "Thông Báo");
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -459,31 +469,25 @@ namespace QuanLyDiemSV
             dgvDiem.Enabled = true;
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
-            btnThem.Enabled = true;
+            btnLuuCapNhat.Enabled = false;
+            btnLuuCapNhat.Visible = false;
+            btnCapNhat.Enabled = true;
             btnXoa.Enabled = true;
-            btnSua.Enabled = true;
+            btnNhapDiem.Enabled = true;
 
-            errMaSV.Clear();
+            errNganh.Clear();
             errTenMH.Clear();
             errMaLop.Clear();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (cboMaSV.Text == "")
-                errMaSV.SetError(cboMaSV, "Vui lòng nhập mã sinh siên");
+            if (txtDiemLT.Text == "")
+                errDiemLT.SetError(txtDiemLT, "Vui lòng nhập điểm");
             else
-                errMaSV.Clear();
-            if (cboTenMH.Text == "")
-                errTenMH.SetError(cboTenMH, "Vui lòng nhập tên môn học");
-            else
-                errTenMH.Clear();
-            if (cboMaLop.Text == "")
-                errMaLop.SetError(cboMaLop, "Vui lòng nhập mã lớp");
-            else
-                errMaLop.Clear();
+                errDiemLT.Clear();
 
-            if (cboMaSV.Text.Length > 0 && cboTenMH.Text.Length > 0 && cboMaLop.Text.Length > 0 && txtDiemLT.Text.Length > 0)
+            if (txtDiemLT.Text.Length > 0)
             {
                 if (float.Parse(txtDiemLT.Text) < 0 || float.Parse(txtDiemLT.Text) > 10)
                 {
@@ -496,12 +500,25 @@ namespace QuanLyDiemSV
                     loadData();
                     btnLuu.Enabled = false;
                     btnHuy.Enabled = false;
-                    btnThem.Enabled = true;
+                    btnCapNhat.Enabled = true;
                     btnXoa.Enabled = true;
-                    btnSua.Enabled = true;
+                    btnNhapDiem.Enabled = true;
                     setControls(false);
                     dgvDiem.Enabled = true;
-                }    
+                }
+
+                else if (txtDanhGia.Text == "Không đạt")
+                {
+                    MessageBox.Show("Bạn không thể sửa điểm được nữa");
+                    loadData();
+                    btnLuu.Enabled = false;
+                    btnCapNhat.Enabled = true;
+                    btnHuy.Enabled = false;
+                    btnXoa.Enabled = true;
+                    btnNhapDiem.Enabled = true;
+                    setControls(false);
+                    dgvDiem.Enabled = true;
+                }
 
                 else if (txtDiemTH.Text.Length > 0)
                 {
@@ -516,83 +533,49 @@ namespace QuanLyDiemSV
                         loadData();
                         btnLuu.Enabled = false;
                         btnHuy.Enabled = false;
-                        btnThem.Enabled = true;
+                        btnCapNhat.Enabled = true;
                         btnXoa.Enabled = true;
-                        btnSua.Enabled = true;
+                        btnNhapDiem.Enabled = true;
                         setControls(false);
                         dgvDiem.Enabled = true;
                     }
                     else
                     {
                         errDiemTH.Clear();
-                        if (flag == 0)
-                        {
-                            themDiem();
-                        }
-                        else if (flag == 1)
-                        {
-                            suaDiem();
-                        }
+                        nhapDiem();
+
                         loadData();
                         btnLuu.Enabled = false;
                         btnHuy.Enabled = false;
-                        btnThem.Enabled = true;
+                        btnCapNhat.Enabled = true;
                         btnXoa.Enabled = true;
-                        btnSua.Enabled = true;
+                        btnNhapDiem.Enabled = true;
                         setControls(false);
                         dgvDiem.Enabled = true;
                     }
-
-                }
-
-                else if (txtDanhGia.Text == "Không đạt")
-                {
-                    MessageBox.Show("Bạn không thể sửa điểm được nữa");
-                    loadData();
-                    btnLuu.Enabled = false;
-                    btnHuy.Enabled = false;
-                    btnThem.Enabled = true;
-                    btnXoa.Enabled = true;
-                    btnSua.Enabled = true;
-                    setControls(false);
-                    dgvDiem.Enabled = true;
                 }
 
                 else
                 {
                     errDiemLT.Clear();
                     errDiemTH.Clear();
-                    if (flag == 0)
-                    {
-                        themDiem();
-                    }
-                    else if (flag == 1)
-                    {
-                        suaDiem();
-                    }
+                    nhapDiem();
+
                     loadData();
                     btnLuu.Enabled = false;
                     btnHuy.Enabled = false;
-                    btnThem.Enabled = true;
+                    btnCapNhat.Enabled = true;
                     btnXoa.Enabled = true;
-                    btnSua.Enabled = true;
+                    btnNhapDiem.Enabled = true;
                     setControls(false);
                     dgvDiem.Enabled = true;
-
-                    errMaSV.Clear();
-                    errTenMH.Clear();
-                    errMaLop.Clear();
                 }
             }
             else
             {
                 MessageBox.Show("Thông tin bạn nhập còn thiếu hoặc chưa đúng", "Thông Báo");
-                if (cboMaSV.Text.Length == 0)
-                    cboMaSV.Focus();
-                else if (cboTenMH.Text.Length == 0)
-                    cboTenMH.Focus();
-                else if (cboMaLop.Text.Length == 0)
-                    cboMaLop.Focus();
+                if (txtDiemLT.Text.Length == 0)
+                    txtDiemLT.Focus();
             }
         }
 
