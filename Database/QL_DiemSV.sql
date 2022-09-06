@@ -11,8 +11,8 @@ go
 create table QuanTriVien
 (
 	MaQTV int identity(1, 1) primary key not null,
-	Username varchar(50) unique,
-	Password varchar(50), 
+	TenDangNhap varchar(50) unique,
+	MatKhau varchar(50), 
 );
 
 create table NganhHoc
@@ -36,10 +36,10 @@ create table GiaoVien
 	MaGV int primary key not null,
 	TenGV nvarchar(50),
 	GioiTinh nvarchar(3),
-	Username varchar(50) unique,
-	Password varchar(50),
+	TenDangNhap varchar(50) unique,
+	MatKhau varchar(50),
 	Email nvarchar(50),
-	Phone nchar(10),
+	DienThoai nchar(10),
 );
 
 create table Lop
@@ -64,8 +64,8 @@ create table SinhVien
 	GioiTinh nvarchar(3),
 	DiaChi nvarchar(100),
 	DienThoai nchar(10),
-	Username varchar(50) unique,
-	Password varchar(50),
+	TenDangNhap varchar(50) unique,
+	MatKhau varchar(50),
 	MaNganh nchar(10),
 	GhiChu nvarchar(100)
 	foreign key(MaNganh) references NganhHoc(MaNganh)
@@ -187,9 +187,10 @@ insert into Diem values('MD00000013', 1800000008, 'XDHTM', 'ML00000012', 7, 6, 6
 insert into Diem values('MD00000014', 1800000024, 'TKHTM', 'ML00000002', 8, 7, 7.5, 3, 'B', N'Đạt', 1);
 insert into Diem values('MD00000015', 1800000023, 'TKHTM', 'ML00000003', 6, 7, 6.5, 2.6, 'C', N'Đạt', 1);
 
-
+select * from QuanTriVien;
 select * from NganhHoc;
 select * from MonHoc;
 select * from GiaoVien;
 select * from Lop;
 select * from SinhVien;
+select * from Diem;

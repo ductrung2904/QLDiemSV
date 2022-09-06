@@ -58,14 +58,14 @@ namespace QuanLyDiemSV
                         case 1:
                             QuanTriVien qt = new QuanTriVien();
                             qt = db.QuanTriViens.Where(x => x.MaQTV.ToString() == ma).SingleOrDefault();
-                            if (qt.Password.ToString() != txtMatKhau.Text)
+                            if (qt.MatKhau.ToString() != txtMatKhau.Text)
                             {
                                 errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
                                 MessageBox.Show("Sai mật khẩu", "Thông Báo");
                             }
-                            else if (qt.Password.ToString() == txtMatKhau.Text)
+                            else if (qt.MatKhau.ToString() == txtMatKhau.Text)
                             {
-                                qt.Password = txtMatKhauMoi.Text;
+                                qt.MatKhau = txtMatKhauMoi.Text;
                                 db.SubmitChanges();
                                 MessageBox.Show("Đổi mật khẩu thành công", "Thông Báo");
                             }
@@ -73,13 +73,13 @@ namespace QuanLyDiemSV
                         case 2:
                             SinhVien sv = new SinhVien();
                             sv = db.SinhViens.Where(x => x.MaSV.ToString() == ma).SingleOrDefault();
-                            if (sv.Password.ToString() == txtMatKhau.Text)
+                            if (sv.MatKhau.ToString() == txtMatKhau.Text)
                             {
-                                sv.Password = txtMatKhauMoi.Text;
+                                sv.MatKhau = txtMatKhauMoi.Text;
                                 db.SubmitChanges();
                                 MessageBox.Show("Đổi mật khẩu thành công", "Thông Báo");
                             }
-                            else if (sv.Password.ToString() != txtMatKhau.Text)
+                            else if (sv.MatKhau.ToString() != txtMatKhau.Text)
                             {
                                 errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
                                 MessageBox.Show("Sai mật khẩu", "Thông Báo");
@@ -88,13 +88,13 @@ namespace QuanLyDiemSV
                         case 3:
                             GiaoVien gv = new GiaoVien();
                             gv = db.GiaoViens.Where(x => x.MaGV.ToString() == ma).SingleOrDefault();
-                            if (gv.Password.ToString() == txtMatKhau.Text)
+                            if (gv.MatKhau.ToString() == txtMatKhau.Text)
                             {
-                                gv.Password = txtMatKhauMoi.Text;
+                                gv.MatKhau = txtMatKhauMoi.Text;
                                 db.SubmitChanges();
                                 MessageBox.Show("Đổi mật khẩu thành công", "Thông Báo");
                             }
-                            else if (gv.Password.ToString() != txtMatKhau.Text)
+                            else if (gv.MatKhau.ToString() != txtMatKhau.Text)
                             {
                                 errMatKhau.SetError(txtMatKhau, "Mật khẩu không đúng với tên tài khoản !");
                                 MessageBox.Show("Sai mật khẩu", "Thông Báo");

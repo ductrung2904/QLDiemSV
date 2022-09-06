@@ -119,10 +119,10 @@ namespace QuanLyDiemSV
             gv.MaGV = Int32.Parse(txtMaGV.Text);
             gv.TenGV = txtHoTenGV.Text;
             gv.GioiTinh = cboGioiTinh.Text;
-            gv.Username = txtUsername.Text;
-            gv.Password = txtPassword.Text;
+            gv.TenDangNhap = txtUsername.Text;
+            gv.MatKhau = txtPassword.Text;
             gv.Email = txtEmail.Text;
-            gv.Phone = txtSDT.Text;
+            gv.DienThoai = txtSDT.Text;
             db.GiaoViens.InsertOnSubmit(gv);
             db.SubmitChanges();
 
@@ -137,10 +137,10 @@ namespace QuanLyDiemSV
             gv = db.GiaoViens.Where(x => x.MaGV.ToString() == txtMaGV.Text).SingleOrDefault();
             gv.TenGV = txtHoTenGV.Text;
             gv.GioiTinh = cboGioiTinh.Text;
-            gv.Username = txtUsername.Text;
-            gv.Password = txtPassword.Text;
+            gv.TenDangNhap = txtUsername.Text;
+            gv.MatKhau = txtPassword.Text;
             gv.Email = txtEmail.Text;
-            gv.Phone = txtSDT.Text;
+            gv.DienThoai = txtSDT.Text;
             db.SubmitChanges();
 
             var sua = db.GiaoViens.Where(x => x.MaGV == gv.MaGV).ToList();
@@ -230,7 +230,7 @@ namespace QuanLyDiemSV
                 int magv = int.Parse(txtMaGV.Text);
                 var checkId = from gv in db.GiaoViens where gv.MaGV == magv select gv.MaGV;
                 string username = txtUsername.Text;
-                var checkUsername = from gv in db.GiaoViens where gv.Username == username select gv.Username;
+                var checkUsername = from gv in db.GiaoViens where gv.TenDangNhap == username select gv.TenDangNhap;
                 if (txtPassword.Text.Length < 5)
                 {
                     errPassword.SetError(txtPassword, "Mật khẩu mới phải từ 5 ký tự trở lên !");

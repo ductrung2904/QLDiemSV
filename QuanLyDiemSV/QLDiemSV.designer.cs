@@ -577,13 +577,13 @@ namespace QuanLyDiemSV
 		
 		private string _GioiTinh;
 		
-		private string _Username;
+		private string _TenDangNhap;
 		
-		private string _Password;
+		private string _MatKhau;
 		
 		private string _Email;
 		
-		private string _Phone;
+		private string _DienThoai;
 		
 		private EntitySet<Lop> _Lops;
 		
@@ -597,14 +597,14 @@ namespace QuanLyDiemSV
     partial void OnTenGVChanged();
     partial void OnGioiTinhChanging(string value);
     partial void OnGioiTinhChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
+    partial void OnTenDangNhapChanging(string value);
+    partial void OnTenDangNhapChanged();
+    partial void OnMatKhauChanging(string value);
+    partial void OnMatKhauChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnPhoneChanging(string value);
-    partial void OnPhoneChanged();
+    partial void OnDienThoaiChanging(string value);
+    partial void OnDienThoaiChanged();
     #endregion
 		
 		public GiaoVien()
@@ -673,42 +673,42 @@ namespace QuanLyDiemSV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
-		public string Username
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDangNhap", DbType="VarChar(50)")]
+		public string TenDangNhap
 		{
 			get
 			{
-				return this._Username;
+				return this._TenDangNhap;
 			}
 			set
 			{
-				if ((this._Username != value))
+				if ((this._TenDangNhap != value))
 				{
-					this.OnUsernameChanging(value);
+					this.OnTenDangNhapChanging(value);
 					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
+					this._TenDangNhap = value;
+					this.SendPropertyChanged("TenDangNhap");
+					this.OnTenDangNhapChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50)")]
-		public string Password
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="VarChar(50)")]
+		public string MatKhau
 		{
 			get
 			{
-				return this._Password;
+				return this._MatKhau;
 			}
 			set
 			{
-				if ((this._Password != value))
+				if ((this._MatKhau != value))
 				{
-					this.OnPasswordChanging(value);
+					this.OnMatKhauChanging(value);
 					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
+					this._MatKhau = value;
+					this.SendPropertyChanged("MatKhau");
+					this.OnMatKhauChanged();
 				}
 			}
 		}
@@ -733,22 +733,22 @@ namespace QuanLyDiemSV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NChar(10)")]
-		public string Phone
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NChar(10)")]
+		public string DienThoai
 		{
 			get
 			{
-				return this._Phone;
+				return this._DienThoai;
 			}
 			set
 			{
-				if ((this._Phone != value))
+				if ((this._DienThoai != value))
 				{
-					this.OnPhoneChanging(value);
+					this.OnDienThoaiChanging(value);
 					this.SendPropertyChanging();
-					this._Phone = value;
-					this.SendPropertyChanged("Phone");
-					this.OnPhoneChanged();
+					this._DienThoai = value;
+					this.SendPropertyChanged("DienThoai");
+					this.OnDienThoaiChanged();
 				}
 			}
 		}
@@ -1544,9 +1544,9 @@ namespace QuanLyDiemSV
 		
 		private int _MaQTV;
 		
-		private string _Username;
+		private string _TenDangNhap;
 		
-		private string _Password;
+		private string _MatKhau;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1554,10 +1554,10 @@ namespace QuanLyDiemSV
     partial void OnCreated();
     partial void OnMaQTVChanging(int value);
     partial void OnMaQTVChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
+    partial void OnTenDangNhapChanging(string value);
+    partial void OnTenDangNhapChanged();
+    partial void OnMatKhauChanging(string value);
+    partial void OnMatKhauChanged();
     #endregion
 		
 		public QuanTriVien()
@@ -1585,42 +1585,42 @@ namespace QuanLyDiemSV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
-		public string Username
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDangNhap", DbType="VarChar(50)")]
+		public string TenDangNhap
 		{
 			get
 			{
-				return this._Username;
+				return this._TenDangNhap;
 			}
 			set
 			{
-				if ((this._Username != value))
+				if ((this._TenDangNhap != value))
 				{
-					this.OnUsernameChanging(value);
+					this.OnTenDangNhapChanging(value);
 					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
+					this._TenDangNhap = value;
+					this.SendPropertyChanged("TenDangNhap");
+					this.OnTenDangNhapChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50)")]
-		public string Password
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="VarChar(50)")]
+		public string MatKhau
 		{
 			get
 			{
-				return this._Password;
+				return this._MatKhau;
 			}
 			set
 			{
-				if ((this._Password != value))
+				if ((this._MatKhau != value))
 				{
-					this.OnPasswordChanging(value);
+					this.OnMatKhauChanging(value);
 					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
+					this._MatKhau = value;
+					this.SendPropertyChanged("MatKhau");
+					this.OnMatKhauChanged();
 				}
 			}
 		}
@@ -1664,9 +1664,9 @@ namespace QuanLyDiemSV
 		
 		private string _DienThoai;
 		
-		private string _Username;
+		private string _TenDangNhap;
 		
-		private string _Password;
+		private string _MatKhau;
 		
 		private string _MaNganh;
 		
@@ -1692,10 +1692,10 @@ namespace QuanLyDiemSV
     partial void OnDiaChiChanged();
     partial void OnDienThoaiChanging(string value);
     partial void OnDienThoaiChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
+    partial void OnTenDangNhapChanging(string value);
+    partial void OnTenDangNhapChanged();
+    partial void OnMatKhauChanging(string value);
+    partial void OnMatKhauChanged();
     partial void OnMaNganhChanging(string value);
     partial void OnMaNganhChanged();
     partial void OnGhiChuChanging(string value);
@@ -1829,42 +1829,42 @@ namespace QuanLyDiemSV
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50)")]
-		public string Username
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDangNhap", DbType="VarChar(50)")]
+		public string TenDangNhap
 		{
 			get
 			{
-				return this._Username;
+				return this._TenDangNhap;
 			}
 			set
 			{
-				if ((this._Username != value))
+				if ((this._TenDangNhap != value))
 				{
-					this.OnUsernameChanging(value);
+					this.OnTenDangNhapChanging(value);
 					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
+					this._TenDangNhap = value;
+					this.SendPropertyChanged("TenDangNhap");
+					this.OnTenDangNhapChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50)")]
-		public string Password
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="VarChar(50)")]
+		public string MatKhau
 		{
 			get
 			{
-				return this._Password;
+				return this._MatKhau;
 			}
 			set
 			{
-				if ((this._Password != value))
+				if ((this._MatKhau != value))
 				{
-					this.OnPasswordChanging(value);
+					this.OnMatKhauChanging(value);
 					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
+					this._MatKhau = value;
+					this.SendPropertyChanged("MatKhau");
+					this.OnMatKhauChanged();
 				}
 			}
 		}

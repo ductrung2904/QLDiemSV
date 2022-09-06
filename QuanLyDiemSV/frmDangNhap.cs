@@ -47,17 +47,17 @@ namespace QuanLyDiemSV
                 x => new
                 {
                     ID = x.MaQTV,
-                    Username = x.Username,
-                    Password = x.Password,
-                    Hoten = x.Username
+                    Username = x.TenDangNhap,
+                    Password = x.MatKhau,
+                    Hoten = x.TenDangNhap
                 });
 
                 var usersv = db.SinhViens.Select(
                     x => new
                     {
                         ID = x.MaSV,
-                        Username = x.Username,
-                        Password = x.Password,
+                        Username = x.TenDangNhap,
+                        Password = x.MatKhau,
                         Hoten = x.TenSV
                     });
 
@@ -65,8 +65,8 @@ namespace QuanLyDiemSV
                     x => new
                     {
                         ID = x.MaGV,
-                        Username = x.Username,
-                        Password = x.Password,
+                        Username = x.TenDangNhap,
+                        Password = x.MatKhau,
                         Hoten = x.TenGV
                     });
 

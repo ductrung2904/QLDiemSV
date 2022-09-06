@@ -39,7 +39,7 @@ namespace QuanLyDiemSV
 
         void loadData()
         {
-            var query = from sv in db.SinhViens join nh in db.NganhHocs on sv.MaNganh equals nh.MaNganh where sv.MaNganh == nh.MaNganh select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, Username = sv.Username, Password = sv.Password, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu};
+            var query = from sv in db.SinhViens join nh in db.NganhHocs on sv.MaNganh equals nh.MaNganh where sv.MaNganh == nh.MaNganh select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, TenDangNhap = sv.TenDangNhap, MatKhau = sv.MatKhau, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu};
             dgvSinhVien.DataSource = query;
         }
 
@@ -135,8 +135,8 @@ namespace QuanLyDiemSV
             sv.GioiTinh = cboGioiTinh.Text;
             sv.DiaChi = txtDiaChi.Text;
             sv.DienThoai = txtDienThoai.Text;
-            sv.Username = txtUsername.Text;
-            sv.Password = txtPassword.Text;
+            sv.TenDangNhap = txtUsername.Text;
+            sv.MatKhau = txtPassword.Text;
             sv.MaNganh = cboNganhHoc.SelectedValue.ToString();
             sv.GhiChu = txtGhiChu.Text;
             db.SinhViens.InsertOnSubmit(sv);
@@ -156,8 +156,8 @@ namespace QuanLyDiemSV
             sv.GioiTinh = cboGioiTinh.Text;
             sv.DiaChi = txtDiaChi.Text;
             sv.DienThoai = txtDienThoai.Text;
-            sv.Username = txtUsername.Text;
-            sv.Password = txtPassword.Text;
+            sv.TenDangNhap = txtUsername.Text;
+            sv.MatKhau = txtPassword.Text;
             sv.MaNganh = cboNganhHoc.SelectedValue.ToString();
             sv.GhiChu = txtGhiChu.Text;
             db.SubmitChanges();
@@ -253,7 +253,7 @@ namespace QuanLyDiemSV
                 int masv = int.Parse(txtMaSV.Text);
                 var checkId = from sv in db.SinhViens where sv.MaSV == masv select sv.MaSV;
                 string username = txtUsername.Text;
-                var checkUsername = from sv in db.SinhViens where sv.Username == username select sv.Username;
+                var checkUsername = from sv in db.SinhViens where sv.TenDangNhap == username select sv.TenDangNhap;
                 if (txtPassword.Text.Length < 5)
                 {
                     errPassword.SetError(txtPassword, "Mật khẩu mới phải từ 5 ký tự trở lên !");
@@ -360,17 +360,17 @@ namespace QuanLyDiemSV
         {
             if (rdbMaSV.Checked)
             {
-                var timKiemMaSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, Username = sv.Username, Password = sv.Password, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
+                var timKiemMaSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, Username = sv.TenDangNhap, Password = sv.MatKhau, MaNganh = sv.MaNganh, GhiChu = sv.GhiChu };
                 dgvSinhVien.DataSource = timKiemMaSV;
             }
             else if (rdbTenSV.Checked)
             {
-                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.TenSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, Username = sv.Username, Password = sv.Password, GhiChu = sv.GhiChu };
+                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.TenSV.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, Username = sv.TenDangNhap, Password = sv.MatKhau, GhiChu = sv.GhiChu };
                 dgvSinhVien.DataSource = timKiemTenSV;
             }
             else if (rdbNganh.Checked)
             {
-                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaNganh.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, Username = sv.Username, Password = sv.Password, GhiChu = sv.GhiChu };
+                var timKiemTenSV = from sv in db.SinhViens where SqlMethods.Like(sv.MaNganh.ToString(), "%" + txtTimKiem.Text + "%") select new { MaSV = sv.MaSV, TenSV = sv.TenSV, NgaySinh = sv.NgaySinh, GioiTinh = sv.GioiTinh, DiaChi = sv.DiaChi, DienThoai = sv.DienThoai, MaNganh = sv.MaNganh, Username = sv.TenDangNhap, Password = sv.MatKhau, GhiChu = sv.GhiChu };
                 dgvSinhVien.DataSource = timKiemTenSV;
             }
         }
