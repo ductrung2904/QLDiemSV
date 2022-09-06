@@ -73,6 +73,8 @@ namespace QuanLyDiemSV
             this.errDiaChi = new System.Windows.Forms.ErrorProvider(this.components);
             this.errDienThoai = new System.Windows.Forms.ErrorProvider(this.components);
             this.errNganhHoc = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errUsername = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errPassword = new System.Windows.Forms.ErrorProvider(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,8 +85,6 @@ namespace QuanLyDiemSV
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errUsername = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errPassword = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).BeginInit();
@@ -532,6 +532,14 @@ namespace QuanLyDiemSV
             // 
             this.errNganhHoc.ContainerControl = this;
             // 
+            // errUsername
+            // 
+            this.errUsername.ContainerControl = this;
+            // 
+            // errPassword
+            // 
+            this.errPassword.ContainerControl = this;
+            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "MaSV";
@@ -576,14 +584,14 @@ namespace QuanLyDiemSV
             // 
             // Column9
             // 
-            this.Column9.DataPropertyName = "Username";
+            this.Column9.DataPropertyName = "TenDangNhap";
             this.Column9.HeaderText = "Tài khoản";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
             // Column10
             // 
-            this.Column10.DataPropertyName = "Password";
+            this.Column10.DataPropertyName = "MatKhau";
             this.Column10.HeaderText = "Mật khẩu";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
@@ -601,14 +609,6 @@ namespace QuanLyDiemSV
             this.Column8.HeaderText = "Ghi chú";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
-            // 
-            // errUsername
-            // 
-            this.errUsername.ContainerControl = this;
-            // 
-            // errPassword
-            // 
-            this.errPassword.ContainerControl = this;
             // 
             // frmSinhVien
             // 
@@ -696,6 +696,8 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ErrorProvider errUsername;
+        private System.Windows.Forms.ErrorProvider errPassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -706,7 +708,5 @@ namespace QuanLyDiemSV
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.ErrorProvider errUsername;
-        private System.Windows.Forms.ErrorProvider errPassword;
     }
 }

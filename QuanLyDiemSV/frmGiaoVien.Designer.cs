@@ -59,13 +59,6 @@ namespace QuanLyDiemSV
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.dgvGiaoVien = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errMaGV = new System.Windows.Forms.ErrorProvider(this.components);
             this.errHoTenGV = new System.Windows.Forms.ErrorProvider(this.components);
             this.errGioiTinh = new System.Windows.Forms.ErrorProvider(this.components);
@@ -73,6 +66,13 @@ namespace QuanLyDiemSV
             this.errPassword = new System.Windows.Forms.ErrorProvider(this.components);
             this.errEmail = new System.Windows.Forms.ErrorProvider(this.components);
             this.errSDT = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaoVien)).BeginInit();
@@ -413,55 +413,6 @@ namespace QuanLyDiemSV
             this.dgvGiaoVien.TabIndex = 34;
             this.dgvGiaoVien.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGiaoVien_CellEnter);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaGV";
-            this.Column1.HeaderText = "Mã giáo viên";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenGV";
-            this.Column2.HeaderText = "Tên giáo viên";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "GioiTinh";
-            this.Column3.HeaderText = "Giới tính";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Username";
-            this.Column4.HeaderText = "Tên đăng nhập";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Password";
-            this.Column5.HeaderText = "Mật khẩu";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "Email";
-            this.Column6.HeaderText = "Email";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "Phone";
-            this.Column7.HeaderText = "Điện thoại";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
             // errMaGV
             // 
             this.errMaGV.ContainerControl = this;
@@ -489,6 +440,55 @@ namespace QuanLyDiemSV
             // errSDT
             // 
             this.errSDT.ContainerControl = this;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaGV";
+            this.Column1.HeaderText = "Mã giáo viên";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenGV";
+            this.Column2.HeaderText = "Tên giáo viên";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "GioiTinh";
+            this.Column3.HeaderText = "Giới tính";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "TenDangNhap";
+            this.Column4.HeaderText = "Tên đăng nhập";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "MatKhau";
+            this.Column5.HeaderText = "Mật khẩu";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Email";
+            this.Column6.HeaderText = "Email";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "DienThoai";
+            this.Column7.HeaderText = "Điện thoại";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // frmGiaoVien
             // 
