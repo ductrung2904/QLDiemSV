@@ -599,6 +599,7 @@ namespace QuanLyDiemSV
             this.txtDiemTH.Name = "txtDiemTH";
             this.txtDiemTH.Size = new System.Drawing.Size(64, 22);
             this.txtDiemTH.TabIndex = 42;
+            this.txtDiemTH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiemTH_KeyPress);
             // 
             // txtDiemLT
             // 
@@ -606,6 +607,7 @@ namespace QuanLyDiemSV
             this.txtDiemLT.Name = "txtDiemLT";
             this.txtDiemLT.Size = new System.Drawing.Size(64, 22);
             this.txtDiemLT.TabIndex = 41;
+            this.txtDiemLT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiemLT_KeyPress);
             // 
             // txtMaDiem
             // 
