@@ -49,6 +49,36 @@ namespace QuanLyDiemSV
             dgvDiem.DataSource = query;
         }
 
+        private void txtDiemLT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // validate không được nhập chữ
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // validate nhập được giá trị float
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDiemTH_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // validate không được nhập chữ
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // validate nhập được giá trị float
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void frmNhapDiemGV_Load(object sender, EventArgs e)
         {
             loadData();
